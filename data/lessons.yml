@@ -1,0 +1,27 @@
+lessons:
+
+  - title: "Simulating behaviours"
+    date: "Week 7"
+    reading: "01-reading"
+    class: "01-class"
+    assignment: "01-simulating-behaviour"
+
+  - title: "Targeted marketing"
+    date: "Week 8"
+    reading: "02-reading"
+    # class: "02-class"
+    assignment: "02-targeted-marketing"
+
+  - title: "Behavioural and agent-based models"
+    date: "Week 9"
+    reading: "03-reading"
+    # class: "03-abms"
+    assignment: "03-abms"
+
+  - title: "Behavioural analytics (guest lecture)"
+    date: "Week 10"
+    # class: "04-class"
+
+  - title: "Re-visit"
+    date: "Week 11"
+    # class: "05-class"

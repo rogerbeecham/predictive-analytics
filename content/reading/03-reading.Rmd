@@ -1,0 +1,8 @@
+---
+title: "Targeted Marketing"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+Reading list can be [downloaded from here](/slides/).

@@ -1,0 +1,21 @@
+---
+title: "Behavioural analytics (guest lecture)"
+date: "2019-11-01"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-syllabus-no-bib.csl
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+# Slides
+
+[Download the slides from today's lecture](/slides/).
+
+<figure>
+[![First slide](/images/slides/)](/slides/)
+</figure>

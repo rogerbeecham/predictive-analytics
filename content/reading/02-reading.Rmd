@@ -1,0 +1,17 @@
+---
+title: "Targeted Marketing"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# R primers
+
+- <i class="fas fa-book"></i> Hadley Wickham and Garrett Grolemund's[@wickham_R_2017] [_R for Data Science_](https://r4ds.had.co.nz/) provides everything you need to know when starting with data analysis in R.
+- <i class="fas fa-book"></i> Kieran Healy's [@healy_data_2018] recent book [_Data Visualization_](http://socviz.co/.html) is perhaps the best I've seen on Data Visualization in R.
+
+
+# Spatial Microsimulation in R
+
+-  <i class="fas fa-book"></i>  Lovelace, R. and Dumont, M. (2016)[@lovelace_spatial_2016] _Spatial microsimulation with R_. London: Taylor and Francis. Comprehensively discusses Spatial Microsimulation and procedures for generating micsrosimulated datasets in R.
+- <i class="far fa-file-pdf"></i> Whitworth et al. (2017)[@whitworth_estimating_2017] "Estimating uncertainty in spatial microsimulation approaches to small area estimation: A new approach to solving an old problem". Interesting paper exploring uncertainty in spatial microsimulation approaches.
