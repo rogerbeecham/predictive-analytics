@@ -28,9 +28,12 @@ theme_set(theme_minimal())
 First download the data.
 
 ```{r download, eval=FALSE}
-# Made available from ONS Open Geography Portal.
-download.file("data.zip", "data.zip")
-unzip("data.zip")
+# Create data folder.
+dir.create("data")
+# Path to data dowload.
+url_data <- "http://homepages.see.leeds.ac.uk/~georjb/predictive_analytics/" 
+download.file(paste0(url_data,"data.zip"), "./data/data.zip")
+unzip("./data/data.zip", exdir="./data")
 ```
 
 Next execute code chunks that read in the datasets on which the practical depends, using `read_csv()` for reading in comma-separated text files, `st_read()` for reading in geospatial data.
@@ -103,13 +106,14 @@ temp_cons <- oac_cons %>% inner_join(age_sex_cons)
 Next: generate weights (using `rk_weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA: as you would expect this is a sparse matrix, containing many `0` values. 
 
 ```{r calculate-weights, eval=FALSE, cache=TRUE}
-# Calculate weights.
+# Calculate weights. May take several seconds to execute.
 weights_oac_age_sex <- rakeR::rk_weight(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex), vars=cons_vars)
 ```
 
 In order **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data: in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240), '_truncate, replicate, sample' method is used to allocate _cloned_ individuals to OAs. This procedure is abstracted into the `rk_rake()` function.
 
 ```{r generate-simulated-data, eval=FALSE, cache=TRUE}
+# Run rk_take to generate simulated dataset. May take several seconds to execute.
 simulated_oac_age_sex <- rakeR::rk_rake(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex), 
                                 vars=cons_vars, output = "integer",
                                 method = "trs", seed = 42)

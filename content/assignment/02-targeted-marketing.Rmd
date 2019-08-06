@@ -44,7 +44,7 @@ Paste into your RMarkdown file the notes from [this document](), which contains 
 
 This practical session introduces a data analysis to inform a marketing strategy^[Targeted marketing involves identifying a set of customers that are distinctive in some way and characterising them such that marketing activity could be tailored to them. We are not at all interested in the substantive elements of a marketing strategy in this practical (and module); but rather in the elements of data analysis that could be used to inform and focus strategy development.]. In order to do this, we want to characterise the potential customer population as fully as possible given the data available to us.
 
-**Geography** is important -- where customers of a particular category live and also the _types_ of area in which they live. The simulated dataset allocates individuals to [Output Areas (OAs)](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas), so we have a indicator of this. These OAs can also be linked to [geodemographics](http://www.opengeodemographics.com).
+**Geography** is important -- where customers of a particular category live and also the _types_ of area in which they live. The simulated dataset allocates individuals to [Output Areas (OAs)](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas), so we have an indicator of this. These OAs can also be linked to [geodemographics](http://www.opengeodemographics.com).
 
 **Demographics** clearly play a role -- how old and how affluent potential customers are will influence their holiday-making behaviour. In addition to geodemographics, there are known demographic characteristics in the simulated data: `sex`, `age_band`, `household_income`, `number_children`.
 
@@ -79,7 +79,7 @@ simulated_oac_age_sex <- simulated_oac_age_sex %>%
   rename_at(vars(airport_name:airport_country), funs(paste0("orig_",.)))
 ```
 
-## Task 1.2: Generate frequency plots  
+## Task 1.2: Generate frequency plots
 
 An initial means of exploring how the simulated population distributes on these categorical variables is to plot frequencies across those categories. The code snippet below, also in the `.Rmd`, displays frequencies of the simulated population amongst each `age_band`, using [`ggplot2`](https://ggplot2.tidyverse.org). ^[{-}![Plot OAC](/images/assignment/practical2_oac.png)]
 
@@ -98,7 +98,7 @@ You should relate the form of `ggplot2` specifications -- the `ggplot2` _grammar
 
 Given this, now write `ggplot` specifications **of your own** for the other variables in the simulated dataset^[Hint: You will need to change the parameterisation to `aes()`.].
 
-## Task 1.3: Generate frequency plots on variables with many categories  
+## Task 1.3: Generate frequency plots on variables with many categories
 
 ^[{-}![Plot destinations](/images/assignment/practical2_dests.png)]Bar charts are effective at conveying frequencies across categories where the number of levels is reasonably small. You may wish to consider alternatives, such as [Cleveland dot plots](https://en.wikipedia.org/wiki/Dot_plot_(statistics)), for summarising frequencies in data with many levels (destinations in this case).
 
@@ -140,13 +140,13 @@ In the example provided here we focus on a single destination, Palma Mallorca (P
 1. Observing frequencies of known PMI holiday-makers by customer group.
 2. Comparing these observed frequencies against the frequencies that would be expected given the Leeds holiday-making population as a whole.
 
-## Task 2.1: Calculate totals and proportions  
+## Task 2.1: Calculate totals and proportions
 
 You will notice from the Cleveland dotplot that Palma Mallorca is the destination most frequently visited by the synthetic Leeds population. Using some `dplyr` functions -- `filter()`, `summarise()` -- I calculated a total of _25,030_ households holidaying to Palma Mallorca, _c.8%_ of all Leeds households. You may wish to check that a similar figure is recorded^[Don't worry if your calculations do not exactly match mine: there is a stochastic element to the procedure we used for running the spatial microsimulation and your synthetic dataset may have been specified with a different set of constraint variables to mine] for your synthetic dataset by writing some code to calculate the total number of households holidaying to Palma Mallorca.
 
 Finding that Palma Mallorca, and destinations in Spain, are those most frequently visited by the synthetic population is fine. Far more interesting and useful is information on the characteristics of the _c.8%_ of households that have visited Palma Mallorca and particularly whether those characteristics are discriminating -- e.g. the extent to which they are different from the Leeds population as a whole.  The code block below makes use of `dplyr` functions to calculate:
 
-1. The number of Leeds households holidaying in Palma Mallorca by OAC group expressed as a proportion of all holiday-makers to Palma Mallorca
+1. The number of Leeds households holidaying to Palma Mallorca by OAC group expressed as a proportion of all holiday-makers to Palma Mallorca
 2. The number of Leeds households by OAC group expressed as a proportion of all Leeds households
 
 Comparing these numbers allows us to evaluate whether particular OAC groups are _over-_ or _under-_ _represented_ amongst those holidaying to Palma Mallorca.
@@ -170,11 +170,11 @@ simulated_oac_age_sex %>%
   # A tibble: 8 x 4
   supergroup_name             oac_grp_focus oac_grp_control diff_focus_control
   <chr>                               <dbl>           <dbl>              <dbl>
-1 Constrained City Dwellers          0.157           0.105            0.0513  
-2 Cosmopolitans                      0.0344          0.0729          -0.0385  
-3 Ethnicity Central                  0.0127          0.0350          -0.0223  
-4 Hard-Pressed Living                0.201           0.165            0.0355  
-5 Multicultural Metropolitans        0.140           0.163           -0.0233  
+1 Constrained City Dwellers          0.157           0.105            0.0513
+2 Cosmopolitans                      0.0344          0.0729          -0.0385
+3 Ethnicity Central                  0.0127          0.0350          -0.0223
+4 Hard-Pressed Living                0.201           0.165            0.0355
+5 Multicultural Metropolitans        0.140           0.163           -0.0233
 6 Rural Residents                    0.0114          0.0144          -0.00304
 7 Suburbanites                       0.216           0.216           -0.000310
 8 Urbanites                          0.228           0.228            0.000638
@@ -215,7 +215,7 @@ simulated_oac_age_sex %>%
 
 You will want to profile selected destinations not only on the OAC variables, but by the other demographic and attitudinal variables originally available in the `individuals` dataset. This could be achieved by re-using the code blocks in the previous section and editing the `group_by` -- e.g. to summarise over the reported satisfaction levels for a given destination `group_by(satisfaction_overall)`.
 
-This would, however, involve much copying-and-pasting of code and here I've abstracted the process of calculating proportions grouped on a given variable into my own [function](https://r4ds.had.co.nz/functions.html). You may have yet to write R functions in LUBS5308, and there are a few syntax things happening here that look odd (`!!<parameter-name>`)^[This is to do with the fact that `dplyr` functions generally use non-standard evaluation, which creates challenges when accessing `dplyr` programmatically: [this post](https://dplyr.tidyverse.org/articles/programming.html) provides and efficient and accessible discussion.], so do not worry too much about the details here, but a general idea of what the function achieves is useful.
+This would, however, involve much copying-and-pasting of code and here I've abstracted the process of calculating proportions grouped on a given variable into my own [function](https://r4ds.had.co.nz/functions.html). You may have yet to write R functions in [LUBS5308](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&F=P&M=LUBS-5308M), and there are a few syntax things happening here that look odd (`!!<parameter-name>`)^[This is to do with the fact that `dplyr` functions generally use non-standard evaluation, which creates challenges when accessing `dplyr` programmatically: [this post](https://dplyr.tidyverse.org/articles/programming.html) provides and efficient and accessible discussion.], so do not worry too much about the details here, but a general idea of what the function achieves is useful.
 
 The code snippet below defines the function -- on creating this (by running the code), you will notice it listed in the _Global Environment_ window of RStudio:
 
@@ -237,12 +237,12 @@ calculate_props <-
     ungroup() %>%
     mutate(variable_name=!!group_var) %>%
     select(-!!group_var)
-}   
+}
 ```
 
 We then create a new dataset that will hold the summary statistics (control and focus proportions) by variable type.
 
-1. Create a vector containing the names of grouping variables supplied to `calculate_props()`. You can change these variables by editing the fields supplied to `select()`. Also identify the destination(s) to focus on.
+1. Create a vector containing the names of grouping variables supplied to `calculate_props()`. You can change these variables by editing the fields supplied to `select()`. You can also edit the destination(s) to focus on.
 2. Create a new dataset with the control and focus variables (used by `calculate_props()`) defined. Note that the control variable is de-facto set to entire population, but you could select a particular subset for comparison here in the same was as the focus variable is defined.
 3. Using a [`map`](https://r4ds.had.co.nz/iteration.html#the-map-functions) function, iterate over each grouping variable name and use this to parameterise `calculate_props()`.
 
@@ -263,10 +263,10 @@ temp_simulated_data <- simulated_oac_age_sex %>%
     focus_total=sum(focus_var),
     control_total=sum(control_var),
     number_children=as.character(number_children)
- )  
+ )
 
 # Iterate over each grouping variable, using map_df to bind rows of returned
-# data frames.   
+# data frames.
 temp_plot_data <-
  purrr::map_df(groups, ~calculate_props(temp_simulated_data, rlang::sym(.x)))
 rm(temp_simulated_data)
@@ -308,13 +308,15 @@ temp_plot_data %>%
 
 This practical provides re-usable code and examples that you could use to perform your Assignment 1 data analysis.
 
-The precise nature and focus of your data analysis is **up to you** and you should certainly not feel restricted by the techniques made available here. You may wish to explore some machine learning techniques introduced to you as part of your LUBS5308 module: you could for example use [decision trees](https://medium.com/analytics-vidhya/a-guide-to-machine-learning-in-r-for-beginners-decision-trees-c24dfd490abb) to identify sub-groups of customers associated with a selected destination or set of destinations, [CHAID](https://www.r-bloggers.com/chaid-and-r-when-you-need-explanation-may-15-2018/) could be a particularly useful technique here; or [clustering algorithms](https://www.statmethods.net/advstats/cluster.html) to group destination types according to the demographic and attitudinal profile of households holidaying to those locations. You are not required to use these sorts of techniques and only use them if you fully understand them: your assignment will be marked on the quality and clarity of your data analysis and your ability to make and convey sound analytic thinking.
+The precise nature and focus of your data analysis is **up to you** and you should certainly not feel restricted by the techniques made available here. You may wish to explore some machine learning techniques introduced to you as part of your [LUBS5308](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&F=P&M=LUBS-5308M) module: you could for example use [decision trees](https://medium.com/analytics-vidhya/a-guide-to-machine-learning-in-r-for-beginners-decision-trees-c24dfd490abb) to identify sub-groups of customers associated with a selected destination or set of destinations, [CHAID](https://www.r-bloggers.com/chaid-and-r-when-you-need-explanation-may-15-2018/) could be a particularly useful technique here; or [clustering algorithms](https://www.statmethods.net/advstats/cluster.html) to group destination types according to the demographic and attitudinal profile of households holidaying to those locations.
+
+You are **not required** to use these additional machine learning techniques and only use them if you fully understand them. Your assignment will be marked on the quality and clarity of your data analysis and your ability to make and convey sound analytic thinking.
 
 Some general guidelines for your data analysis:
 
-* Decide on a **focus** for your study. You may start with a set of destinations and characterise customers and potential customers to those destination. Or you could start with set(s) of customers and identify candidate destinations for that/those subset(s) (e.g. where do the over 65s go on holiday and does this vary by household income?).
+* Decide on a **focus** for your study. You may start with a set of destinations and characterise customers and potential customers to those destinations. Or you could start with set(s) of customers and identify candidate destinations for that/those subset(s) (e.g. where do over 65s go on holiday and does this vary by household income?).
 *  Think carefully how you could aggregate the data: do a range of destinations represent a certain _type_ of holiday?
-* Think carefully about additional variables, not discussed in detail during this session. For example, the `satisfaction_overall` and `uk_airport` variables. Given that this was originally a survey of holiday-makers from Leeds, what might structure in the `uk_airport` variable (the airport from which customers leave the country) imply about the behavioural characteristics of a particular sub-group?  
+* Also consider additional variables not discussed in detail during this session. For example, the `satisfaction_overall` and `uk_airport` variables. Given that this was originally a survey of holiday-makers from Leeds, what might structure in the `uk_airport` variable (the airport from which customers leave the country) imply about the behavioural characteristics of a particular sub-group?
 
 # End of practical
 
