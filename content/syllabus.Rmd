@@ -12,7 +12,7 @@ library(tibble)
 library(pander)
 ```
 
-[^courseinfo] Combining theory and practical examples, this module introduces Predictive Analytics via two geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation and agent-based modelling. You will apply these techniques to data analyses highly relevant to consumer analytics domain and using modern data analysis environments.
+[^courseinfo] Combining theory and practical examples, this module introduces Predictive Analytics via two geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation and agent-based modelling. You will apply these techniques to data analyses highly relevant to the consumer analytics domain and using modern data analysis environments.
 
 [^courseinfo]: {-}
   `r blogdown::shortcode("courseinfo")`
@@ -32,9 +32,9 @@ You can find full descriptions for all the assignments on the VLE.
 
 There are two assignments: an individual project report and a group-work presenation.
 
-The <span class="newthought">individual project report</span> is related to Practicals 1 and 2. The word limit is 1,000 words plus four images^[Each of these images are the equivalent of 250 words. Therefore this assessment is termed ‘2,000 word equivalent’. The written text within your report must not exceed the 1,000 word limit.]. The deadline for submitting this report is **2pm** on **Thursday 16th January 2019** (week 12 of semester 1). The project report is worth 50% of your overall module mark.
+The <span class="newthought">individual project report</span> is related to Practicals 1 and 2. The word limit is 1,000 words plus four images^[Each of these images are the equivalent of 250 words. Therefore this assessment is termed ‘2,000 word equivalent’. The written text within your report must not exceed the 1,000 word limit.]. The deadline for submitting this report is **2pm** on **Thursday 16th January 2020** (week 12 of semester 1). The project report is worth 50% of your overall module mark.
 
-The <span class="newthought">group presentations</span> will be set during the ABM Workshop (week 9 of semester 1). It requires you to undertake group work and prepare a presentation which will be delivered during the timetabled session on **Wednesday 12th December 2018** (week 11 of semester 1). The group presentation is worth 50% of your overall module mark.
+The <span class="newthought">group presentations</span> will be set during the ABM Workshop (week 9 of semester 1). It requires you to undertake group work and prepare a presentation which will be delivered during the timetabled session on **Wednesday 11th December 2019** (week 11 of semester 1). The group presentation is worth 50% of your overall module mark.
 
 # Technologies and resources
 
@@ -44,11 +44,10 @@ You will use [R](https://cran.r-project.org/) and the [RStudio](https://www.rstu
 
 R and RStudio are installed in the computing labs. However, it is highly recommended that you download R and and RStudio on your personal machines. You should also [**read these introductory pages**](/install/), certainly prior to starting practical 1.
 
-## Netlogo
 
 ## Online help
 
-You will discover through this module, if you have not already!, the enormous benefits of working with data programatically -- programming environments such as R and Python are increasingly a requirement for modern data analysis. However, you may also find that there is initially a steeper learning curve when compared with point-and-click software tools such as SPSS and ArcGIS.  
+You will discover through this module, if you have not already!, the enormous benefits of working with data programatically -- programming environments such as R and Python are increasingly a requirement for modern data analysis. However, you may also find that there is initially a steeper learning curve when compared with point-and-click software tools such as SPSS and ArcGIS.
 
 There are many online resources to help support your learning. Two important resources are:
 

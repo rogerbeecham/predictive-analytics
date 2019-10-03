@@ -8,17 +8,23 @@ output: html_document
 
 ### Configure your R session
 
-Below are the packages on which this practical depends.
+Below are the packages on which this practical depends. The main packages -- `tidyverse` and `sf` -- should be available on machines in the labs. However, if you are working from your own machine, you will need to download these with `install.packages(<package-name>)`.
+
+`rakeR` -- the package for generating the micsrosimulation datasets -- is not already available in the labs and you will need to download it. If you are working from your own machne, download these (by uncommenting the relevant code lines in the block below) with `install.packages(rakeR)`. If you are working from the lab machines, do this through the RStudio IDE: click _Packages_ (in the bottom-right pane), _Install_, enter _rakeR_ into the middle dialogue box (titled _Packages_) and in the thid dialogue box (_Install to Library_) click the drop-down and select `C:\ drive`.
+
 
 ```{r packages, eval=FALSE, chache=TRUE}
-# Bundle of packages for data manipulation.
-library(tidyverse)              
-# For working with geospatial data.
-library(sf)                     
-# For performing microsimulation. Install the dev version from GitHub. Uncomment to run.
-# devtools::install_github("philmikejones/rakeR")  
-# For simplifying shapefiles. Uncomment to run.
-# install.packages("rmapshaper")
+# Bundle of packages for data manipulation. If working from your own machine uncomment to download.
+# install.packages("tidyverse")
+library(tidyverse)
+
+# For working with geospatial data.  If working from your own machine uncomment to download.
+# install.packages("sf")
+library(sf)
+
+# For performing microsimulation. If working from your own machine uncomment to download.
+# install.packages("rakeR")
+
 # Set default ggplot2 theme.
 theme_set(theme_minimal())
 ```
@@ -28,12 +34,10 @@ theme_set(theme_minimal())
 First download the data.
 
 ```{r download, eval=FALSE}
-# Create data folder.
-dir.create("data")
 # Path to data dowload.
-url_data <- "http://homepages.see.leeds.ac.uk/~georjb/predictive_analytics/" 
-download.file(paste0(url_data,"data.zip"), "./data/data.zip")
-unzip("./data/data.zip", exdir="./data")
+url_data <- "http://homepages.see.leeds.ac.uk/~georjb/predictive_analytics/"
+download.file(paste0(url_data,"data.zip"), "./data.zip")
+unzip("./data.zip")
 ```
 
 Next execute code chunks that read in the datasets on which the practical depends, using `read_csv()` for reading in comma-separated text files, `st_read()` for reading in geospatial data.
@@ -48,19 +52,9 @@ sex_cons <- read_csv("./data/sex_cons.csv")
 # Read in individual-level survey data
 individuals <- read_csv("./data/individuals.csv")
 
-# Read in shapefiles defining OAs in Leeds 
-# From CDRC https://data.cdrc.ac.uk/dataset/cdrc-2011-oac-geodata-pack-leeds-e08000035)
-oa_boundaries <- st_read("./data/leeds_OAs/leeds_OAs.shp")
-# Set CRS to OSGB.
-oa_boundaries <- st_transform(oa_boundaries, crs=27700)
-oa_boundaries  <- rmapshaper::ms_simplify(oa_boundaries, keep=0.1)
-# For context, read in ward boundaries.
-# From ONS open geography http://geoportal.statistics.gov.uk/datasets/07194e4507ae491488471c84b23a90f2_3
-ward_boundaries <- st_read("https://opendata.arcgis.com/datasets/07194e4507ae491488471c84b23a90f2_3.geojson")
-# Set CRS to OSGB.
-ward_boundaries <- st_transform(ward_boundaries, crs=27700)
-# Filter Leeds wards.
-ward_boundaries <- ward_boundaries %>% filter(lengths(st_contains(., oa_boundaries))>0)
+# Read in geojson files defining OAs and wards in Leeds
+oa_boundaries <- st_read("./data/oa_boundaries.geojson", crs=27700)
+ward_boundaries <- st_read("./data/ward_boundaries.geojson", crs=27700)
 ```
 
 ## Task 2: Generate synthetic population data
@@ -86,8 +80,8 @@ We can check whether the refactored `individuals` exactly match with the constra
 ```{r check-match, eval=FALSE}
 # Check levels and variable names exactly match.
 all.equal(
-  levels(individuals$age_sex), 
-  colnames(age_sex_cons %>% select(-oa_code)) 
+  levels(individuals$age_sex),
+  colnames(age_sex_cons %>% select(-oa_code))
 )
 ```
 
@@ -103,18 +97,18 @@ temp_cons <- oac_cons %>% inner_join(age_sex_cons)
 # Joining, by = "oa_code"
 ```
 
-Next: generate weights (using `rk_weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA: as you would expect this is a sparse matrix, containing many `0` values. 
+Next: generate weights (using `rk_weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA: as you would expect this is a sparse matrix, containing many `0` values.
 
 ```{r calculate-weights, eval=FALSE, cache=TRUE}
 # Calculate weights. May take several seconds to execute.
-weights_oac_age_sex <- rakeR::rk_weight(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex), vars=cons_vars)
+weights_oac_age_sex <- rakeR::weight(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex), vars=cons_vars)
 ```
 
 In order **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data: in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240), '_truncate, replicate, sample' method is used to allocate _cloned_ individuals to OAs. This procedure is abstracted into the `rk_rake()` function.
 
 ```{r generate-simulated-data, eval=FALSE, cache=TRUE}
 # Run rk_take to generate simulated dataset. May take several seconds to execute.
-simulated_oac_age_sex <- rakeR::rk_rake(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex), 
+simulated_oac_age_sex <- rakeR::rake(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex),
                                 vars=cons_vars, output = "integer",
                                 method = "trs", seed = 42)
 ```
@@ -123,29 +117,29 @@ simulated_oac_age_sex <- rakeR::rk_rake(cons=temp_cons, inds=individuals %>% sel
 
 ### Generate OA-level summary statistics
 
-First, generate a `weights_summary` _tibble_, whereby weights are grouped (`group_by`) and summarised (`summarise()`) by OA, with `0` weights removed. Here, the `mean()`, `max()` and `sd()` of non-0 weights are calculated. These statistics tell us something about model uncertainty as they indicate the extent of oversampling -- that is, instances where the _same_ respondent is assigned to the _same_ OA several times. This can also be investigated explicitly by calculating at the OA-level, the proportion simulated households that are based on unique individuals. 
+First, generate a `weights_summary` _tibble_, whereby weights are grouped (`group_by`) and summarised (`summarise()`) by OA, with `0` weights removed. Here, the `mean()`, `max()` and `sd()` of non-0 weights are calculated. These statistics tell us something about model uncertainty as they indicate the extent of oversampling -- that is, instances where the _same_ respondent is assigned to the _same_ OA several times. This can also be investigated explicitly by calculating at the OA-level, the proportion simulated households that are based on unique individuals.
 
 ```{r oa-stats, eval=FALSE, cache=TRUE}
 # Generate OA-level summary statistics on weights.
 temp_weights_summary <- weights_oac_age_sex %>%
   # Create row_index variable.
-  mutate(row_index=row_number()) %>% 
+  mutate(row_index=row_number()) %>%
   # Rather than a matrix, we want a row for each individual and OA.
-  gather(key=oa_code, value=weight, -row_index) %>% 
+  gather(key=oa_code, value=weight, -row_index) %>%
   group_by(oa_code) %>%
   filter(weight>0) %>%
   summarise(weight_mean=mean(weight), weight_max=max(weight), weight_sd=sd(weight)) %>%
-  ungroup() 
+  ungroup()
 
 # Generate OA-level summary statistics on simulated data.
-temp_simulated_summary <- simulated_oac_age_sex %>% 
-  group_by(zone) %>% 
-  summarise(distinct_persons=n_distinct(person_id), total_person=n(), 
+temp_simulated_summary <- simulated_oac_age_sex %>%
+  group_by(zone) %>%
+  summarise(distinct_persons=n_distinct(person_id), total_person=n(),
   sim_oversample=1-(distinct_persons/total_person)) %>%
   select(zone, sim_oversample)
 
 # Merge and gather for charting.
-oa_level_summary <- temp_weights_summary %>% 
+oa_level_summary <- temp_weights_summary %>%
   inner_join(temp_simulated_summary, by=c("oa_code"="zone")) %>%
   gather(key="statistic_type", value="statistic_value",-oa_code)
 
@@ -183,8 +177,9 @@ Then generate choropleths of these summary statistics (this will take some time 
 # So that the histograms and map can be related we need to assign each
 # value to decile bins.
 
-# Generate choropleths. Ignore warnings.
-plot <- oa_level_summary %>%
+# Generate choropleths.
+# First a data frame summerising over statstic types.
+plot_data <- oa_level_summary %>%
   group_by(statistic_type) %>%
   mutate(
     # Rescale summary stats between 0 and 1 for local scale on facet.
@@ -192,8 +187,10 @@ plot <- oa_level_summary %>%
     # Cut into equal-range bins as per histogram.
     statistic_value_bin = cut_interval(statistic_value_rescale, 10, labels=FALSE)
   ) %>%
-  ungroup() %>%
-  left_join(oa_boundaries) %>%
+  ungroup()
+# Merge with oa_boundaries for plotting.
+plot <- oa_boundaries %>%
+  left_join(plot_data) %>%
   ggplot()+
     geom_sf(aes(fill=statistic_value_bin), colour=NA)+
     geom_sf(data=ward_boundaries, fill="transparent", colour="#636363", size=0.1)+
@@ -201,6 +198,7 @@ plot <- oa_level_summary %>%
     scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)+
     theme(axis.title=element_blank())+
     facet_wrap(~statistic_type, nrow=1)
+rm(plot_data)
 # Save to project directory: necessary as resource-intensive to draw.
 ggsave("stats_choropleths.png", plot, width=10, height=5)
 ```
@@ -217,6 +215,3 @@ You will attach using a `dplyr join` function. Take the simulated dataset (`simu
 simulated_oac_age_sex <- simulated_oac_age_sex %>% select(person_id, zone) %>%
      inner_join(individuals)
 ```
-
-
-

@@ -38,7 +38,7 @@ $ age_sex              <fct> m65over, f25to34, m25to34, m65over, m50to64, m25to3
 
 Create a new RMarkdown file by selecting `File > New > New R Markdown...`, click `OK` with the default options, then delete all the placeholder code/text in the new file.
 
-Paste into your RMarkdown file the notes from [this document](), which contains an outline/skeleton of what you'll need to complete the practical. Save the file with an appropriate name (`practical2`).
+Paste into your RMarkdown file the notes from [this document](/files/02-code-targeted-marketing.Rmd), which contains an outline/skeleton of what you'll need to complete the practical. Save the file with an appropriate name (`practical2`).
 
 # Task 1: study available variables
 

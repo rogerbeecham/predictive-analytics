@@ -52,15 +52,20 @@ You will notice from the RMarkdown file that this practical depends on a number 
 
 Packages can be installed to your machine with `install.packages(<package_name>)`. Note that you only need to use `install.packages()` if your machine does not already contain that package, or should you wish to update the installed version. `library(<package-name>)` makes a package's functions directly available in an R session.
 
-Below are the packages on which this practical depends.
+Below are the packages on which this practical depends. Note that if you are working from the lab machines, you do not need to download [`tidyverse`](https://www.tidyverse.org) or [`sf`](https://r-spatial.github.io/sf/articles/sf1.html) -- instead you simply make these available to your R session with `library(<package-name>)`.
 
 ```{r packages, eval=FALSE}
-# Bundle of packages for data manipulation.
+# Bundle of packages for data manipulation. If working from your own machine uncomment to download.
+# install.packages("tidyverse")
 library(tidyverse)
-# For working with geospatial data.
+
+# For working with geospatial data.  If working from your own machine uncomment to download.
+# install.packages("sf")
 library(sf)
-# For performing microsimulation. Install the dev version from GitHub.
-devtools::install_github("philmikejones/rakeR")
+
+# For performing microsimulation. If working from your own machine uncomment to download.
+# install.packages("rakeR")
+
 # Set default ggplot2 theme.
 theme_set(theme_minimal())
 ```
@@ -138,15 +143,15 @@ You will use these datasets to generate maps of your synthetic population, both 
 
 You will now run a spatial microsimulation that assigns the individual level attributes from the `individuals` tibble to Leeds households characterised in the Census constraint files `_cons`. You will do so using the [`rakeR`](https://philmikejones.github.io/rakeR/index.html) package, which provides functions for generating a spatial microsimulated dataset.
 
-Run the code chunks in the section, _Refactor variables and check for matches_. Since the `individuals` dataset must be linked to the `_cons` data, you must first ensure that the variable names in `_cons` exactly match the unique _levels_ in the `individuals` dataset. This is achieved by casting the `individuals` variables that are to be matched as factors, and then reordering them according to the variable order in the `_cons` data.
+Run the code chunks in the section, _Refactor variables and check for matches_. Since the `individuals` dataset must be linked to the `_cons` data, you must first ensure that the variable names in `_cons` exactly match the unique _levels_ in the `individuals` dataset. This is achieved by casting the `individuals` variables that are to be matched as factors, and then reordering them according to the variable order in the `_cons` data ^[Don't worry if you found the last two sentences difficult to understand. It is nevertheless worth reading a little about (https://r4ds.had.co.nz/factors.html)[factors] as you will inevitably work with them as you develop as R programmers].
 
 ## Task 2.2: Generate the miscrosimulated data
 
-The first code chunk in this section **specifies the variables** that will be used as constraints. In the example code, I've specified the `oac_grp` and `age_sex` constraints. You are free to specify a different set of constraints -- you may find it instructive to explore different outcomes, e.g. different microsimulated data that result from differently specified constraints. Note that once the constraint variables are identified, we generate a single constraint `tibble` with `inner_join()`^[Enter `?inner_join()` for documentation on this function: the datasets are by default joined on variables in the two datasets (`oac_cons` and `age_sex_cons`) with shared names, `oa_code` in this case.].
+The first code chunk in this section **specifies the variables** that will be used as constraints. In the example code, I've specified the `oac_grp` and `age_sex` constraints. You are free to specify a different set of constraints -- you may find it instructive to explore different outcomes, e.g. different microsimulated data that result from differently specified constraints. Note that once the constraint variables are identified, we generate a single constraint [`tibble`](https://r4ds.had.co.nz/tibbles.html) with `inner_join()`^[Enter `?inner_join()` for documentation on this function: the datasets are by default joined on variables in the two datasets (`oac_cons` and `age_sex_cons`) with shared names, `oa_code` in this case.].
 
-Next: **generate weights** (using `rk_weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA; as you would expect this is a sparse matrix, containing many `0` values.
+Next: **generate weights** (using `weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA; as you would expect this is a sparse matrix, containing many `0` values.
 
-In order to **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data: in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240) '_truncate, replicate, sample_' method is used to allocate _cloned_ individuals to OAs; the procedure is abstracted into the `rk_rake()` function. After running the code chunk (containing `rk_rake()`), inspect the simulated dataset with `glimpse<tibble-name>`. You will notice that the simulated dataset contains c.320,600 observations -- equal to the number of households in Leeds and that the first variable in the dataset is `person_id`: each row represents a respondent from the `individuals` dataset allocated to an OA in Leeds (`zone` variable).
+In order to **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data: in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240) '_truncate, replicate, sample_' method is used to allocate _cloned_ individuals to OAs; the procedure is abstracted into the `rake()` function. After running the code chunk (containing `rake()`), inspect the simulated dataset with `glimpse<tibble-name>`. You will notice that the simulated dataset contains c.320,600 observations -- equal to the number of households in Leeds and that the first variable in the dataset is `person_id`: each row represents a respondent from the `individuals` dataset allocated to an OA in Leeds (`zone` variable).
 
 ```{r inspect-sim-data, eval=FALSE}
 > glimpse(simulated_oac_age_sex)
