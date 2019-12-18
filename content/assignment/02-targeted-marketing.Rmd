@@ -215,7 +215,7 @@ simulated_oac_age_sex %>%
 
 You will want to profile selected destinations not only on the OAC variables, but by the other demographic and attitudinal variables originally available in the `individuals` dataset. This could be achieved by re-using the code blocks in the previous section and editing the `group_by` -- e.g. to summarise over the reported satisfaction levels for a given destination `group_by(satisfaction_overall)`.
 
-This would, however, involve much copying-and-pasting of code and here I've abstracted the process of calculating proportions grouped on a given variable into my own [function](https://r4ds.had.co.nz/functions.html). You may have yet to write R functions in [LUBS5308](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&F=P&M=LUBS-5308M), and there are a few syntax things happening here that look odd (`!!<parameter-name>`)^[This is to do with the fact that `dplyr` functions generally use non-standard evaluation, which creates challenges when accessing `dplyr` programmatically: [this post](https://dplyr.tidyverse.org/articles/programming.html) provides and efficient and accessible discussion.], so do not worry too much about the details here, but a general idea of what the function achieves is useful.
+This would, however, involve much copying-and-pasting of code and here I've abstracted the process of calculating proportions grouped on a given variable into my own [function](https://r4ds.had.co.nz/functions.html). You may have yet to write R functions in [LUBS5308](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&F=P&M=LUBS-5308M), and there are a few syntax things happening here that look odd (`!!<parameter-name>`)^[This is to do with the fact that `dplyr` functions generally use non-standard evaluation, which creates challenges when accessing `dplyr` programmatically: [this post](https://dplyr.tidyverse.org/articles/programming.html) provides an efficient and accessible discussion.], so do not worry too much about the details here, but a general idea of what the function achieves is useful.
 
 The code snippet below defines the function -- on creating this (by running the code), you will notice it listed in the _Global Environment_ window of RStudio:
 
@@ -289,7 +289,7 @@ fill_colours <- c("#ffffff", "#cccccc")
 temp_plot_data %>%
   gather(key=stat_type, value=stat_value, -c(variable_type, variable_name)) %>%
   mutate(
-    stat_type=as_factor(stat_type, levels=c("focus_prop","control_prop","diff_prop")),
+    stat_type=factor(stat_type, levels=c("focus_prop","control_prop","diff_prop")),
     stat_sign=stat_value>0
   ) %>%
   filter(!is.na(variable_name)) %>%
@@ -322,7 +322,7 @@ Some general guidelines for your data analysis:
 
 Well done for completing this week's practical.
 
-Before you leave the practical make make sure you save your work:
+Before you leave the practical make sure you save your work:
 
 * Close your RStudio session by clicking on the red cross in the top left of the window.
 * You will be asked to save the changes to the `.Rmd` in which you enter code and discussion and a _Workspace image_ with the extension `.RData`. The `.RData` file stores all data objects (`tibbles`, `Values` and `Functions`) that you have created. Be sure to save both of these.

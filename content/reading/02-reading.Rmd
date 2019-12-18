@@ -5,6 +5,22 @@ bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
+# Recommender systems
+
+- <i class="far fa-file-pdf"></i> Linden, G. et al.  [@linden_amazon_2003] "Amazon.com Recommendations: Item-to-Item Collaborative Filtering".
+
+# Microtargetting
+
+- <i class="far fa-file-pdf"></i> Konsinski, M.  [@kosinski_private_2013] "Private traits and attributes are predictable from digital records of human behavior".
+
+- <i class="far fa-file-pdf"></i> Murray, G. and Scime, A.  [@murray_microtargeting_2010] "Microtargeting and Electorate Segmentation: Data Mining the American National Election Studies".
+
+- <i class="far fa-file-pdf"></i> Youyou, W. et al.  [@youyou_computer_2015] "Computer-based personality judgments are more accurate than those made by humans".
+
+# Geodemographics
+
+- <i class="fas fa-book"></i> Leventhal, B.  [@leventhal_geodemographics_2016] "Geodemographics for Marketers: Using location analysis for research and marketing".
+
 # R primers
 
 - <i class="fas fa-book"></i> Hadley Wickham and Garrett Grolemund's[@wickham_R_2017] [_R for Data Science_](https://r4ds.had.co.nz/) provides everything you need to know when starting with data analysis in R.

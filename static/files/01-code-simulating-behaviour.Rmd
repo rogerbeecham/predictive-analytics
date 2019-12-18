@@ -10,7 +10,7 @@ output: html_document
 
 Below are the packages on which this practical depends. The main packages -- `tidyverse` and `sf` -- should be available on machines in the labs. However, if you are working from your own machine, you will need to download these with `install.packages(<package-name>)`.
 
-`rakeR` -- the package for generating the micsrosimulation datasets -- is not already available in the labs and you will need to download it. If you are working from your own machne, download these (by uncommenting the relevant code lines in the block below) with `install.packages(rakeR)`. If you are working from the lab machines, do this through the RStudio IDE: click _Packages_ (in the bottom-right pane), _Install_, enter _rakeR_ into the middle dialogue box (titled _Packages_) and in the thid dialogue box (_Install to Library_) click the drop-down and select `C:\ drive`.
+`rakeR` -- the package for generating the microsimulation datasets -- is not already available in the labs and you will need to download it. If you are working from your own machne, download these (by uncommenting the relevant code lines in the block below) with `install.packages(rakeR)`. If you are working from the lab machines, do this through the RStudio IDE: click _Packages_ (in the bottom-right pane), _Install_, enter _rakeR_ into the middle dialogue box (titled _Packages_) and in the thid dialogue box (_Install to Library_) click the drop-down and select `C:\ drive`.
 
 
 ```{r packages, eval=FALSE, chache=TRUE}
@@ -22,8 +22,8 @@ library(tidyverse)
 # install.packages("sf")
 library(sf)
 
-# For performing microsimulation. If working from your own machine uncomment to download.
-# install.packages("rakeR")
+# For performing microsimulation.
+install.packages("rakeR")
 
 # Set default ggplot2 theme.
 theme_set(theme_minimal())
@@ -97,14 +97,14 @@ temp_cons <- oac_cons %>% inner_join(age_sex_cons)
 # Joining, by = "oa_code"
 ```
 
-Next: generate weights (using `rk_weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA: as you would expect this is a sparse matrix, containing many `0` values.
+Next: generate weights (using `rakeR::weight()`). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (`individuals`) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA: as you would expect this is a sparse matrix, containing many `0` values.
 
 ```{r calculate-weights, eval=FALSE, cache=TRUE}
 # Calculate weights. May take several seconds to execute.
 weights_oac_age_sex <- rakeR::weight(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex), vars=cons_vars)
 ```
 
-In order **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data: in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240), '_truncate, replicate, sample' method is used to allocate _cloned_ individuals to OAs. This procedure is abstracted into the `rk_rake()` function.
+In order **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data -- in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240), '_truncate, replicate, sample' method is used to allocate _cloned_ individuals to OAs. This procedure is abstracted into the `rakeR::rake()` function.
 
 ```{r generate-simulated-data, eval=FALSE, cache=TRUE}
 # Run rk_take to generate simulated dataset. May take several seconds to execute.

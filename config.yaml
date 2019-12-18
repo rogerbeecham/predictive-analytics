@@ -44,11 +44,11 @@ params:
   course:
     number: GEOG5927M
     semester: Autumn/Winter 2019
-    days: "Mon & Weds"
-    time: "2:00pm-4:00pm"
-    location: "Roger Stevens | Manton"
+    days: "Mon (lec) & Weds (lab)"
+    time: "2:00pm-4:00pm (lec)"
+    location: "Roger Stevens LT25 (12.25)"
     twitter: rjbeecham
-    dates: "September 4–December 11, 2019"
+    dates: "November 11–December 11, 2019"
     github: "rogerbeecham"
     copyrightYear: "2019"
      # contactDetails: >-

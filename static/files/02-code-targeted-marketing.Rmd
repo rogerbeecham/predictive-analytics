@@ -9,11 +9,11 @@ output: html_document
 
 ```{r packages, eval=FALSE}
 # Bundle of packages for data manipulation.
-library(tidyverse)              
+library(tidyverse)
 # For working with geospatial data.
-library(sf)                     
+library(sf)
 # For performing microsimulation. Install the dev version from GitHub. Uncomment to run.
-# devtools::install_github("philmikejones/rakeR")  
+# devtools::install_github("philmikejones/rakeR")
 # For simplifying shapefiles. Uncomment to run.
 # install.packages("rmapshaper")
 # Set default ggplot2 theme.
@@ -35,19 +35,19 @@ airport_lookup <- read_csv("./data/info/airport_lookup.csv")
 
 # Join oac names with simulated_oac_age_sex.
 # Specify variables on which to join as names not identical.
-simulated_oac_age_sex <- simulated_oac_age_sex %>% 
+simulated_oac_age_sex <- simulated_oac_age_sex %>%
   left_join(oac_lookup, by=c("oac_grp"="supergroup_code"))
 
 # Join airport codes names with simulated_oac_age_sex.
 # Specify variables on which to join as names not identical.
-simulated_oac_age_sex  <- simulated_oac_age_sex %>% 
+simulated_oac_age_sex  <- simulated_oac_age_sex %>%
   # Do separately for overseas.
-  left_join(airport_lookup, by=c("overseas_airport"="airport_code")) %>% 
-  # Add dest_ prefix so can distinguish destination from origin. 
+  left_join(airport_lookup, by=c("overseas_airport"="airport_code")) %>%
+  # Add dest_ prefix so can distinguish destination from origin.
   rename_at(vars(airport_name:airport_country), ~paste0("dest_",.)) %>%
   # And UK airports.
   left_join(airport_lookup, by=c("uk_airport"="airport_code")) %>%
-  # Add orig_ prefix so can distinguish destination from origin. 
+  # Add orig_ prefix so can distinguish destination from origin.
   rename_at(vars(airport_name:airport_country), ~paste0("orig_",.))
 ```
 
@@ -68,7 +68,7 @@ ggplot(data=simulated_oac_age_sex, mapping=aes(x=age_band))+
 
 ### Task 1.3: Generate frequency plots on variables with many categories.
 
-The code block below is a ggplot2 specification for generating a dotplot of frequencies by airport destination. This plot is ordered according to the frequency with which countries are visited, and within countries, the frequency with which airports are visited. In order to effect this ordering, we cast the country variable (`dest_airport_country`) and airport variable (`overseas_airport`) as [factors](https://r4ds.had.co.nz/factors.html) and order the factor levels by frequency. 
+The code block below is a ggplot2 specification for generating a dotplot of frequencies by airport destination. This plot is ordered according to the frequency with which countries are visited, and within countries, the frequency with which airports are visited. In order to effect this ordering, we cast the country variable (`dest_airport_country`) and airport variable (`overseas_airport`) as [factors](https://r4ds.had.co.nz/factors.html) and order the factor levels by frequency.
 
 ```{r plot-frequencies-dest, eval=FALSE}
 # Generate tibble of countries ordered by frequency (for ordered factors).
@@ -78,7 +78,7 @@ order_country <- simulated_oac_age_sex %>%
   arrange(-count)
 
 # Cleveland dot plot of destinations, grouped by country.
-simulated_oac_age_sex %>%
+plot <- simulated_oac_age_sex %>%
   # Order dest countries, casting as a factor and ordering levels on frequency.
   mutate(dest_airport_country=factor(dest_airport_country,levels=order_country$dest_airport_country)) %>%
   # Calculate num holidays to each dest airport.
@@ -95,6 +95,12 @@ simulated_oac_age_sex %>%
     # Facet the plot on country to display group freq by destination country.
     facet_grid(dest_airport_country~., scales="free_y", space="free_y")+
     theme(  strip.text.y = element_text(angle=0))
+
+# Print plot to console
+plot
+
+# Save plot
+ggsave("./dests_cleveland.png", plot, width=4, height=10)
 ```
 
 ## Task 2: Explore research questions
@@ -120,7 +126,7 @@ simulated_oac_age_sex %>%
     oac_grp_focus=sum(dest_focus)/first(total_focus),
     oac_grp_control=n()/nrow(.),
     diff_focus_control=oac_grp_focus-oac_grp_control
-  )                       
+  )
 ```
 
 ### Task 2.2: Plot totals and proportions
@@ -145,7 +151,7 @@ calculate_props <-
     ungroup() %>%
     mutate(variable_name=!!group_var) %>%
     select(-!!group_var)
-}   
+}
 ```
 
 Then create a new dataset that will hold the summary statistics (control and focus proportions) by variable type.
@@ -171,25 +177,25 @@ temp_simulated_data <- simulated_oac_age_sex %>%
     focus_total=sum(focus_var),
     control_total=sum(control_var),
     number_children=as.character(number_children)
- )  
+ )
 
 # Iterate over each grouping variable, using map_df to bind rows of returned
-# data frames.   
+# data frames.
 temp_plot_data <-
  purrr::map_df(groups, ~calculate_props(temp_simulated_data, rlang::sym(.x)))
 rm(temp_simulated_data)
 ```
 
-Finally plot these data to explore demographic and attitudinal characteristics that are _over-_ or _under- represented_ amongst the destination in focus. 
+Finally plot these data to explore demographic and attitudinal characteristics that are _over-_ or _under- represented_ amongst the destination in focus.
 
 
 ```{r plot-proportions, eval=FALSE}
 # Define two colours used to colour pos and neg bars differently
 fill_colours <- c("#ffffff", "#cccccc")
-temp_plot_data %>%
+plot <- temp_plot_data %>%
   gather(key=stat_type, value=stat_value, -c(variable_type, variable_name)) %>%
   mutate(
-    stat_type=as_factor(stat_type, levels=c("focus_prop","control_prop","diff_prop")),
+    stat_type=factor(stat_type, levels=c("focus_prop","control_prop","diff_prop")),
     stat_sign=stat_value>0
   ) %>%
   filter(!is.na(variable_name)) %>%
@@ -202,5 +208,10 @@ temp_plot_data %>%
   coord_flip()+
   theme(axis.title=element_blank(),
         strip.text.y = element_text(angle=0))
-```
 
+# Print plot to console
+plot
+
+# Generate as .png
+ggsave("./proportions_bars.png", plot, width=8, height=7)
+```

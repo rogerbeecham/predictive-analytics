@@ -5,6 +5,8 @@ bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
+An additional, extended reading list from [this link](/files/03-abm-reading-list.pdf).
+
 # ABM primers
 
 -  <i class="fas fa-book"></i>  Brunsdon, C. and Singleton, A. (2016)[@brunsdon_geocomputation_2015] _Geocomputation: A practical primer_.

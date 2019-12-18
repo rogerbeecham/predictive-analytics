@@ -7,9 +7,13 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 # Data science, predictive analytics
 
-- <i class="far fa-file-pdf"></i> Birkin, M. (2018)[@birkin_spatial_2018] "Spatial data analytics of mobility with consumer data".
+<!-- - <i class="far fa-file-pdf"></i> Birkin, M. (2018)[@birkin_spatial_2018] "Spatial data analytics of mobility with consumer data".
 
-- <i class="far fa-file-pdf"></i> Lovelace, R. et al. (2016)[@lovelace_from_2016] "From Big Noise to Big Data: Toward the Verification of Large Data sets for Understanding Regional Retail Flows".
+- <i class="far fa-file-pdf"></i> Lovelace, R. et al. (2016)[@lovelace_from_2016] "From Big Noise to Big Data: Toward the Verification of Large Data sets for Understanding Regional Retail Flows". -->
+
+- <i class="far fa-file-pdf"></i> Arribas-Bel, D. & Reades, J. (2018)[@arribas_geography_2018] "Geography and computers: Past, present and future".
+
+- <i class="far fa-file-pdf"></i> Lazer, D. et al. (2014)[@lazer_parable_2014] "The Parable of Google Flu: Traps in Big Data Analysis".
 
 - <i class="far fa-file-pdf"></i> Singleton, A. & Arribas-Bel, D. (2019)[@singleton_geographic_2019] "Geographic Data Science".
 
