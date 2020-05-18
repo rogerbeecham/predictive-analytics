@@ -1,7 +1,7 @@
-baseURL: "http://homepages.see.leeds.ac.uk/~georjb/predictive-analytics/"
+baseURL: "http://www.roger-beecham.com/predictive-analytics/"
 languageCode: en-gb
 title: Predictive Analytics
-theme: "ath-tufte-hugo_18-19"
+theme: "rjb-tufte-hugo"
 canonifyURLs: true
 relativeURLs: true
 googleAnalytics: ""
@@ -51,8 +51,6 @@ params:
     dates: "November 11–December 11, 2019"
     github: "rogerbeecham"
     copyrightYear: "2019"
-     # contactDetails: >-
-     #  Office hours: By appointment.
   university:
     name: University of Leeds
     url: "https://www.leeds.ac.uk"
@@ -62,8 +60,6 @@ params:
   description: "Introduces techniques for simulating and predicting social behaviour"
   primaryColor: "#a50f15"
   secondaryColor: "#ef3b2c"
-  # credits: >-
-  #   Hex icon by Roger Beecham, using [`hexSticker`](https://github.com/GuangchuangYu/hexSticker).
   logo:
     url: ./images/geog5927m.png
     alt: Predictive Analytics

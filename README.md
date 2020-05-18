@@ -2,4 +2,4 @@
 
 This repository contains the code for generating [predictive-analytics](http://homepages.see.leeds.ac.uk/~georjb/predictive-analytics/).
 
-Various hugo and blogdown features and themes are taken and minimally adapted from [Andrew Heiss](https://www.andrewheiss.com) and his excellent teaching websites.
+The hugo and blogdown themes and design ideas are taken from [Andrew Heiss](https://www.andrewheiss.com)'s impressive module websites.
