@@ -1,6 +1,6 @@
 # Build and deploy to http://wwww.roger-beecham.com/predictive-analytics
 
-SSH_USER = rogerbeecham@roger-beecham.com
+SSH_USER = r.j.beecham@leeds.ac.uk
 DOCUMENT_ROOT = ~/roger-beecham.com/predictive-analytics/public_html
 PUBLIC_DIR = public/
 OUTPUTDIR = public_html
