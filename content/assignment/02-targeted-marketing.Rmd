@@ -251,7 +251,7 @@ We then create a new dataset that will hold the summary statistics (control and 
 groups <- names(simulated_oac_age_sex %>%
                   select(supergroup_name, age_band:household_income, satisfaction_overall))
 # Identify the destination in focus.
-focus <- "IBZ"
+focus <- "PMI"
 control <- "ALL"
 
 # calculate_props() requires control and focus variables, not yet contained in
