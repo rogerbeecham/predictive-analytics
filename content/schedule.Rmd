@@ -1,0 +1,11 @@
+---
+title: "Schedule"
+slug: schedule
+---
+- <i class="fas fa-book-reader"></i> : Readings
+- <i class="fas fa-laptop-code"></i> : Practicals
+- <i class="fas fa-university"></i> : Lecture slides
+
+---
+
+`r blogdown::shortcode("schedule")`

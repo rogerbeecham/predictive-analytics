@@ -1,0 +1,97 @@
+---
+title: R
+slug: install
+citeproc: false
+bibliography: ../static/bib/references.bib
+---
+
+# What is R?
+
+<span class="newthought">R is a free, open statistical programming language and environment.</span> Released as open source software as part of a research project in 1995, for some time R was the preserve of academics. From 2010s onwards, with the advent of _Big Data_ and new sub-disciplines such as _Data Science_, R enjoyed rapid growth and is used increasingly outside of academia, by organisations such as Google [[example](https://research.google.com/pubs/pub37483.html)], Facebook [[example](http://flowingdata.com/2010/12/13/facebook-worldwide-friendships-mapped/)], Twitter [[example](https://blog.twitter.com/official/en_us/a/2013/the-geography-of-tweets.html)], New York Times [[example](http://www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseballexample)] and many more.
+
+Rather than simply a free alternative to proprietary statistical analysis software such as SPSS, R is a programming language in and of itself and can be used for:
+
+* Data Visualization design: [PopulationLines](http://spatial.ly/2014/08/population-lines/)
+
+* Developing interactive (visualization) software:  [UpSet](https://gehlenborglab.shinyapps.io/upsetr/)
+
+* As a GIS: [Geocomp with R](http://robinlovelace.net/geocompr/)
+
+* As a word processor / web publisher: [R Markdown](http://rmarkdown.rstudio.com/gallery.html)
+
+
+# Why R?
+
+## Free, open-source with an active community
+
+The cost motive is obvious, but the benefits that come from being fully open-source, with a critical mass of users are many.
+
+Firstly, there is a burgeoning array of online forums, tutorials and code examples through which to learn R. [StackOverflow](https://stackoverflow.com/questions/tagged/r) is a particularly useful resource for answering more individual questions.
+
+Second, with such a large community, there are numerous expert R users who themselves contribute by developing _libraries_ or _packages_^[An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important, though very recent, set of packages is the [tidyverse](http://www.tidyverse.org): a set of libraries which share a common underlying philosophy, syntax and documentation.] that extend its use.
+
+## R supports **modern** data analysis workflows
+
+> Reproducible research is the idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them.
+>
+> -- <cite>Roger Peng, Jeff Leek and Brian Caffo</cite>
+
+In recent years there has been much introspection around how science works -- around how statistical claims are made from reasoning over evidence. This came on the back of, amongst other things, a high profile paper published in [Science](http://science.sciencemag.org/content/349/6251/aac4716), which found that of 100 recent peer-reviewed psychology experiments, the findings of only 39 could be replicated. The upshot is that researchers must now make every possible effort to make their work transparent. In this setting, traditional data analysis software that support point-and-click interaction is unhelpful; it would be tedious to make notes describing all interactions with, for example, SPSS. As a declarative programming language, however, it is very easy to provide such a provenance trail for your workflows in R since this necessarily exists in your analysis scripts.
+
+Concerns around the _reproducibility crisis_ are not simply a function of transparency in methodology and research design. Rather, they relate to a culture and incentive structure whereby scientific claims are conferred with authority when reported within the (slightly backwards) logic of Null Hypothesis Significance Testing (NHST) and _p-values_. For an accessible read on the phenomenon of _p-hacking_ (with interactive graphic) see [this article](https://fivethirtyeight.com/features/science-isnt-broken/#part1) from the excellent [FiveThirtyEight](http://fivethirtyeight.com) website. Again, the upshot of all this introspection is a rethinking of the way in which Statistics is taught in schools and universities, with greater emphasis on understanding through computational approaches rather than traditional equations, formulas and probability tables. Where does R fit within this? Simply put: R is far better placed than traditional software tools and point-and-click paradigms for supporting computational approaches to statistics -- with a set of methods and libraries for performing simulations and permutation-based tests.
+
+# R and RStudio on your machine
+
+Although R and RStudio are installed locally on all computers available to you during the practicals, it is **highly recommended** that you install R on your own machines -- and in fact that you work on your personal machines during the practicals.
+
+## Install R
+
+First you need to install R itself.
+
+1. Go to the CRAN (Collective R Archive Network) website: <https://cran.r-project.org/>
+2. Click on "Download R for `XXX`", where `XXX` is either Mac or Windows^[{-}![Install R](/images/install/install-r-links.png)]:
+    - If you use macOS, scroll down to the first `.pkg` file in the list of files and download it.
+    - If you use Windows, click "base" (or click on the bolded "install R for the first time" link) and download it.
+
+3. Double click on the downloaded file (check your `Downloads` folder). Click yes through all the prompts to install like any other program.
+
+
+## Install RStudio
+
+Next, you need to install RStudio, the graphical user interface (GUI) for R. Once R and RStudio are installed, you will work entirely via RStudio -- RStudio automatically calls R and so do not have to interact with R directly.
+
+1. Go to the free download location on RStudio's website: <https://www.rstudio.com/products/rstudio/download/#download>
+2. Select the installer that corresponds with your computer's operating system (Windows or macOS) ^[{-}![Install R](/images/install/install-r-rstudio.png)]
+
+3. Double click on the downloaded file (again, check your `Downloads` folder). Click yes through all the prompts to install like any other program.
+
+Double click on RStudio to run it (check your applications folder or start menu).
+
+
+#  Get familiar with the R and RStudio environment
+
+## Open RStudio
+
+Open RStudio. Click `File` -> `New File` -> `R Script`. You should see a set of windows roughly similar to those in the figure to the right ^[{-}![RStudio windows](/images/install/r-rstudio-windows.png)]. The top left pane is the _Code Editor_. This is where you'll write, organise and comment R code for execution. Code snippets can be executed using `Run` at the top of the RStudio pane or typing `cmd R` (Mac) `ctr R` (Windows).  Below this, in the bottom left pane is the _R Console_, in which you write and execute commands directly. To the top right is a pane with the tabs _Environment_ and _History_. The purpose of these will soon be clear. In the bottom right is a pane for navigating through project directories (_Files_), displaying _Plots_, details of installed and loaded _Packages_ and documentation on the functions and packages you'll use (_Help_).
+
+## Enter some console commands
+
+As discussed, R can be used in many different ways for performing modern data analysis (as demonstrated in this module). It is also possible to simply use R as a calculator by typing commands directly into the _Console_. Type the commands contained in the code block below into your R Console. You'll create a variable (`x`) and assign it a value using the assignment operator (`<-`), then perform some simple statistical calculations using functions that are held within the (`base`) package^[The `base` package is core and native to R. Unlike all other packages, it does not need to be installed and called explicitly. One means of checking the package to which a function you are using belongs is to call the help command (`?`) on that function: e.g. `?mean()`.].
+
+```{r simple-calc, eval=FALSE}
+# Create variable and assign a value.
+x <- 4
+# Perform some calculations using R as a calculator.
+x_2 <- x^2
+# Perform some calculations using functions that form baseR.
+x_root <- sqrt(x_2)
+```
+
+# Further reading
+
+There are numerous books, tutorials and blogs introducing R as an environment for applied data analysis. Detailed below are resources that are particularly useful primers for this session.
+
+- <i class="fas fa-book"></i> Hadley Wickham and Garrett Grolemund's^[@wickham_R_2017] [_R for Data Science_](https://r4ds.had.co.nz/): _the_ primer for doing data analysis with R. Hadley and Garret present their _thesis_ of the data science workflow and illustrate how R and packages that form the [`tidyverse`](https://www.tidyverse.org) support this. It is both accessible and coherent and is highly recommended.
+
+
+-  <i class="fas fa-book"></i> Robin Lovelace et al.'s^[@lovelace_geocomputation_2019] [_Geocomputation with R_](http://robinlovelace.net/geocompr/). This book comprehensively introduces spatial data handling in R. It is a great complement to _R for Data Science_ in that it draws on brand new libraries that support `tidyverse`-style operations on spatial data.

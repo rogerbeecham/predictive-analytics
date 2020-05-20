@@ -1,0 +1,36 @@
+---
+title: "Simulating Behaviour"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+---
+
+# Data science, predictive analytics
+
+<!-- - <i class="far fa-file-pdf"></i> Birkin, M. (2018)[@birkin_spatial_2018] "Spatial data analytics of mobility with consumer data".
+
+- <i class="far fa-file-pdf"></i> Lovelace, R. et al. (2016)[@lovelace_from_2016] "From Big Noise to Big Data: Toward the Verification of Large Data sets for Understanding Regional Retail Flows". -->
+
+- <i class="far fa-file-pdf"></i> Arribas-Bel, D. & Reades, J. (2018)[@arribas_geography_2018] "Geography and computers: Past, present and future".
+
+- <i class="far fa-file-pdf"></i> Lazer, D. et al. (2014)[@lazer_parable_2014] "The Parable of Google Flu: Traps in Big Data Analysis".
+
+- <i class="far fa-file-pdf"></i> Singleton, A. & Arribas-Bel, D. (2019)[@singleton_geographic_2019] "Geographic Data Science".
+
+# Spatial Microsimulation
+
+## General
+
+-  <i class="fas fa-book"></i> Birkin M. et al. (2016) Using Census Data in Microsimulation Modelling, chapter in Stillwell, J. (ed)[@stillwell_routledge_2016].
+- <i class="far fa-file-pdf"></i> Whitworth et al. (2017)[@whitworth_estimating_2017] "Estimating uncertainty in spatial microsimulation approaches to small area estimation: A new approach to solving an old problem". Interesting paper exploring uncertainty in spatial microsimulation approaches.
+
+
+## With R
+
+-  <i class="fas fa-book"></i>  Lovelace, R. and Dumont, M. (2016)[@lovelace_spatial_2016] _Spatial microsimulation with R_. London: Taylor and Francis. Comprehensively discusses Spatial Microsimulation and procedures for generating micsrosimulated datasets in R.
+
+
+# R primers
+
+- <i class="fas fa-book"></i> Hadley Wickham and Garrett Grolemund's[@wickham_R_2017] [_R for Data Science_](https://r4ds.had.co.nz/) provides everything you need to know when starting with data analysis in R.
+- <i class="fas fa-book"></i> Kieran Healy's [@healy_data_2018] recent book [_Data Visualization_](http://socviz.co/.html) is perhaps the best I've seen on Data Visualization in R.
