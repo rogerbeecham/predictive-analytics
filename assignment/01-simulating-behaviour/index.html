@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-gb"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Roger Beecham">
+    <meta name="description" content="Introduces techniques for simulating and predicting social behaviour">
+
+    <meta name="twitter:card" value="summary_large_image">
+    <meta name="twitter:site" content="@rjbeecham">
+    <meta name="twitter:title" content="Practical 1 : simulating behaviour | GEOG5927M: Predictive Analytics">
+    <meta name="twitter:creator" content="@rjbeecham">
+    <meta name="twitter:image" content="http://www.roger-beecham.com/predictive-analytics/images/geog5927m.png">
+    <meta name="twitter:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta property="og:site_name" content="GEOG5927M: Predictive Analytics"/>
+    <meta property="og:title" content="Practical 1 : simulating behaviour | GEOG5927M: Predictive Analytics">
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="" />
+    <meta property="og:url" content="http://www.roger-beecham.com/predictive-analytics/" />
+    <meta property="og:image" content="http://www.roger-beecham.com/predictive-analytics/images/geog5927m.png">
+    <meta property="og:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta name="generator" content="Hugo 0.54.0" />    
+
+    <title>Practical 1 : simulating behaviour | GEOG5927M: Predictive Analytics</title>
+    <link rel="canonical" href="http://www.roger-beecham.com/predictive-analytics/assignment/01-simulating-behaviour/">
+    <link href="../../theme/css/tufte.css" rel="stylesheet">
+    <link href="../../theme/css/latex.css" rel="stylesheet">
+    <link href="../../theme/css/custom.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .wrap a, .wrap a:visited {
+            color: #a50f15;
+        }
+
+        .wrap a:hover {
+            color: #ef3b2c;
+        }
+
+        .wrap p > a {
+            color: #a50f15;
+        }
+
+        article .sidenote-number:after, article .sidenote:before {
+            color: #a50f15;
+        }
+
+        article .sidenote:before {
+            color: #a50f15;
+        }
+
+        @media (max-width: 760px) {
+            label.margin-toggle:not(.sidenote-number) {
+                color: #a50f15;
+            }
+        }
+
+        .contrast a, .contrast a:visited {
+            color: #a50f15; 
+        }
+
+        header > nav a {
+            color: #a50f15;
+        }
+
+        .credits a {
+            color: #a50f15;
+        }
+
+        .wrap .tag {
+            background: #a50f15;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="http://www.roger-beecham.com/predictive-analytics/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://www.roger-beecham.com/predictive-analytics/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.roger-beecham.com/predictive-analytics/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.roger-beecham.com/predictive-analytics/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.roger-beecham.com/predictive-analytics/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://www.roger-beecham.com/predictive-analytics/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://www.roger-beecham.com/predictive-analytics/images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="http://www.roger-beecham.com/predictive-analytics/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="http://www.roger-beecham.com/predictive-analytics/images/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="GEOG5927M: Predictive Analytics"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="http://www.roger-beecham.com/predictive-analytics/images/mstile-144x144.png" />
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600|Roboto:300,400" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+<div class="wrap">
+    <header>
+        <nav class="group logo-wrap">
+            <a href="../../" class="logo"><img src="http://www.roger-beecham.com/predictive-analytics/images/geog5927m.png" alt="Predictive Analytics"></a>
+            <h1 class="websitetitle"><a href="http://www.roger-beecham.com/predictive-analytics/">GEOG5927M: Predictive Analytics</a></h1>
+        </nav>
+        <nav class="bottom-group">
+            
+            <a href="../../syllabus/">Syllabus</a>
+            
+            <a href="../../schedule/">Schedule</a>
+            
+            <a href="../../install/">R</a>
+            
+        </nav>
+    </header>
+
+
+    <article class="group">
+    <h1>Practical 1 : simulating behaviour</h1>
+
+    
+    
+    
+
+    
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<!-- Override tufte.CSS text size in tables. -->
+<style>
+  .wrap th, .wrap td {
+  font-size: 0.9rem;
+ }
+</style>
+<p><em>The aim of this session is to create a synthetic population of households in Leeds. You will use an individual-level survey dataset describing individuals’ holiday-making behaviour and apply spatial microsimulation to estimate a population-level dataset of these holiday-making behaviours at the household-level in Leeds. In Practical 2, you will use this population to undertake a data analysis to support a targeted marketing strategy.</em></p>
+<h2 id="task-0-get-familiar-with-r-rstudio-and-rmarkdown">Task 0: Get familiar with R, RStudio and RMarkdown</h2>
+<p>If you have not done so already, read the page introducing <a href="../../install/index.html">R and RStudio</a>.</p>
+<p>RStudio has <a href="http://rmarkdown.rstudio.com/lesson-1.html">a helpful tutorial and a short video about R Markdown</a>. Go through these short lessons: <a href="http://rmarkdown.rstudio.com/lesson-1.html">Introduction</a> | <a href="http://rmarkdown.rstudio.com/lesson-2.html">How it Works</a> | <a href="http://rmarkdown.rstudio.com/lesson-3.html">Code Chunks</a> | <a href="http://rmarkdown.rstudio.com/lesson-4.html">Inline Code</a> | <a href="http://rmarkdown.rstudio.com/lesson-8.html">Markdown Basics</a><span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> The <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a> is also useful.<br />
+<br />
+</span></span> | <a href="http://rmarkdown.rstudio.com/lesson-9.html">Output Formats</a>.</p>
+<h2 id="task-1-configure-r-and-download-the-data">Task 1: Configure R and download the data</h2>
+<h3 id="task-1.1-create-an-rmarkdown-file">Task 1.1: Create an RMarkdown file</h3>
+<p>Create a <em>new folder</em> on your personal drive called <code>predictive_analytics</code> and generate a subfolder called <code>practicals</code>.</p>
+<pre><code>predictive_analytics
+      └── practicals</code></pre>
+<p>Create a new RStudio <em>Project</em> by opening RStudio and selecting <code>File &gt; New Project... &gt; Existing Directory</code>, then browse to <code>&lt;your-drive&gt;/predictive_analytics/practicals</code>.</p>
+<p>Create a new RMarkdown file by selecting <code>File &gt; New &gt; New R Markdown...</code>, click <code>OK</code> with the default options, then delete all the placeholder code/text in the new file.</p>
+<p>Paste into your RMarkdown file the notes from <a href="../../files/01-code-simulating-behaviour.Rmd">this document</a>, which contains an outline/skeleton of what you’ll need to complete the practical.</p>
+<p>Save the file with an appropriate name (<code>practical1</code>). Your <code>predictive_analytics/</code> directory should resemble this<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Notice that when you create a new project, RStudio sets the <code>root</code> directory to that from which you created the project (enter <code>getwd()</code> to the R console). When you saved your newly created <code>.Rmd</code> document, you may have noticed that you were automatically routed to the <code>practicals</code> folder. You will find that this behaviour has many advantages, especially so as you begin to read and write data.<br />
+<br />
+</span></span>:</p>
+<pre><code>predictive_analytics
+└── practicals
+    ├── practical1.Rmd
+    └── practicals.Rproj</code></pre>
+<h3 id="task-1.2-configure-your-r-session">Task 1.2: Configure your R session</h3>
+<p>You will notice from the RMarkdown file that this practical depends on a number of <a href="https://www.statmethods.net/interface/packages.html">R Packages</a><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important set of packages is the <code>tidyverse</code>. Authored by Hadley Wickham and colleagues, these share common underlying philosophy, syntax and documentation.<br />
+<br />
+</span></span>.</p>
+<p>Packages can be installed to your machine with <code>install.packages(&lt;package_name&gt;)</code>. Note that you only need to use <code>install.packages()</code> if your machine does not already contain that package, or should you wish to update the installed version. <code>library(&lt;package-name&gt;)</code> makes a package’s functions directly available in an R session.</p>
+<p>Below are the packages on which this practical depends. Note that if you are working from the lab machines, you do not need to download <a href="https://www.tidyverse.org"><code>tidyverse</code></a> or <a href="https://r-spatial.github.io/sf/articles/sf1.html"><code>sf</code></a> – instead you simply make these available to your R session with <code>library(&lt;package-name&gt;)</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Bundle of packages for data manipulation. If working from your own machine uncomment to download.</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"># install.packages(&quot;tidyverse&quot;)</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co"># For working with geospatial data.  If working from your own machine uncomment to download.</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co"># install.packages(&quot;sf&quot;)</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co"># For performing microsimulation. If working from your own machine uncomment to download.</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co"># install.packages(&quot;rakeR&quot;)</span></a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co"># Set default ggplot2 theme.</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="kw">theme_set</span>(<span class="kw">theme_minimal</span>())</a></code></pre></div>
+<h3 id="task-1.3-download-and-read-in-data">Task 1.3: Download and read in data</h3>
+<p>The next code block in your RMarkdown file gives instructions for downloading and reading in data. After <code>download.file(&lt;url&gt;, &lt;file-name&gt;)</code>, and <code>unzip(&lt;filename&gt;)</code>, your directory structure should look like this:</p>
+<pre><code>predictive_analytics
+└── practicals
+    └── data
+        ├── info
+        └── leeds_OAs</code></pre>
+<p>You will then execute code chunks that read in the datasets on which the practical depends, using <code>read_csv()</code> for reading in comma-separated text files, <code>st_read()</code> for reading in geospatial data<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">There are some useful operations for working upon the spatial data here: setting the <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">coordinate reference system</a> with <code>st_transform()</code> and simplifying geometries using an implementation of the excellent <a href="https://mapshaper.org">mapshaper</a> tool (with <code>ms_simplify</code>); and perform a spatial filter, filtering only wards contained within Leeds, using <code>st_contains()</code>, part of the <a href="https://github.com/r-spatial/sf"><code>sf</code></a> library.<br />
+<br />
+</span></span>.</p>
+<p>After running the code chunks in your RMarkdown file under the section <em>Download and read in data</em>, your RStudio <code>Global Environment</code> window should look like <a href="../../images/assignment/practical1_global_env.png">this</a><span><label for="sn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="marginnote"><img src="../../images/assignment/practical1_global_env.png" alt="Global Environment window" /><br />
+<br />
+</span></span>.</p>
+<h4 id="constraint-data">Constraint data</h4>
+<p>All objects containing the <code>_cons</code> suffix are the constraint data. These have been downloaded from the <a href="https://www.nomisweb.co.uk/census/2011/lc1101ew">2011 Census</a> and represent the characteristics of each household in Leeds. The individual-level characteristics relate to the <a href="https://www.ons.gov.uk/ons/guide-method/census/2011/census-data/2011-census-data/2011-first-release/2011-census-definitions/2011-census-glossary.pdf" title="See Page 23"><em>Household Reference Person</em></a>; the person that answers the Census questionnaire.</p>
+<p>Inspect the <code>sex_cons</code> <a href="https://tibble.tidyverse.org"><em>tibble</em></a> by typing into your RConsole the code: <code>View(sex_cons)</code>. A summary of the fields is below; <code>age_cons</code> and <code>age_sex</code> are similarly structured, except variables relate to age and age-and-sex respectively.</p>
+<table>
+<caption>Table schema for <code>sex_cons</code> tibble</caption>
+<thead>
+<tr class="header">
+<th>var</th>
+<th>detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>oa_code</code></td>
+<td>geographic identifier for each <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography">Output Area</a> in Leeds</td>
+</tr>
+<tr class="even">
+<td><code>m</code></td>
+<td>number of <strong>male</strong> Household Reference Persons in the area</td>
+</tr>
+<tr class="odd">
+<td><code>f</code></td>
+<td>number of <strong>female</strong> Household Reference Persons in the area</td>
+</tr>
+</tbody>
+</table>
+<p>Inspect the <code>oac_cons</code> <em>tibble</em> in the same way: e.g. <code>View(&lt;tibble-name&gt;)</code>. The variable names relate to the <a href="http://www.opengeodemographics.com/#OAC-section">Output Area Classification (OAC)</a> of each area. Because the geographic unit we are dealing with is Output Area, there is only one possible value for each row (OAC group membership is mutually exclusive).</p>
+<p>Note that for each of these tables the total number of people in each area (each row sum) is the same in all constraint datasets.</p>
+<h4 id="individual-level-survey-data">Individual-level survey data</h4>
+<p>The <code>individuals</code> tibble is a sample of responses from a survey of holidaymakers who live in Leeds. All took a flight from a UK airport to an overseas airport. Inspect the data by typing <code>View(individuals)</code> into the R console. A summary of the fields is below – can you associate variables in this dataset with the Census derived constraint tables?</p>
+<table>
+<caption>Table schema for <code>individuals</code> tibble</caption>
+<colgroup>
+<col width="18%" />
+<col width="81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>var</th>
+<th>detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>person_id</code></td>
+<td>unique identifier for each person who responded to survey</td>
+</tr>
+<tr class="even">
+<td><code>oa_grp</code></td>
+<td>output area classification for area in which respondent lives</td>
+</tr>
+<tr class="odd">
+<td><code>sex</code>, <code>age_band</code></td>
+<td>sex, age group of respondent</td>
+</tr>
+<tr class="even">
+<td><code>household_income</code></td>
+<td>household income of respondent; note that a number of records are coded <em>not answered</em></td>
+</tr>
+<tr class="odd">
+<td><code>overseas_airport</code></td>
+<td>the destination airport</td>
+</tr>
+<tr class="even">
+<td><code>uk_airport</code></td>
+<td>the origin airport</td>
+</tr>
+<tr class="odd">
+<td><code>overall_holiday</code></td>
+<td>how satisfied the the respondent was with their holiday</td>
+</tr>
+</tbody>
+</table>
+<h4 id="geospatial-data">Geospatial data</h4>
+<figure>
+<img src="../../images/assignment/practical1_geogs.png" alt="Geospatial data" />
+</figure>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">class</span>(oa_boundaries)</a>
+<a class="sourceLine" id="cb5-2" title="2">[<span class="dv">1</span>] <span class="st">&quot;sf&quot;</span>         <span class="st">&quot;data.frame&quot;</span></a></code></pre></div>
+<p>Two datasets (<code>oa_boundaries</code> and <code>ward_boundaries</code>) are a special class of tibble. Enter <code>class(&lt;tibble-name&gt;)</code> into the console and you will notice that they are of class <code>data.frame</code> <em>and</em> <a href="https://github.com/r-spatial/sf"><code>sf</code></a>. Browsing these tibbles with <code>View(&lt;tibble-name&gt;)</code> you will find that the final columns are labelled <code>geometry</code>: each cell contains a vector of coordinates describing the corresponding geographic areas (Output Area, OA, for <code>oa_boundaries</code> and Wards for <code>ward_boundaries</code>) . Other variables in this tibble identify: the OAC group (supergroup, group and subgroup) of the OA (for <code>oa_boundaries</code>) and the name, geographic area and centroid (for <code>ward_boundaries</code>).</p>
+<p>You will use these datasets to generate maps of your synthetic population, both for supporting data analysis of your synthetic population data (in Practical 2) and reasoning over uncertainty in the synthetically generated data (in this practical).</p>
+<h2 id="task-2-generate-synthetic-population-data">Task 2: Generate synthetic population data</h2>
+<h3 id="task-2.1-refactor-variables-and-check-for-matches">Task 2.1: Refactor variables and check for matches</h3>
+<p>You will now run a spatial microsimulation that assigns the individual level attributes from the <code>individuals</code> tibble to Leeds households characterised in the Census constraint files <code>_cons</code>. You will do so using the <a href="https://philmikejones.github.io/rakeR/index.html"><code>rakeR</code></a> package, which provides functions for generating a spatial microsimulated dataset.</p>
+<p>Run the code chunks in the section, <em>Refactor variables and check for matches</em>. Since the <code>individuals</code> dataset must be linked to the <code>_cons</code> data, you must first ensure that the variable names in <code>_cons</code> exactly match the unique <em>levels</em> in the <code>individuals</code> dataset. This is achieved by casting the <code>individuals</code> variables that are to be matched as factors, and then reordering them according to the variable order in the <code>_cons</code> data.<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Don’t worry if you found the last two sentences difficult to understand. It is nevertheless worth reading a little about <a href="https://r4ds.had.co.nz/factors.html">factors</a> as you will inevitably work with them as you develop as R programmers<br />
+<br />
+</span></span></p>
+<h3 id="task-2.2-generate-the-miscrosimulated-data">Task 2.2: Generate the miscrosimulated data</h3>
+<p>The first code chunk in this section <strong>specifies the variables</strong> that will be used as constraints. In the example code, I’ve specified the <code>oac_grp</code> and <code>age_sex</code> constraints. You are free to specify a different set of constraints – you may find it instructive to explore different outcomes, e.g. different microsimulated data that result from differently specified constraints. Note that once the constraint variables are identified, we generate a single constraint <a href="https://r4ds.had.co.nz/tibbles.html"><code>tibble</code></a> with <code>inner_join()</code><span><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote">Enter <code>?inner_join()</code> for documentation on this function: the datasets are by default joined on variables in the two datasets (<code>oac_cons</code> and <code>age_sex_cons</code>) with shared names, <code>oa_code</code> in this case.<br />
+<br />
+</span></span>.</p>
+<p>Next: <strong>generate weights</strong> (using <code>weight()</code>). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (<code>individuals</code>) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA; as you would expect this is a sparse matrix containing many <code>0</code> values.</p>
+<p>In order to <strong>generate the microsimulated dataset</strong>, it is necessary to move from these fractional weights to integer weights. Individuals must be <em>cloned</em> and assigned to OAs consisent with the constaints data – in a way that minimises the difference between the OA-level statistics given by the constraints and the aggregated results of the simulated individuals. Here <a href="https://www.sciencedirect.com/science/article/pii/S0198971513000240">Lovelace &amp; Ballas’ (2013)</a> ‘<em>truncate, replicate, sample</em>’ method is used to allocate <em>cloned</em> individuals to OAs; the procedure is abstracted into the <code>rake()</code> function. After running the code chunk (containing <code>rake()</code>), inspect the simulated dataset with <code>glimpse&lt;tibble-name&gt;</code>. You will notice that the simulated dataset contains c.320,600 observations – equal to the number of households in Leeds – and that the first variable in the dataset is <code>person_id</code>: each row represents a respondent from the <code>individuals</code> dataset allocated to an OA in Leeds (<code>zone</code> variable).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(simulated_oac_age_sex)</a>
+<a class="sourceLine" id="cb6-2" title="2">Observations<span class="op">:</span><span class="st"> </span><span class="dv">320</span>,<span class="dv">596</span></a>
+<a class="sourceLine" id="cb6-3" title="3">Variables<span class="op">:</span><span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">$</span><span class="st"> </span>person_id <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>, <span class="dv">1000</span>, <span class="dv">1030</span>, <span class="dv">1250</span>, <span class="dv">1447</span>, <span class="dv">1532</span>, <span class="dv">1587</span>, <span class="dv">1754</span>, …</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="op">$</span><span class="st"> </span>oac_grp   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, 8…</a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="op">$</span><span class="st"> </span>age_sex   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65over, m50to64, m35to49, m65over, m…</a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="op">$</span><span class="st"> </span>zone      <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E0005675…</span></a></code></pre></div>
+<h2 id="task-3-explore-uncertainty-in-the-simulated-dataset">Task 3: Explore uncertainty in the simulated dataset</h2>
+<p>Certain OAs in Leeds will be better represented by the individual-level survey datasets than others. OAs that are well-represented will contain only unique individuals (unique <code>person_id</code>); those OAs will also be characterised by generally low weights describing individuals (survey respondents) assigned. This can be evaluated visually be generating histograms and maps of summary statistics, calculated at the OA level, on the <em>weight</em> and <em>simulated</em> datasets.</p>
+<h3 id="task-3.1-generate-oa-level-summary-statistics">Task 3.1: Generate OA-level summary statistics</h3>
+<p>The code chunk in this section generates a <code>weights_summary</code> dataset, whereby weights are grouped (<code>group_by()</code>) and summarised (<code>summarise()</code>) by OA, with <code>0</code> weights removed. Here, the <code>mean()</code>, <code>max()</code> and <code>sd()</code> of non-<code>0</code> weights are calculated. These statistics tell us something about model uncertainty as they indicate the extent of oversampling – that is, instances where the <em>same</em> respondent is assigned to the <em>same</em> OA several times. This can also be investigated explicitly by calculating at the OA-level, the proportion of simulated households that are based on unique individuals.</p>
+<h3 id="task-3.2-plot-oa-level-summary-statistics">Task 3.2: Plot OA-level summary statistics</h3>
+<p>The next code chunks generate histograms and choropleth maps of these summary statistics using the <a href="https://ggplot2.tidyverse.org"><code>ggplot2</code></a> package: <em>the</em> visualization toolkit in R used across academia and industry in which graphics are specified declaratively<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote">Check out <a href="https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535">this post</a> on the BBC’s use of <code>ggplot2</code><br />
+<br />
+</span></span>. There will be more discussion on how to write <code>ggplot2</code> specifications in the lab <em>proper</em>.</p>
+<figure class="fullwidth">
+<img src="../../images/assignment/practical1_uncertainty.png" alt="Exploring uncertainty" />
+</figure>
+<p>Notice that there is some spatial grouping of OAs in Leeds of areas that are less well represented by the individual-level survey data. We could explore this further by creating boxplots of these summary statistics by OAC supergroup to analyse these scores by different <em>categories</em> of area. This is instructive (below): <em>Ethnicity Central</em> and <em>Cosmopolitans</em> are not well represented by the individual-level survey data.</p>
+<figure class="fullwidth">
+<img src="../../images/assignment/practical1_uncertainty_boxplots.png" alt="Exploring uncertainty" />
+</figure>
+<h2 id="task-4-attach-individual-attributes-to-simulated-data">Task 4 Attach individual attributes to simulated data</h2>
+<p>A final activity this week is to perform a join on the simulated data and the attribute information contained in the <code>individuals</code> file.</p>
+<h3 id="task-4.1-a-quick-look-at-at-the-original-and-simulated-survey-data">Task 4.1: A quick look at at the original and simulated survey data</h3>
+<p>Inspecting the original individual-level survey data (<code>individuals</code>) and simulated data (<code>simulated_oac_age_sex</code>) with <code>glimpse(&lt;tibble-name&gt;)</code> shows that the simulated data does not yet contain all attributes collected from the survey. Only the variables that were used as constraints appear in the simulated dataset. This makes perfect sense given the way data are supplied to <code>rakeR</code>. Notice also that the simulated dataset contains a <code>zone</code> variable: individuals from the survey have been cloned and allocated to geographic zones, OAs in Leeds in this case, multiple times.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(individuals)</a>
+<a class="sourceLine" id="cb7-2" title="2">Observations<span class="op">:</span><span class="st"> </span><span class="dv">15</span>,<span class="dv">189</span></a>
+<a class="sourceLine" id="cb7-3" title="3">Variables<span class="op">:</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="op">$</span><span class="st"> </span>person_id            <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, 17…</a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">$</span><span class="st"> </span>oac_grp              <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">6</span>, …</a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">$</span><span class="st"> </span>sex                  <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>f, m, f, m, f, f, f, f, m, m, f, f, m, m, m, f, f, f, f, …</a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="op">$</span><span class="st"> </span>age_band             <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>a24under, a25to34, a50to64, a50to64, a24under, a35to49, a…</a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="op">$</span><span class="st"> </span>number_children      <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, …</a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="op">$</span><span class="st"> </span>household_income     <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;11-15K&quot;</span>, <span class="st">&quot;61-70K&quot;</span>, <span class="st">&quot;41-50K&quot;</span>, <span class="st">&quot;Not Answered&quot;</span>, <span class="st">&quot;Not Answer…</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="st">$ overseas_airport     &lt;chr&gt; &quot;</span>TFS<span class="st">&quot;, &quot;</span>EFL<span class="st">&quot;, &quot;</span>JTR<span class="st">&quot;, &quot;</span>ALC<span class="st">&quot;, &quot;</span>TFS<span class="st">&quot;, &quot;</span>NBE<span class="st">&quot;, &quot;</span>NBE<span class="st">&quot;, &quot;</span>MAH<span class="st">&quot;, &quot;</span>…</a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="op">$</span><span class="st"> </span>uk_airport           <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;MAN&quot;</span>, <span class="st">&quot;DSA&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;LBA&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;LBA&quot;</span>, <span class="st">&quot;…</span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="st">$ satisfaction_overall &lt;chr&gt; &quot;</span>good<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>excellent<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>poor<span class="st">&quot;, &quot;</span>exc…</a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="op">$</span><span class="st"> </span>age_sex              <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>f24under, m25to34, f50to64, m50to64, f24under, f35to49, f…</a>
+<a class="sourceLine" id="cb7-14" title="14"></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(simulated_oac_age_sex)</a>
+<a class="sourceLine" id="cb7-16" title="16">Observations<span class="op">:</span><span class="st"> </span><span class="dv">320</span>,<span class="dv">596</span></a>
+<a class="sourceLine" id="cb7-17" title="17">Variables<span class="op">:</span><span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb7-18" title="18"><span class="op">$</span><span class="st"> </span>person_id <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>, <span class="dv">1000</span>, 1030…</a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="op">$</span><span class="st"> </span>oac_grp   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>,…</a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="op">$</span><span class="st"> </span>age_sex   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65ov…</a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="op">$</span><span class="st"> </span>zone      <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E0…</span></a></code></pre></div>
+<h3 id="task-4.2-attach-individual-level-data-with-a-dplyr-join">Task 4.2: Attach individual-level data with a dplyr join</h3>
+<p>You will attach the individual-level data using a <code>dplyr join</code> function<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">Enter <code>?dplyr::join</code> into your R console for documentation on these functions<br />
+<br />
+</span></span>. This can be achieved with the code snippet below, which also appears in your <code>.Rmd</code> file. We take the simulated dataset (<code>simulated_oac_age_sex</code>) and <code>inner_join()</code> on the <code>individuals</code> data. By default <code>dplyr join</code> functions perform the join based on variable names that are shared between both datasets, <code>person_id</code> in this case.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="op">&gt;</span><span class="st"> </span>simulated_oac_age_sex &lt;-<span class="st"> </span>simulated_oac_age_sex <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(person_id, zone) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">     </span><span class="kw">inner_join</span>(individuals)</a>
+<a class="sourceLine" id="cb8-3" title="3">Joining, by =<span class="st"> &quot;person_id&quot;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(simulated_oac_age_sex)</a>
+<a class="sourceLine" id="cb8-6" title="6">Observations<span class="op">:</span><span class="st"> </span><span class="dv">320</span>,<span class="dv">596</span></a>
+<a class="sourceLine" id="cb8-7" title="7">Variables<span class="op">:</span><span class="st"> </span><span class="dv">11</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="op">$</span><span class="st"> </span>person_id            <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>,…</a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">$</span><span class="st"> </span>zone                 <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E000…</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="st">$ oac_grp              &lt;fct&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, …</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="st">$ sex                  &lt;fct&gt; m, f, m, m, m, m, m, f, m, m, m, m, m, f, f, f, f, f, m, …</span></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="st">$ age_band             &lt;fct&gt; a65over, a25to34, a25to34, a65over, a50to64, a25to34, a35…</span></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="st">$ number_children      &lt;int&gt; 0, 2, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, …</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="st">$ household_income     &lt;chr&gt; &quot;</span>Not Answered<span class="st">&quot;, &quot;</span><span class="dv">26</span><span class="op">-</span>30K<span class="st">&quot;, &quot;</span><span class="dv">26</span><span class="op">-</span>30K<span class="st">&quot;, &quot;</span>Not Answered<span class="st">&quot;, &quot;</span>Not …</a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="op">$</span><span class="st"> </span>overseas_airport     <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;PMI&quot;</span>, <span class="st">&quot;FAO&quot;</span>, <span class="st">&quot;CUN&quot;</span>, <span class="st">&quot;TFS&quot;</span>, <span class="st">&quot;PXO&quot;</span>, <span class="st">&quot;IBZ&quot;</span>, <span class="st">&quot;PMI&quot;</span>, <span class="st">&quot;DLM&quot;</span>, <span class="st">&quot;…</span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="st">$ uk_airport           &lt;chr&gt; &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>…</a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="op">$</span><span class="st"> </span>satisfaction_overall <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;poor&quot;</span>, <span class="st">&quot;fair&quot;</span>, <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;excellent&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;poo…</span></a>
+<a class="sourceLine" id="cb8-18" title="18"><span class="st">$ age_sex              &lt;fct&gt; m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35…</span></a></code></pre></div>
+<p>Most <em>data wrangling</em> type operations such as these are supported by functions that form the <code>dplyr</code> package. <code>dplyr</code> is within the family of packages that comprise the <code>tidyverse</code>: it shares a common underlying philosophy and syntax. If you enter <code>?dplyr</code>, you will find that many of its functions have been named with verbs that neatly describe their purpose — <code>filter()</code>, <code>select()</code>, <code>arrange()</code>, <code>group_by()</code>, <code>summarise()</code> and more. The pipe (<code>%&gt;%</code>) is a particularly handy operator that allows calls to these functions to be chained together; you might have noticed this being used throughout the practical.</p>
+<h2 id="end-of-practical">End of practical</h2>
+<p>Well done for completing this week’s practical. You have successfully run a Spatial Microsimulation model and created a synthetic population of households in Leeds. You were exposed to a reasonable amount of code in the practical, and certainly a procedure that will be new to you (and takes a while to wrap your head around). If you could only simply reproduce the examples discussed in this document via the <code>.Rmd</code> file – and most of the code went over you head – don’t worry! During this practical and the next, you will be given all the code necessary to complete the module and <em>Assignment 1</em>. As you develop as R programmers through the MSc, we would expect you to write code, and even develop R packages, of your own.<span><label for="sn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-10" class="margin-toggle"/><span class="marginnote"><img src="../../images/assignment/practical1_save.png" alt="Save window" /><br />
+<br />
+</span></span></p>
+<p>Before you leave the practical make make sure you save your work:</p>
+<ul>
+<li>Close your RStudio session by clicking on the red cross in the top left of the window.</li>
+<li>You will be asked to save the changes to the <code>.Rmd</code> in which you enter code and discussion and a <em>Workspace image</em> with the extension <code>.RData</code>. The <code>.RData</code> file stores all data objects (<code>tibbles</code>, <code>Values</code> and <code>Functions</code>) that you have created. Be sure to save both of these.</li>
+</ul>
+
+
+    </article>
+
+    <footer>
+        <hr class="slender">
+
+        <div class="course-info">
+        <span class="course-name">
+            GEOG5927M: Predictive Analytics (Autumn/Winter 2019)
+        </span><br>
+        <span>
+            <a href="https://www.leeds.ac.uk">University of Leeds</a> |
+            <a href="https://environment.leeds.ac.uk/geography">School of Geography</a>
+        </span>
+        </div>
+
+        <ul class="footer-links">
+            <li>
+            <a href="http://www.roger-beecham.com"><i class="fas fa-user"></i> Dr. Roger Beecham</a>
+            </li>
+
+            <li>
+            <a href="mailto:r.j.beecham@leeds.ac.uk"><i class="fas fa-envelope"></i> r.j.beecham@leeds.ac.uk</a>
+            </li>
+
+            <li>
+            <i class="far fa-calendar-alt"></i> Mon (lec) &amp; Weds (lab)
+            </li>
+
+            <li>
+            <i class="far fa-clock"></i> 2:00pm-4:00pm (lec)
+            </li>
+
+            <li>
+            <i class="fas fa-university"></i> Roger Stevens LT25 (12.25)
+            </li>
+
+            <li>
+            <a href="https://twitter.com/rjbeecham"><i class="fab fa-twitter"></i></a>
+            </li>
+
+            <li>
+            <a href="https://github.com/rogerbeecham"><i class="fab fa-github"></i></a>
+            </li>
+        </ul>
+
+        <div class="credits">
+        <span class="credit">All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span><br>
+
+        
+
+        <span class="credit">This site adapted from the <a href="https://github.com/andrewheiss/ath-tufte-hugo_18-19">ath-tufte-hugo theme</a> (thanks to <a href="https://www.andrewheiss.com">Andrew Heiss</a>). Made with <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> and <a href="https://gohugo.io/">Hugo</a>.</span>
+        </div>
+    </footer>
+
+    
+
+</div>
+</body>
+</html>
+
