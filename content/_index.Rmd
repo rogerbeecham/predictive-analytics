@@ -3,7 +3,7 @@ title: "Predictive Analytics"
 author: "Roger Beecham"
 ---
 
-^[{-} `r blogdown::shortcode("courseinfo")`] <span class="newthought">This site contains</span> the syllabus, schedule, and assignments for GEOG5927M: Predictive Analytics, held during Autumn/Winter term 2019 at University of Leeds. TEST.
+^[{-} `r blogdown::shortcode("courseinfo")`] <span class="newthought">This site contains</span> the syllabus, schedule, and assignments for the module GEOG5927M: Predictive Analytics, held during Autumn/Winter term 2019 at University of Leeds. 
 
 
 <figure>
