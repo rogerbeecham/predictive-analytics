@@ -34,9 +34,9 @@ theme_set(theme_minimal())
 First download the data.
 
 ```{r download, eval=FALSE}
-# Path to data dowload.
-url_data <- "http://homepages.see.leeds.ac.uk/~georjb/predictive_analytics/"
-download.file(paste0(url_data,"data.zip"), "./data.zip")
+# Path to data download.
+url_data <- "https://www.roger-beecham.com/datasets/"
+download.file(paste0(url_data,"microsim_5927.zip"), "./data.zip")
 unzip("./data.zip")
 ```
 
