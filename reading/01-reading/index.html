@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-gb"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Roger Beecham">
+    <meta name="description" content="Introduces techniques for simulating and predicting social behaviour">
+
+    <meta name="twitter:card" value="summary_large_image">
+    <meta name="twitter:site" content="@rjbeecham">
+    <meta name="twitter:title" content="Simulating Behaviour | GEOG5927M: Predictive Analytics">
+    <meta name="twitter:creator" content="@rjbeecham">
+    <meta name="twitter:image" content="/images/geog5927m.png">
+    <meta name="twitter:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta property="og:site_name" content="GEOG5927M: Predictive Analytics"/>
+    <meta property="og:title" content="Simulating Behaviour | GEOG5927M: Predictive Analytics">
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/images/geog5927m.png">
+    <meta property="og:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta name="generator" content="Hugo 0.79.0" />    
+
+    <title>Simulating Behaviour | GEOG5927M: Predictive Analytics</title>
+    <link rel="canonical" href="../../reading/01-reading/">
+    <link href="../../theme/css/tufte.css" rel="stylesheet">
+    <link href="../../theme/css/latex.css" rel="stylesheet">
+    <link href="../../theme/css/custom.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .wrap a, .wrap a:visited {
+            color: #a50f15;
+        }
+
+        .wrap a:hover {
+            color: #ef3b2c;
+        }
+
+        .wrap p > a {
+            color: #a50f15;
+        }
+
+        article .sidenote-number:after, article .sidenote:before {
+            color: #a50f15;
+        }
+
+        article .sidenote:before {
+            color: #a50f15;
+        }
+
+        @media (max-width: 760px) {
+            label.margin-toggle:not(.sidenote-number) {
+                color: #a50f15;
+            }
+        }
+
+        .contrast a, .contrast a:visited {
+            color: #a50f15; 
+        }
+
+        header > nav a {
+            color: #a50f15;
+        }
+
+        .credits a {
+            color: #a50f15;
+        }
+
+        .wrap .tag {
+            background: #a50f15;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../../images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="GEOG5927M: Predictive Analytics"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/images/mstile-144x144.png" />
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600|Roboto:300,400" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+<div class="wrap">
+    <header>
+        <nav class="group logo-wrap">
+            <a href="../../" class="logo"><img src="../../images/geog5927m.png" alt="Predictive Analytics"></a>
+            <h1 class="websitetitle"><a href="../../">GEOG5927M: Predictive Analytics</a></h1>
+        </nav>
+        <nav class="bottom-group">
+            
+            <a href="../../syllabus/">Syllabus</a>
+            
+            <a href="../../schedule/">Schedule</a>
+            
+            <a href="../../install/">R</a>
+            
+        </nav>
+    </header>
+
+
+    <article class="group">
+    <h1>Simulating Behaviour</h1>
+
+    
+
+    
+<script src="../../rmarkdown-libs/accessible-code-block/empty-anchor.js"></script>
+<link href="../../rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<h2 id="data-science-predictive-analytics">Data science, predictive analytics</h2>
+<!-- - <i class="far fa-file-pdf"></i> Birkin, M. (2018)[@birkin_spatial_2018] "Spatial data analytics of mobility with consumer data".
+
+- <i class="far fa-file-pdf"></i> Lovelace, R. et al. (2016)[@lovelace_from_2016] "From Big Noise to Big Data: Toward the Verification of Large Data sets for Understanding Regional Retail Flows". -->
+<ul>
+<li><p><i class="far fa-file-pdf"></i> Arribas-Bel, D. &amp; Reades, J. (2018)<span class="citation"><span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Dani Arribas-Bel and Jon Reades, “Geography and Computers: Past, Present, and Future,” <em>Geography Compass</em> 12, no. 10 (2018): e12403, doi:<a href="https://doi.org/10.1111/gec3.12403" role="doc-biblioref">10.1111/gec3.12403</a>.<br />
+<br />
+</span></span></span> “Geography and computers: Past, present and future”.</p></li>
+<li><p><i class="far fa-file-pdf"></i> Lazer, D. et al. (2014)<span class="citation"><span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">David Lazer et al., “The Parable of Google Flu: Traps in Big Data Analysis,” <em>Science</em> 343, no. 6176 (2014): 1203–5, doi:<a href="https://doi.org/10.1126/science.1248506" role="doc-biblioref">10.1126/science.1248506</a>.<br />
+<br />
+</span></span></span> “The Parable of Google Flu: Traps in Big Data Analysis”.</p></li>
+<li><p><i class="far fa-file-pdf"></i> Singleton, A. &amp; Arribas-Bel, D. (2019)<span class="citation"><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">Alex Singleton and Dani Arribas-Bel, “Geographic Data Science,” <em>Geographical Analysis</em>, 2019, doi:<a href="https://doi.org/10.1111/gean.12194" role="doc-biblioref">10.1111/gean.12194</a>.<br />
+<br />
+</span></span></span> “Geographic Data Science”.</p></li>
+</ul>
+<h2 id="spatial-microsimulation">Spatial Microsimulation</h2>
+<h3 id="general">General</h3>
+<ul>
+<li><i class="fas fa-book"></i> Birkin M. et al. (2016) Using Census Data in Microsimulation Modelling, chapter in Stillwell, J. (ed)<span class="citation"><span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">John Stillwell, <em>The Routledge Handbook of Census Resources, Methods and Applications</em> (London, UK: Routledge, 2016), <a href="https://www.routledge.com/The-Routledge-Handbook-of-Census-Resources-Methods-and-Applications-Unlocking/Stillwell/p/book/9781472475886" role="doc-biblioref">https://www.routledge.com/The-Routledge-Handbook-of-Census-Resources-Methods-and-Applications-Unlocking/Stillwell/p/book/9781472475886</a>.<br />
+<br />
+</span></span></span>.</li>
+<li><i class="far fa-file-pdf"></i> Whitworth et al. (2017)<span class="citation"><span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">A Whitworth et al., “Estimating Uncertainty in Spatial Microsimulation Approaches to Small Area Estimation: A New Approach to Solving an Old Problem,” <em>Computers, Environment and Urban Systems</em> 63, no. 63 (2017): 50–57, doi:<a href="https://doi.org/10.1016/j.compenvurbsys.2016.06.004" role="doc-biblioref">10.1016/j.compenvurbsys.2016.06.004</a>.<br />
+<br />
+</span></span></span> “Estimating uncertainty in spatial microsimulation approaches to small area estimation: A new approach to solving an old problem”. Interesting paper exploring uncertainty in spatial microsimulation approaches.</li>
+</ul>
+<h3 id="with-r">With R</h3>
+<ul>
+<li><i class="fas fa-book"></i> Lovelace, R. and Dumont, M. (2016)<span class="citation"><span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Robin Lovelace and M Dumont, <em>Spatial Microsimulation with R</em> (London, UK: CRC Press, 2016), <a href="https://spatial-microsim-book.robinlovelace.net/" role="doc-biblioref">https://spatial-microsim-book.robinlovelace.net/</a>.<br />
+<br />
+</span></span></span> <em>Spatial microsimulation with R</em>. London: Taylor and Francis. Comprehensively discusses Spatial Microsimulation and procedures for generating micsrosimulated datasets in R.</li>
+</ul>
+<h2 id="r-primers">R primers</h2>
+<ul>
+<li><i class="fas fa-book"></i> Hadley Wickham and Garrett Grolemund’s<span class="citation"><span><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote">Hadley Wickham and Garrett Grolemund, <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em> (Sebastopol, California: O’Reilly Media, 2017), <a href="http://r4ds.had.co.nz/" role="doc-biblioref">http://r4ds.had.co.nz/</a>.<br />
+<br />
+</span></span></span> <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> provides everything you need to know when starting with data analysis in R.</li>
+<li><i class="fas fa-book"></i> Kieran Healy’s<span class="citation"><span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote">Kieran Healy, <em>Data Visualization: A Practical Introduction</em> (Princeton: Princeton University Press, 2018), <a href="http://socviz.co/" role="doc-biblioref">http://socviz.co/</a>.<br />
+<br />
+</span></span></span> recent book <a href="http://socviz.co/.html"><em>Data Visualization</em></a> is perhaps the best I’ve seen on Data Visualization in R.</li>
+</ul>
+
+
+    </article>
+
+    <footer>
+        <hr class="slender">
+
+        <div class="course-info">
+        <span class="course-name">
+            GEOG5927M: Predictive Analytics (Summer 2021)
+        </span><br>
+        <span>
+            <a href="https://www.leeds.ac.uk">University of Leeds</a> |
+            <a href="https://environment.leeds.ac.uk/geography">School of Geography</a>
+        </span>
+        </div>
+
+        <ul class="footer-links">
+            <li>
+            <a href="http://www.roger-beecham.com"><i class="fas fa-user"></i> Dr. Roger Beecham</a>
+            </li>
+
+            <li>
+            <a href="mailto:r.j.beecham@leeds.ac.uk"><i class="fas fa-envelope"></i> r.j.beecham@leeds.ac.uk</a>
+            </li>
+
+            <li>
+            <i class="far fa-calendar-alt"></i> Mon (lec) &amp; Weds (lab) &amp; Fri (recap)
+            </li>
+
+            <li>
+            <i class="far fa-clock"></i> 2:00pm-3:00pm (lec|recap)
+            </li>
+
+            <li>
+            <i class="fas fa-university"></i> Online
+            </li>
+
+            <li>
+            <a href="https://twitter.com/rjbeecham"><i class="fab fa-twitter"></i></a>
+            </li>
+
+            <li>
+            <a href="https://github.com/rogerbeecham"><i class="fab fa-github"></i></a>
+            </li>
+        </ul>
+
+        <div class="credits">
+        <span class="credit">All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span><br>
+
+        
+
+        <span class="credit">This site adapted from the <a href="https://github.com/andrewheiss/ath-tufte-hugo_18-19">ath-tufte-hugo theme</a> (thanks to <a href="https://www.andrewheiss.com">Andrew Heiss</a>). Made with <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> and <a href="https://gohugo.io/">Hugo</a>.</span>
+        </div>
+    </footer>
+
+    
+
+</div>
+</body>
+</html>
+

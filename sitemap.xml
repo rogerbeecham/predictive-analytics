@@ -3,11 +3,86 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/index.html</loc>
+    <loc>/class/</loc>
+    <lastmod>2019-12-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2019-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/class/05-class/</loc>
+    <lastmod>2019-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/class/04-class/</loc>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/class/03-class/</loc>
+    <lastmod>2019-11-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/class/02-class/</loc>
+    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/class/01-class/</loc>
+    <lastmod>2019-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/index.html</loc>
+  </url>
+  
+  <url>
+    <loc>/reading/03-reading/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignment/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignment/01-simulating-behaviour/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignment/02-targeted-marketing/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignment/03-abms/</loc>
+  </url>
+  
+  <url>
+    <loc>/install/</loc>
+  </url>
+  
+  <url>
+    <loc>/reading/</loc>
+  </url>
+  
+  <url>
+    <loc>/schedule/</loc>
+  </url>
+  
+  <url>
+    <loc>/reading/01-reading/</loc>
+  </url>
+  
+  <url>
+    <loc>/syllabus/</loc>
+  </url>
+  
+  <url>
+    <loc>/reading/02-reading/</loc>
   </url>
   
 </urlset>
