@@ -43,14 +43,14 @@ params:
     office: 10.139 Manton
   course:
     number: GEOG5927M
-    semester: Autumn/Winter 2019
-    days: "Mon (lec) & Weds (lab)"
-    time: "2:00pm-4:00pm (lec)"
-    location: "Roger Stevens LT25 (12.25)"
+    semester: Summer 2021
+    days: "Mon (lec) & Weds (lab) & Fri (recap)"
+    time: "2:00pm-3:00pm (lec|recap)"
+    location: "Online"
     twitter: rjbeecham
-    dates: "November 11–December 11, 2019"
+    dates: "June 21–July 21, 2021"
     github: "rogerbeecham"
-    copyrightYear: "2019"
+    copyrightYear: "2021"
   university:
     name: University of Leeds
     url: "https://www.leeds.ac.uk"
