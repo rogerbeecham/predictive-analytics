@@ -201,14 +201,14 @@ code span.wa { color: #bf0303; } /* Warning */
 <p><span class="newthought">R is a free, open statistical programming language and environment.</span> Released as open source software as part of a research project in 1995, for some time R was the preserve of academics. From 2010s onwards, with the advent of <em>Big Data</em> and new sub-disciplines such as <em>Data Science</em>, R enjoyed rapid growth and is used increasingly outside of academia, by organisations such as Google [<a href="https://research.google.com/pubs/pub37483.html">example</a>], Facebook [<a href="http://flowingdata.com/2010/12/13/facebook-worldwide-friendships-mapped/">example</a>], Twitter [<a href="https://blog.twitter.com/official/en_us/a/2013/the-geography-of-tweets.html">example</a>], New York Times [<a href="http://www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseballexample">example</a>] and many more.</p>
 <p>Rather than simply a free alternative to proprietary statistical analysis software such as SPSS, R is a programming language in and of itself and can be used for:</p>
 <ul>
-<li><p>Data Visualization design: <a href="http://spatial.ly/2014/08/population-lines/">PopulationLines</a></p></li>
+<li><p>Data Visualization design: <a href="https://github.com/rogerbeecham/uk-general-election-vis/blob/master/README.md">2019 GE Vis</a></p></li>
 <li><p>Developing interactive (visualization) software: <a href="https://gehlenborglab.shinyapps.io/upsetr/">UpSet</a></p></li>
 <li><p>As a GIS: <a href="http://robinlovelace.net/geocompr/">Geocomp with R</a></p></li>
 <li><p>As a word processor / web publisher: <a href="http://rmarkdown.rstudio.com/gallery.html">R Markdown</a></p></li>
 </ul>
 <h2 id="why-r">Why R?</h2>
 <h3 id="free-open-source-with-an-active-community">Free, open-source with an active community</h3>
-<p>The cost motive is obvious, but the benefits that come from being fully open-source, with a critical mass of users are many.</p>
+<p>There are many benefits that come from being fully open-source, with a critical mass of users.</p>
 <p>Firstly, there is a burgeoning array of online forums, tutorials and code examples through which to learn R. <a href="https://stackoverflow.com/questions/tagged/r">StackOverflow</a> is a particularly useful resource for answering more individual questions.</p>
 <p>Second, with such a large community, there are numerous expert R users who themselves contribute by developing <em>libraries</em> or <em>packages</em><span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important, though very recent, set of packages is the <a href="http://www.tidyverse.org">tidyverse</a>: a set of libraries which share a common underlying philosophy, syntax and documentation.<br />
 <br />
@@ -221,7 +221,6 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>In recent years there has been much introspection around how science works – around how statistical claims are made from reasoning over evidence. This came on the back of, amongst other things, a high profile paper published in <a href="http://science.sciencemag.org/content/349/6251/aac4716">Science</a>, which found that of 100 recent peer-reviewed psychology experiments, the findings of only 39 could be replicated. The upshot is that researchers must now make every possible effort to make their work transparent. In this setting, traditional data analysis software that support point-and-click interaction is unhelpful; it would be tedious to make notes describing all interactions with, for example, SPSS. As a declarative programming language, however, it is very easy to provide such a provenance trail for your workflows in R since this necessarily exists in your analysis scripts.</p>
 <p>Concerns around the <em>reproducibility crisis</em> are not simply a function of transparency in methodology and research design. Rather, they relate to a culture and incentive structure whereby scientific claims are conferred with authority when reported within the (slightly backwards) logic of Null Hypothesis Significance Testing (NHST) and <em>p-values</em>. For an accessible read on the phenomenon of <em>p-hacking</em> (with interactive graphic) see <a href="https://fivethirtyeight.com/features/science-isnt-broken/#part1">this article</a> from the excellent <a href="http://fivethirtyeight.com">FiveThirtyEight</a> website. Again, the upshot of all this introspection is a rethinking of the way in which Statistics is taught in schools and universities, with greater emphasis on understanding through computational approaches rather than traditional equations, formulas and probability tables. Where does R fit within this? Simply put: R is far better placed than traditional software tools and point-and-click paradigms for supporting computational approaches to statistics – with a set of methods and libraries for performing simulations and permutation-based tests.</p>
 <h2 id="r-and-rstudio-on-your-machine">R and RStudio on your machine</h2>
-<p>Although R and RStudio are installed locally on all computers available to you during the practicals, it is <strong>highly recommended</strong> that you install R on your own machines – and in fact that you work on your personal machines during the practicals.</p>
 <h3 id="install-r">Install R</h3>
 <p>First you need to install R itself.</p>
 <ol style="list-style-type: decimal">
@@ -270,6 +269,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <br />
 </span></span> <a href="http://robinlovelace.net/geocompr/"><em>Geocomputation with R</em></a>. This book comprehensively introduces spatial data handling in R. It is a great complement to <em>R for Data Science</em> in that it draws on brand new libraries that support <code>tidyverse</code>-style operations on spatial data.</p></li>
 </ul>
+<h2 id="references" class="unnumbered">References</h2>
 <div id="refs" class="references">
 <div id="ref-lovelace_geocomputation_2019">
 <p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. <em>Geocomputation with R</em>. London, UK: CRC Press. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.</p>
@@ -309,7 +309,7 @@ code span.wa { color: #bf0303; } /* Warning */
             </li>
 
             <li>
-            <i class="far fa-clock"></i> 2:00pm-3:00pm (lec|recap)
+            <i class="far fa-clock"></i> 2:00pm-3:00pm (lec)
             </li>
 
             <li>

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>GEOG5927 Predictive Analytics : Simulating Behaviour</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Roger Beecham" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="slides-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# GEOG5927 Predictive Analytics : Simulating Behaviour
+### Roger Beecham
+### last updated: 2021-04-27
+
+---
+
+
+
+
+## Simulating behaviour practical
+
+
+&lt;img src = "img/sim_behaviour_prac.png", width = 50%, style = "position:relative; top: 30%;"&gt;&lt;/img&gt;
+
+
+--
+
+.tiny-font[
+Assumes an understanding of:
+* `dplyr` for data processing and shaping
+* `ggplot2` for charting
+
+... But don't worry:
+* All code required to complete the practical is provided
+* The assessment tests ability to present a coherent data analysis, not your ability to code in `R`
+]
+
+---
+
+
+## Simulating behaviour practical: survey dataset
+
+&lt;br&gt;
+
+`individuals.csv`
+  `15,189 records`
+
+  &lt;table&gt;
+   &lt;thead&gt;
+    &lt;tr&gt;
+     &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; var_name &lt;/th&gt;
+     &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; var_values &lt;/th&gt;
+     &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; var_type &lt;/th&gt;
+    &lt;/tr&gt;
+   &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; age_band &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; a24under, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; demographic &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; income_band &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; 11-15k, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; demographic &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; oac_grp &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; 1,2,3,... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; geodemographic &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; uk_airport &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; MAN, DSA, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; preference &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; overseas_airport &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; TFS, EFL, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; preference &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; satisfaction_overall &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; 1_poor, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; preference/attitude &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;/table&gt;
+
+---
+
+
+## Simulating behaviour practical : use case
+
+
+
+&lt;img src = "img/beach.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"&gt;&lt;/img&gt;
+
+
+
+
+---
+
+
+## Simulating behaviour practical : use case
+
+
+
+&lt;img src = "img/beach_people.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"&gt;&lt;/img&gt;
+
+
+---
+## Simulating behaviour practical : use case
+
+.small-font[
+`individuals.csv`
+  `15,189 records`
+  &lt;br&gt;
+  `--------`
+]
+&lt;img src = "img/geogs.png", width = 90%, style = "position:relative;"&gt;&lt;/img&gt;
+
+
+---
+
+## Spatial microsimulation
+
+
+.pull-left[.right[
+`Survey data`
+.small-font[
+individual-level and rich in detail &lt;br&gt;
+small sample and may be biased
+]]
+]
+
+&lt;img src = "img/icon_survey.jpg", width = 20%, style = "position:absolute; top: 28%; left: 52%;"&gt;&lt;/img&gt;
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+.pull-right[.left[
+`Census data`
+.small-font[
+high-level and low in detail &lt;br&gt;
+population-level and complete
+]]
+]
+
+&lt;img src = "img/icon_census.jpeg", width = 20%, style = "position:absolute; top: 65%; left: 28%;"&gt;&lt;/img&gt;
+
+
+
+
+---
+
+## Spatial microsimulation
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.small-font[
+&gt; *The creation, analysis and modelling of individual-level data allocated to geographic zones.*
+&gt;
+&gt; Lovelace &amp; Dumont 2016
+]
+
+
+---
+
+## Spatial microsimulation
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src = "img/individuals_areas.jpg", width = 50%, style = "position:relative"&gt;&lt;/img&gt;
+
+---
+
+
+
+## Spatial microsimulation
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src = "img/individuals_areas_constraints.jpg", width = 60%, style = "position:relative"&gt;&lt;/img&gt;
+
+---
+
+## Spatial microsimulation
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src = "img/individuals_areas_2.jpg", width = 70%, style = "position:relative"&gt;&lt;/img&gt;
+
+---
+
+
+## Spatial microsimulation
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src = "img/individuals_areas_consraints_2.jpg", width = 75%, style = "position:relative"&gt;&lt;/img&gt;
+
+---
+
+## Spatial microsimulation
+
+&lt;br&gt;
+.pull-left[.right[
+Microsimulation does not&lt;br&gt;
+generate **new data** &lt;br&gt;
+`-----`
+]]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+.pull-right[.left[
+`-----` &lt;br&gt;
+But **copies of existing data**
+]]
+---
+
+
+## Spatial microsimulation: Assumptions
+
+ .pull-left[
+.small-font[
+1. Individual-level microdata are representative of the study area &lt;br&gt;
+
+2. Target variable is dependent on the constraint variables in a way that is relatively constant over space and time &lt;br&gt;
+
+3. Input microdataset and constraints are sufficiently rich and detailed to reproduce the full diversity of individuals and areas in the study region
+]]
+
+---
+
+
+## Simulating behaviour practical
+
+ .pull-left[
+ &lt;br&gt;
+&lt;img src = "img/sim_behaviour_prac.png", width = 100%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+]
+
+ .pull-right[
+ &lt;br&gt;
+ .small-font[
+`individuals.csv : 15,189 records`
+  &lt;br&gt;
+  `-------` &lt;br&gt;
+  spatial microsimulation &lt;br&gt;
+  `-------` &lt;br&gt;
+  `simulated_oac_age_sex.csv : 320,596 records`
+]]
+---
+
+
+## Set-up
+
+#### Task 1.2: Configure your R session
+
+.xtiny-font[
+
+```r
+# Bundle of packages for data manipulation.
+# install.packages("tidyverse")
+library(tidyverse)
+
+# For working with geospatial data.
+# install.packages("sf")
+library(sf)
+
+# For performing microsimulation. If working from your own machine uncomment to download.
+# install.packages("rakeR")
+```
+]
+
+* [`rakeR`](https://philmikejones.me/rakeR/) &lt;br&gt;
+.small-font[
+ + *Create a spatial microsimulated data set in R using iterative proportional fitting (‘raking’).*
+]
+---
+
+
+## Set-up
+
+#### Task 1.3: Download and read in data
+
+.small-font[
+ * Download to your project's `data` folder.
+]
+
+.xtiny-font[
+
+```r
+# Path to data download.
+url_data &lt;- "https://www.roger-beecham.com/datasets/"
+download.file(paste0(url_data,"microsim_5927.zip"), "./data.zip")
+unzip("./data.zip")
+```
+]
+
+
+.small-font[
+ * `read_csv()` for Census and Survey data | `st_read()` for boundary data.
+]
+
+.xtiny-font[
+
+```r
+# Read in Census data (constraints)
+age_cons &lt;- read_csv("./data/age_cons.csv")
+...
+...
+
+# Read in individual-level survey data
+individuals &lt;- read_csv("./data/individuals.csv")
+
+# Read in geojson files defining OAs and wards in Leeds
+oa_boundaries &lt;- st_read("./data/oa_boundaries.geojson", crs=27700)
+...
+```
+]
+---
+
+## Generate synthetic data
+
+#### Task 2.1: Refactor variables and check for matches
+
+.small-font[
+ `individuals` and `*_cons` (Census) data need to be related
+ ]
+
+.xtiny-font[
+ 
+ ```r
+ # Recast as factor
+ individuals &lt;- individuals %&gt;%
+   mutate_at(
+     vars(oac_grp, sex,age_band, age_sex),
+     ~factor(.)
+     )
+ 
+ # Reorder according to order vars appear in constraints table : required by rakeR.
+ individuals &lt;- individuals %&gt;%
+   mutate(
+     oac_grp=fct_relevel(oac_grp, colnames(oac_cons %&gt;% select(-oa_code))),
+     sex=fct_relevel(sex, colnames(sex_cons %&gt;% select(-oa_code))),
+     age_band=fct_relevel(age_band, colnames(age_cons %&gt;% select(-oa_code))),
+     age_sex=fct_relevel(age_sex, colnames(age_sex_cons %&gt;% select(-oa_code)))
+ )
+ ```
+ ]
+
+---
+
+## Generate synthetic data
+
+#### Task 2.1: Refactor variables and check for matches
+
+.small-font[
+ `individuals` and `*_cons` (Census) data need to be related
+ ]
+
+.tiny-font[
+1. **Convert** the `individuals` variables to be matched with the constraints tibbles as **factors**
+]
+
+.xtiny-font[
+ 
+ ```r
+ &gt; class(individuals %&gt;% pull(oac_grp))
+ [1] "numeric"
+ 
+ # Recast as factor
+ individuals &lt;- individuals %&gt;%
+   mutate_at(
+     vars(oac_grp, sex,age_band, age_sex),
+     ~factor(.)
+     )
+ 
+ &gt; class(individuals %&gt;% pull(oac_grp))
+ [1] "factor"
+ ```
+ ]
+
+
+---
+
+## Generate synthetic data
+
+#### Task 2.1: Refactor variables and check for matches
+
+.small-font[
+ `individuals` and `*_cons` (Census) data need to be related
+ ]
+
+.tiny-font[
+1. **Convert** the `individuals` variables to be matched with the constraints tibbles as **factors**
+2. **Reorder** according to the variable order in the constraints tibbles
+]
+
+.xtiny-font[
+ 
+ ```r
+ # Reorder according to order vars appear in constraints table : required by rakeR.
+ individuals &lt;- individuals %&gt;%
+  mutate(
+    oac_grp=fct_relevel(oac_grp, colnames(oac_cons %&gt;% select(-oa_code))),
+    sex=fct_relevel(sex, colnames(sex_cons %&gt;% select(-oa_code))),
+    age_band=fct_relevel(age_band, colnames(age_cons %&gt;% select(-oa_code))),
+    age_sex=fct_relevel(age_sex, colnames(age_sex_cons %&gt;% select(-oa_code)))
+ )
+ 
+ # Notice that the orders now match...
+ &gt; colnames(age_cons)
+ [1] "oa_code"  "a24under" "a25to34"  "a35to49"  "a50to64"  "a65over"
+ 
+ &gt; individuals %&gt;% pull(age_band) %&gt;% levels()
+ [1] "a24under" "a25to34"  "a35to49"  "a50to64"  "a65over"
+ ```
+]
+---
+
+## Generate synthetic data
+
+#### Task 2.1: Refactor variables and check for matches
+
+.small-font[
+ `individuals` and `*_cons` (Census) data need to be related
+ ]
+
+.tiny-font[
+1. **Convert** the `individuals` variables to be matched with the constraints tibbles as **factors**
+2. **Reorder** according to the variable order in the constraints tibbles
+]
+
+.xtiny-font[
+
+```r
+# Check levels and variable names exactly match.
+&gt; all.equal(
+    levels(individuals$age_sex),
+     colnames(age_sex_cons %&gt;% select(-oa_code))
+ )
+[1] TRUE
+```
+]
+
+
+
+.small-font[
+ Note that both **values** and **orders** match:
+ ]
+
+.xtiny-font[
+
+```r
+&gt; levels(individuals %&gt;% pull(age_sex))
+[1] "m24under" "m25to34"  "m35to49"  "m50to64"  "m65over"  "f24under" "f25to34"  "f35to49"  "f50to64"  "f65over"
+```
+]
+
+.xtiny-font[
+
+```r
+&gt; colnames(age_sex_cons %&gt;% select(-oa_code))
+ [1] "m24under" "m25to34"  "m35to49"  "m50to64"  "m65over"  "f24under" "f25to34"  "f35to49"  "f50to64"  "f65over"
+```
+]
+
+
+---
+
+## Generate synthetic data
+
+#### Task 2.2: Generate the miscrosimulated data
+
+.tiny-font[
+1. **Specify** the constraints data and store in `temp_cons` object
+]
+
+.xtiny-font[
+
+```r
+# Identify the variables to use as constraints.
+cons_vars &lt;- c("oac_grp", "age_sex")
+
+# Join to generate a single constraint table.
+temp_cons &lt;- oac_cons %&gt;% inner_join(age_sex_cons)
+# Joining, by = "oa_code"
+```
+]
+
+&lt;br&gt;
+.xtiny-font[
+
+```r
+&gt; temp_cons
+# A tibble: 2,543 x 19
+   oa_code     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8` m24under m25to34 m35to49 m50to64 m65over f24under f25to34
+   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+ 1 E00056750     0     0     0     0     0     0     0   141        1      14      23      22      22        5       9
+ 2 E00056751     0     0     0     0     0   110     0     0        0       7      30      23      12        0       7
+ 3 E00056752     0     0     0     0   200     0     0     0        1      19      31      33      18        5      19
+ 4 E00056753     0     0     0     0     0     0   141     0        5       8      15      13      27        2       4
+ 5 E00056754     0     0     0     0   131     0     0     0        5      11      33      20       8        3       9
+```
+ ]
+
+---
+
+## Generate synthetic data
+
+#### Task 2.2: Generate the miscrosimulated data
+
+.tiny-font[
+1. **Specify** the constraints data and store in `temp_cons` object
+2. **Generate** weights for pushing **individuals** to **output areas**
+]
+
+.xtiny-font[
+
+```r
+# Calculate weights. May take several seconds to execute.
+weights_oac_age_sex &lt;-
+  rakeR::weight(
+    cons=temp_cons,
+    inds=individuals %&gt;% select(person_id, oac_grp, age_sex),
+    vars=cons_vars
+    )
+```
+]
+
+.xtiny-font[
+
+```r
+?rakeR::weight
+```
+* **Description** :
+Produces fractional weights using the iterative proportional fitting algorithm
+* **Usage** :
+`weight(cons, inds, vars = NULL, iterations = 10)` &lt;br&gt;
+* **Argument**
+  + `cons` : A data frame containing all the constraints
+  + `inds` : A data frame containing individual–level (survey) data
+  + `vars` : A character vector of variables that constrain the simulation (i.e. independent variables)
+]
+
+---
+
+## Generate synthetic data
+
+#### Task 2.2: Generate the miscrosimulated data
+
+.tiny-font[
+1. **Specify** the constraints data and store in `temp_cons` object
+2. **Generate** weights for pushing individuals to output areas
+3. **Clone** individuals and **assign** them to output areas
+]
+
+.xtiny-font[
+
+```r
+# Run rakeR::rake to generate simulated dataset. May take several seconds to execute.
+simulated_oac_age_sex &lt;- rakeR::rake(
+  cons=temp_cons,
+  inds=individuals %&gt;% select(person_id, oac_grp, age_sex),
+  vars=cons_vars, output = "integer",
+  method = "trs"
+  )
+```
+]
+
+.xtiny-font[
+
+```r
+?rakeR::rake
+```
+* **Usage** :
+rake(cons, inds, vars)
+ &lt;br&gt;
+* **Argument**
+  + `cons` : A data frame of constraint variables
+  + `inds` : A data frame of individual–level (survey) data
+  + `vars` : A character string of variables to iterate over
+]
+
+---
+
+
+## Simulating behaviour practical
+
+ .pull-left[
+ &lt;br&gt;
+&lt;img src = "img/sim_behaviour_prac.png", width = 100%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+]
+
+ .pull-right[
+ &lt;br&gt;
+ .tiny-font[
+`individuals.csv : 15,189 records`
+  &lt;br&gt;
+  `-------` &lt;br&gt;
+  spatial microsimulation &lt;br&gt;
+  `-------` &lt;br&gt;
+  `simulated_oac_age_sex.csv : 320,596 records`
+]
+]
+
+.tiny-font[
+In case of problems and many `ERROR` messages:
+]
+
+ .xtiny-font[
+
+```r
+#  Pre-prepared microsimulation dataset
+simulated_oac_age_sex &lt;-read_csv("https://www.roger-beecham.com/datasets/microsim.csv")
+```
+]
+---
+
+## Explore uncertainty
+
+#### Task 3.1: Generate oa-level summary statistics
+
+.tiny-font[
+Some [`dplyr`](https://github.com/tidyverse/dplyr) operations with which you may be familiar:
+]
+
+ .pull-left[
+.xtiny-font[
+
+```r
+# Generate OA-level summary statistics on weights.
+temp_weights_summary &lt;- weights_oac_age_sex %&gt;%
+  gather(...) %&gt;%
+  group_by(...) %&gt;%
+  filter(...) %&gt;%
+  summarise(...)
+
+# Generate OA-level summary statistics on simulated data.
+temp_simulated_summary &lt;- simulated_oac_age_sex %&gt;%
+  group_by(...) %&gt;%
+  summarise(...) %&gt;%
+  select(...)
+
+# Merge and gather for charting.
+oa_level_summary &lt;- temp_weights_summary %&gt;%
+  inner_join(...) %&gt;%
+  gather(...)
+```
+]
+]
+
+ .pull-right[
+ .xtiny-font[
+
+```r
+&gt; oa_level_summary
+# A tibble: 10,172 x 3
+   oa_code   statistic_type statistic_value
+   &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;
+ 1 E00056750 weight_mean             0.0528
+ 2 E00056751 weight_mean             0.0257
+ 3 E00056752 weight_mean             0.0492
+ 4 E00056753 weight_mean             0.124
+ 5 E00056754 weight_mean             0.0322
+ 6 E00056755 weight_mean             0.0369
+ 7 E00056756 weight_mean             0.0472
+ 8 E00056757 weight_mean             0.0254
+ 9 E00056758 weight_mean             0.0306
+10 E00056759 weight_mean             0.0220
+# … with 10,162 more rows
+```
+]]
+--
+.tiny-font[
+But a very large dataset, so in case of problems:
+]
+
+.xtiny-font[
+
+```r
+# Download pre-prepared microsimulation dataset.
+oa_level_summary &lt;- read_csv("https://www.roger-beecham.com/datasets/microsim_summary.csv")
+```
+]
+
+
+
+---
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+&lt;img src = "img/practical1_uncertainty.png", width = 100%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+
+
+---
+
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+
+.pull-left[
+.xtiny-font[
+Plot histogram:
+
+```r
+oa_level_summary %&gt;%
+  ggplot(aes(x=statistic_value))+
+  geom_histogram() +
+  facet_wrap(~statistic_type)
+```
+]
+]
+
+.pull-right[
+.xtiny-font[
+Plot spec:
+* **data** : `oa_level_summary`
+* **encoding** : hist mapped to `statistic_value`
+* **marks** : `geom_histogram()` chart type
+* **facets** : charts split on `statistic_type`
+]]
+
+&lt;img src = "img/stats_histograms_basic.png", width = 45%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+
+
+---
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+
+.pull-left[
+.xtiny-font[
+Plot histogram:
+
+```r
+oa_level_summary %&gt;%
+  ggplot(aes(x=statistic_value))+
+  geom_histogram(bins=10) +
+  facet_wrap(~statistic_type)
+```
+]
+]
+
+.pull-right[
+.xtiny-font[
+Plot spec:
+* **data** : `oa_level_summary`
+* **encoding** : hist mapped to `statistic_value`
+* **marks** : `geom_histogram()` chart type
+* **facets** : charts split on `statistic_type`
+* **setting** : `bins=` argument to 10
+]]
+
+&lt;img src = "img/stats_histograms_basic_10.png", width = 45%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+
+
+---
+
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+
+.pull-left[
+.xtiny-font[
+Plot histogram:
+
+```r
+oa_level_summary %&gt;%
+  ggplot(aes(x=statistic_value, fill=..x..)) +
+  geom_histogram(colour="#636363", size=0.1, bins=10) +
+  facet_wrap(~statistic_type) +
+  scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)
+```
+]
+]
+
+.pull-right[
+.xtiny-font[
+Plot spec:
+* **data** : `oa_level_summary`
+* **encoding** : `fill` on binned values (`..x..`)
+* **marks** : `geom_histogram()` chart type
+* **facets** : charts split on `statistic_type`
+* **setting** : `colour` grey outlines
+* **scales** : `scale_fill_distiller()` for [brewer](https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3) palette.
+]]
+
+&lt;img src = "img/stats_histograms_basic_colour.png", width = 45%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+
+
+---
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+
+.pull-left[
+.xtiny-font[
+Plot histogram:
+
+```r
+oa_level_summary %&gt;%
+  group_by(statistic_type) %&gt;%
+  mutate(
+    statistic_value_rescale=
+      scales::rescale(statistic_value, to=c(0,1), from=c(min(statistic_value), max(statistic_value)))
+    ) %&gt;%
+  ungroup() %&gt;%
+  ggplot(aes(x=statistic_value_rescale, fill=..x..))+
+  geom_histogram(colour="#636363", size=0.1, bins=10) +
+  facet_wrap(~statistic_type, nrow=1) +
+  scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)
+```
+]
+]
+
+.pull-right[
+.xtiny-font[
+Plot spec:
+* **data** : `oa_level_summary` with `statistic_value` rescaled to 0--1
+* **encoding** : `fill` on binned values (`..x..`)
+* **marks** : `geom_histogram()` chart type
+* **facets** : charts split on `statistic_type`
+* **setting** : `colour` grey outlines
+* **scales** : `scale_fill_distiller()` using [brewer](https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3) palette.
+]]
+
+&lt;img src = "img/stats_histograms.png", width = 80%, style = "position:relative; top: 40%;"&gt;&lt;/img&gt;
+
+
+---
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+.xtiny-font[
+Stage data for choropleth:
+
+```r
+plot_data &lt;- oa_level_summary %&gt;%
+  group_by(statistic_type) %&gt;%
+  mutate(
+    # Rescale summary stats between 0 and 1 for local scale on facet.
+    statistic_value_rescale=scales::rescale(
+      statistic_value, to=c(0,1), from=c(min(statistic_value), max(statistic_value)))
+      )
+    # Cut into equal-range bins as per histogram.
+    statistic_value_bin=cut_interval(statistic_value_rescale, 10, labels=FALSE)
+  ) %&gt;%
+  ungroup()
+```
+]
+
+---
+
+## Explore uncertainty
+
+#### Task 3.2: Plot oa-level summary statistics
+
+.pull-left[
+.xtiny-font[
+Plot choropleth:
+
+```r
+oa_boundaries %&gt;%
+  left_join(plot_data) %&gt;%
+  ggplot()+
+    geom_sf(aes(fill=statistic_value_bin), colour=NA)+
+    geom_sf(data=ward_boundaries, fill="transparent", colour="#636363", size=0.1)+
+    coord_sf(crs=st_crs(oa_boundaries), datum=NA)+
+    scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)+
+    facet_wrap(~statistic_type, nrow=1)
+```
+]]
+
+.pull-right[
+.xtiny-font[
+Plot spec:
+* **data** : `plot_data` joined with boundary data `oa_boundaries`
+* **encoding** : `fill` on binned values (`statistic_value_bin`)
+* **marks** : `geom_sf()` for output area polygons
+* **facets** : maps split on `statistic_type`
+* **setting** : `colour` grey outlines for `ward_boundaries`
+* **scales** : `scale_fill_distiller()` using [brewer](https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3) palette
+* **coord** : `coord_sf` as `geometry` is drawn
+]]
+
+&lt;img src = "img/stats_choropleths.png", width = 80%, style = "position:relative"&gt;&lt;/img&gt;
+
+---
+## Module Schedule
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; session &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; wc &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; lecture &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; lab &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; recap &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 21 Jun &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 28 Jun &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 5 Jul &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 12 Jul &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 19 Jul &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; NA - pres &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
