@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assignments on Predictive Analytics</title>
+    <link>/assignment/</link>
+    <description>Recent content in Assignments on Predictive Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language><atom:link href="/assignment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practical 1 : simulating behaviour</title>
+      <link>/assignment/01-simulating-behaviour/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignment/01-simulating-behaviour/</guid>
+      <description>code.sourceCode  span { display: inline-block; line-height: 1.25; } code.sourceCode  span { color: inherit; text-decoration: inherit; } code.sourceCode  span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode  span { text-indent: -5em; padding-left: 5em; } } pre.</description>
+    </item>
+    
+    <item>
+      <title>Practical 2 : targeted marketing</title>
+      <link>/assignment/02-targeted-marketing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignment/02-targeted-marketing/</guid>
+      <description>code.sourceCode  span { display: inline-block; line-height: 1.25; } code.sourceCode  span { color: inherit; text-decoration: inherit; } code.sourceCode  span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode  span { text-indent: -5em; padding-left: 5em; } } pre.</description>
+    </item>
+    
+    <item>
+      <title>Practical 3 : agent-based modelling</title>
+      <link>/assignment/03-abms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignment/03-abms/</guid>
+      <description>.wrap th, .wrap td { font-size: 0.9rem; }  The practical materials for this session can be accessed from this link.</description>
+    </item>
+    
+  </channel>
+</rss>
