@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-gb"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Roger Beecham">
+    <meta name="description" content="Introduces techniques for simulating and predicting social behaviour">
+
+    <meta name="twitter:card" value="summary_large_image">
+    <meta name="twitter:site" content="@rjbeecham">
+    <meta name="twitter:title" content="R | GEOG5927M: Predictive Analytics">
+    <meta name="twitter:creator" content="@rjbeecham">
+    <meta name="twitter:image" content="/images/geog5927m.png">
+    <meta name="twitter:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta property="og:site_name" content="GEOG5927M: Predictive Analytics"/>
+    <meta property="og:title" content="R | GEOG5927M: Predictive Analytics">
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/images/geog5927m.png">
+    <meta property="og:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta name="generator" content="Hugo 0.79.0" />    
+
+    <title>R | GEOG5927M: Predictive Analytics</title>
+    <link rel="canonical" href="../install/">
+    <link href="../theme/css/tufte.css" rel="stylesheet">
+    <link href="../theme/css/latex.css" rel="stylesheet">
+    <link href="../theme/css/custom.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .wrap a, .wrap a:visited {
+            color: #a50f15;
+        }
+
+        .wrap a:hover {
+            color: #ef3b2c;
+        }
+
+        .wrap p > a {
+            color: #a50f15;
+        }
+
+        article .sidenote-number:after, article .sidenote:before {
+            color: #a50f15;
+        }
+
+        article .sidenote:before {
+            color: #a50f15;
+        }
+
+        @media (max-width: 760px) {
+            label.margin-toggle:not(.sidenote-number) {
+                color: #a50f15;
+            }
+        }
+
+        .contrast a, .contrast a:visited {
+            color: #a50f15; 
+        }
+
+        header > nav a {
+            color: #a50f15;
+        }
+
+        .credits a {
+            color: #a50f15;
+        }
+
+        .wrap .tag {
+            background: #a50f15;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="GEOG5927M: Predictive Analytics"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/images/mstile-144x144.png" />
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600|Roboto:300,400" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+<div class="wrap">
+    <header>
+        <nav class="group logo-wrap">
+            <a href="../" class="logo"><img src="../images/geog5927m.png" alt="Predictive Analytics"></a>
+            <h1 class="websitetitle"><a href="../">GEOG5927M: Predictive Analytics</a></h1>
+        </nav>
+        <nav class="bottom-group">
+            
+            <a href="../syllabus/">Syllabus</a>
+            
+            <a href="../schedule/">Schedule</a>
+            
+            <a href="../install/">R</a>
+            
+        </nav>
+    </header>
+
+
+    <article class="group">
+    <h1>R</h1>
+
+    
+<script src="../rmarkdown-libs/accessible-code-block/empty-anchor.js"></script>
+<link href="../rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="../rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+
+<h2 id="what-is-r">What is R?</h2>
+<p><span class="newthought">R is a free, open statistical programming language and environment.</span> Released as open source software as part of a research project in 1995, for some time R was the preserve of academics. From 2010s onwards, with the advent of <em>Big Data</em> and new sub-disciplines such as <em>Data Science</em>, R enjoyed rapid growth and is used increasingly outside of academia, by organisations such as Google [<a href="https://research.google.com/pubs/pub37483.html">example</a>], Facebook [<a href="http://flowingdata.com/2010/12/13/facebook-worldwide-friendships-mapped/">example</a>], Twitter [<a href="https://blog.twitter.com/official/en_us/a/2013/the-geography-of-tweets.html">example</a>], New York Times [<a href="http://www.nytimes.com/interactive/2012/05/05/sports/baseball/mariano-rivera-and-his-peers.html?ref=baseballexample">example</a>] and many more.</p>
+<p>Rather than simply a free alternative to proprietary statistical analysis software such as SPSS, R is a programming language in and of itself and can be used for:</p>
+<ul>
+<li><p>Data Visualization design: <a href="https://github.com/rogerbeecham/uk-general-election-vis/blob/master/README.md">2019 GE Vis</a></p></li>
+<li><p>Developing interactive (visualization) software: <a href="https://gehlenborglab.shinyapps.io/upsetr/">UpSet</a></p></li>
+<li><p>As a GIS: <a href="http://robinlovelace.net/geocompr/">Geocomp with R</a></p></li>
+<li><p>As a word processor / web publisher: <a href="http://rmarkdown.rstudio.com/gallery.html">R Markdown</a></p></li>
+</ul>
+<h2 id="why-r">Why R?</h2>
+<h3 id="free-open-source-with-an-active-community">Free, open-source with an active community</h3>
+<p>There are many benefits that come from being fully open-source, with a critical mass of users.</p>
+<p>Firstly, there is a burgeoning array of online forums, tutorials and code examples through which to learn R. <a href="https://stackoverflow.com/questions/tagged/r">StackOverflow</a> is a particularly useful resource for answering more individual questions.</p>
+<p>Second, with such a large community, there are numerous expert R users who themselves contribute by developing <em>libraries</em> or <em>packages</em><span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important, though very recent, set of packages is the <a href="http://www.tidyverse.org">tidyverse</a>: a set of libraries which share a common underlying philosophy, syntax and documentation.<br />
+<br />
+</span></span> that extend its use.</p>
+<h3 id="r-supports-modern-data-analysis-workflows">R supports <strong>modern</strong> data analysis workflows</h3>
+<blockquote>
+<p>Reproducible research is the idea that data analyses, and more generally, scientific claims, are published with their data and software code so that others may verify the findings and build upon them.</p>
+<p>– <cite>Roger Peng, Jeff Leek and Brian Caffo</cite></p>
+</blockquote>
+<p>In recent years there has been much introspection around how science works – around how statistical claims are made from reasoning over evidence. This came on the back of, amongst other things, a high profile paper published in <a href="http://science.sciencemag.org/content/349/6251/aac4716">Science</a>, which found that of 100 recent peer-reviewed psychology experiments, the findings of only 39 could be replicated. The upshot is that researchers must now make every possible effort to make their work transparent. In this setting, traditional data analysis software that support point-and-click interaction is unhelpful; it would be tedious to make notes describing all interactions with, for example, SPSS. As a declarative programming language, however, it is very easy to provide such a provenance trail for your workflows in R since this necessarily exists in your analysis scripts.</p>
+<p>Concerns around the <em>reproducibility crisis</em> are not simply a function of transparency in methodology and research design. Rather, they relate to a culture and incentive structure whereby scientific claims are conferred with authority when reported within the (slightly backwards) logic of Null Hypothesis Significance Testing (NHST) and <em>p-values</em>. For an accessible read on the phenomenon of <em>p-hacking</em> (with interactive graphic) see <a href="https://fivethirtyeight.com/features/science-isnt-broken/#part1">this article</a> from the excellent <a href="http://fivethirtyeight.com">FiveThirtyEight</a> website. Again, the upshot of all this introspection is a rethinking of the way in which Statistics is taught in schools and universities, with greater emphasis on understanding through computational approaches rather than traditional equations, formulas and probability tables. Where does R fit within this? Simply put: R is far better placed than traditional software tools and point-and-click paradigms for supporting computational approaches to statistics – with a set of methods and libraries for performing simulations and permutation-based tests.</p>
+<h2 id="r-and-rstudio-on-your-machine">R and RStudio on your machine</h2>
+<h3 id="install-r">Install R</h3>
+<p>First you need to install R itself.</p>
+<ol style="list-style-type: decimal">
+<li>Go to the CRAN (Collective R Archive Network) website: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li>Click on “Download R for <code>XXX</code>”, where <code>XXX</code> is either Mac or Windows<span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"><img src="../images/install/install-r-links.png" alt="Install R" /><br />
+<br />
+</span></span>:
+<ul>
+<li>If you use macOS, scroll down to the first <code>.pkg</code> file in the list of files and download it.</li>
+<li>If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.</li>
+</ul></li>
+<li>Double click on the downloaded file (check your <code>Downloads</code> folder). Click yes through all the prompts to install like any other program.</li>
+</ol>
+<h3 id="install-rstudio">Install RStudio</h3>
+<p>Next, you need to install RStudio, the graphical user interface (GUI) for R. Once R and RStudio are installed, you will work entirely via RStudio – RStudio automatically calls R and so do not have to interact with R directly.</p>
+<ol style="list-style-type: decimal">
+<li><p>Go to the free download location on RStudio’s website: <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a></p></li>
+<li><p>Select the installer that corresponds with your computer’s operating system (Windows or macOS)<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"><img src="../images/install/install-r-rstudio.png" alt="Install R" /><br />
+<br />
+</span></span></p></li>
+<li><p>Double click on the downloaded file (again, check your <code>Downloads</code> folder). Click yes through all the prompts to install like any other program.</p></li>
+</ol>
+<p>Double click on RStudio to run it (check your applications folder or start menu).</p>
+<h2 id="get-familiar-with-the-r-and-rstudio-environment">Get familiar with the R and RStudio environment</h2>
+<h3 id="open-rstudio">Open RStudio</h3>
+<p>Open RStudio. Click <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Script</code>. You should see a set of windows roughly similar to those in the figure to the right.<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"><img src="../images/install/r-rstudio-windows.png" alt="RStudio windows" /><br />
+<br />
+</span></span> The top left pane is the <em>Code Editor</em>. This is where you’ll write, organise and comment R code for execution. Code snippets can be executed using <code>Run</code> at the top of the RStudio pane or typing <code>cmd R</code> (Mac) <code>ctr R</code> (Windows). Below this, in the bottom left pane is the <em>R Console</em>, in which you write and execute commands directly. To the top right is a pane with the tabs <em>Environment</em> and <em>History</em>. The purpose of these will soon be clear. In the bottom right is a pane for navigating through project directories (<em>Files</em>), displaying <em>Plots</em>, details of installed and loaded <em>Packages</em> and documentation on the functions and packages you’ll use (<em>Help</em>).</p>
+<h3 id="enter-some-console-commands">Enter some console commands</h3>
+<p>As discussed, R can be used in many different ways for performing modern data analysis (as demonstrated in this module). It is also possible to simply use R as a calculator by typing commands directly into the <em>Console</em>. Type the commands contained in the code block below into your R Console. You’ll create a variable (<code>x</code>) and assign it a value using the assignment operator (<code>&lt;-</code>), then perform some simple statistical calculations using functions that are held within the (<code>base</code>) package<span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">The <code>base</code> package is core and native to R. Unlike all other packages, it does not need to be installed and called explicitly. One means of checking the package to which a function you are using belongs is to call the help command (<code>?</code>) on that function: e.g. <code>?mean()</code>.<br />
+<br />
+</span></span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Create variable and assign a value.</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>x &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Perform some calculations using R as a calculator.</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>x_<span class="dv">2</span> &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Perform some calculations using functions that form baseR.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>x_root &lt;-<span class="st"> </span><span class="kw">sqrt</span>(x_<span class="dv">2</span>)</span></code></pre></div>
+<h2 id="further-reading">Further reading</h2>
+<p>There are numerous books, tutorials and blogs introducing R as an environment for applied data analysis. Detailed below are resources that are particularly useful primers for this session.</p>
+<ul>
+<li><p><i class="fas fa-book"></i> Hadley Wickham and Garrett Grolemund’s<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote"><span class="citation">Wickham and Grolemund (<a href="#ref-wickham_R_2017" role="doc-biblioref">2017</a>)</span><br />
+<br />
+</span></span> <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a>: <em>the</em> primer for doing data analysis with R. Hadley and Garret present their <em>thesis</em> of the data science workflow and illustrate how R and packages that form the <a href="https://www.tidyverse.org"><code>tidyverse</code></a> support this. It is both accessible and coherent and is highly recommended.</p></li>
+<li><p><i class="fas fa-book"></i> Robin Lovelace et al.’s<span><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote"><span class="citation">Lovelace, Nowosad, and Muenchow (<a href="#ref-lovelace_geocomputation_2019" role="doc-biblioref">2019</a>)</span><br />
+<br />
+</span></span> <a href="http://robinlovelace.net/geocompr/"><em>Geocomputation with R</em></a>. This book comprehensively introduces spatial data handling in R. It is a great complement to <em>R for Data Science</em> in that it draws on brand new libraries that support <code>tidyverse</code>-style operations on spatial data.</p></li>
+</ul>
+<h2 id="references" class="unnumbered">References</h2>
+<div id="refs" class="references">
+<div id="ref-lovelace_geocomputation_2019">
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. <em>Geocomputation with R</em>. London, UK: CRC Press. <a href="https://geocompr.robinlovelace.net">https://geocompr.robinlovelace.net</a>.</p>
+</div>
+<div id="ref-wickham_R_2017">
+<p>Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. Sebastopol, California: O’Reilly Media. <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.</p>
+</div>
+</div>
+
+
+    </article>
+
+    <footer>
+        <hr class="slender">
+
+        <div class="course-info">
+        <span class="course-name">
+            GEOG5927M: Predictive Analytics (Summer 2021)
+        </span><br>
+        <span>
+            <a href="https://www.leeds.ac.uk">University of Leeds</a> |
+            <a href="https://environment.leeds.ac.uk/geography">School of Geography</a>
+        </span>
+        </div>
+
+        <ul class="footer-links">
+            <li>
+            <a href="http://www.roger-beecham.com"><i class="fas fa-user"></i> Dr. Roger Beecham</a>
+            </li>
+
+            <li>
+            <a href="mailto:r.j.beecham@leeds.ac.uk"><i class="fas fa-envelope"></i> r.j.beecham@leeds.ac.uk</a>
+            </li>
+
+            <li>
+            <i class="far fa-calendar-alt"></i> Mon (lec) &amp; Weds (lab) &amp; Fri (recap)
+            </li>
+
+            <li>
+            <i class="far fa-clock"></i> 2:00pm-3:00pm (lec)
+            </li>
+
+            <li>
+            <i class="fas fa-university"></i> Online
+            </li>
+
+            <li>
+            <a href="https://twitter.com/rjbeecham"><i class="fab fa-twitter"></i></a>
+            </li>
+
+            <li>
+            <a href="https://github.com/rogerbeecham"><i class="fab fa-github"></i></a>
+            </li>
+        </ul>
+
+        <div class="credits">
+        <span class="credit">All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span><br>
+
+        
+
+        <span class="credit">This site adapted from the <a href="https://github.com/andrewheiss/ath-tufte-hugo_18-19">ath-tufte-hugo theme</a> (thanks to <a href="https://www.andrewheiss.com">Andrew Heiss</a>). Made with <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> and <a href="https://gohugo.io/">Hugo</a>.</span>
+        </div>
+    </footer>
+
+    
+
+</div>
+</body>
+</html>
+

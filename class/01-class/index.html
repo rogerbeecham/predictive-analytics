@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-gb"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Roger Beecham">
+    <meta name="description" content="Introduces techniques for simulating and predicting social behaviour">
+
+    <meta name="twitter:card" value="summary_large_image">
+    <meta name="twitter:site" content="@rjbeecham">
+    <meta name="twitter:title" content="Simulating Behaviours | GEOG5927M: Predictive Analytics">
+    <meta name="twitter:creator" content="@rjbeecham">
+    <meta name="twitter:image" content="/images/geog5927m.png">
+    <meta name="twitter:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta property="og:site_name" content="GEOG5927M: Predictive Analytics"/>
+    <meta property="og:title" content="Simulating Behaviours | GEOG5927M: Predictive Analytics">
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/images/geog5927m.png">
+    <meta property="og:description" content="Introduces techniques for simulating and predicting social behaviour" />
+
+    <meta name="generator" content="Hugo 0.79.0" />    
+
+    <title>Simulating Behaviours | GEOG5927M: Predictive Analytics</title>
+    <link rel="canonical" href="../../class/01-class/">
+    <link href="../../theme/css/tufte.css" rel="stylesheet">
+    <link href="../../theme/css/latex.css" rel="stylesheet">
+    <link href="../../theme/css/custom.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .wrap a, .wrap a:visited {
+            color: #a50f15;
+        }
+
+        .wrap a:hover {
+            color: #ef3b2c;
+        }
+
+        .wrap p > a {
+            color: #a50f15;
+        }
+
+        article .sidenote-number:after, article .sidenote:before {
+            color: #a50f15;
+        }
+
+        article .sidenote:before {
+            color: #a50f15;
+        }
+
+        @media (max-width: 760px) {
+            label.margin-toggle:not(.sidenote-number) {
+                color: #a50f15;
+            }
+        }
+
+        .contrast a, .contrast a:visited {
+            color: #a50f15; 
+        }
+
+        header > nav a {
+            color: #a50f15;
+        }
+
+        .credits a {
+            color: #a50f15;
+        }
+
+        .wrap .tag {
+            background: #a50f15;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="../../favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../../images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../../images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../../images/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="GEOG5927M: Predictive Analytics"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/images/mstile-144x144.png" />
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600|Roboto:300,400" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+<div class="wrap">
+    <header>
+        <nav class="group logo-wrap">
+            <a href="../../" class="logo"><img src="../../images/geog5927m.png" alt="Predictive Analytics"></a>
+            <h1 class="websitetitle"><a href="../../">GEOG5927M: Predictive Analytics</a></h1>
+        </nav>
+        <nav class="bottom-group">
+            
+            <a href="../../syllabus/">Syllabus</a>
+            
+            <a href="../../schedule/">Schedule</a>
+            
+            <a href="../../install/">R</a>
+            
+        </nav>
+    </header>
+
+
+    <article class="group">
+    <h1>Simulating Behaviours</h1>
+
+    <p class="page-date">Materials for class on Monday, June 21, 2021</p>
+
+    
+<!-- BLOGDOWN-HEAD -->
+<script src="../../rmarkdown-libs/accessible-code-block/empty-anchor.js"></script>
+<link href="../../rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="../../rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<!-- /BLOGDOWN-HEAD -->
+
+
+<h2 id="slides">Slides</h2>
+<p>Download the slides from the session <a href="../../slides/session1.html">lecture</a> and <a href="../../slides/session1_lab.html">practical</a> .</p>
+<figure>
+<img src="../../images/slides/slides_2019-11-11.png" title="fig:" alt="First slide" />
+</figure>
+
+
+    </article>
+
+    <footer>
+        <hr class="slender">
+
+        <div class="course-info">
+        <span class="course-name">
+            GEOG5927M: Predictive Analytics (Summer 2021)
+        </span><br>
+        <span>
+            <a href="https://www.leeds.ac.uk">University of Leeds</a> |
+            <a href="https://environment.leeds.ac.uk/geography">School of Geography</a>
+        </span>
+        </div>
+
+        <ul class="footer-links">
+            <li>
+            <a href="http://www.roger-beecham.com"><i class="fas fa-user"></i> Dr. Roger Beecham</a>
+            </li>
+
+            <li>
+            <a href="mailto:r.j.beecham@leeds.ac.uk"><i class="fas fa-envelope"></i> r.j.beecham@leeds.ac.uk</a>
+            </li>
+
+            <li>
+            <i class="far fa-calendar-alt"></i> Mon (lec) &amp; Weds (lab) &amp; Fri (recap)
+            </li>
+
+            <li>
+            <i class="far fa-clock"></i> 2:00pm-3:00pm (lec)
+            </li>
+
+            <li>
+            <i class="fas fa-university"></i> Online
+            </li>
+
+            <li>
+            <a href="https://twitter.com/rjbeecham"><i class="fab fa-twitter"></i></a>
+            </li>
+
+            <li>
+            <a href="https://github.com/rogerbeecham"><i class="fab fa-github"></i></a>
+            </li>
+        </ul>
+
+        <div class="credits">
+        <span class="credit">All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</span><br>
+
+        
+
+        <span class="credit">This site adapted from the <a href="https://github.com/andrewheiss/ath-tufte-hugo_18-19">ath-tufte-hugo theme</a> (thanks to <a href="https://www.andrewheiss.com">Andrew Heiss</a>). Made with <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> and <a href="https://gohugo.io/">Hugo</a>.</span>
+        </div>
+    </footer>
+
+    
+
+</div>
+</body>
+</html>
+

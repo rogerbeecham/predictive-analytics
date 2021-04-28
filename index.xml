@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Predictive Analytics</title>
+    <link>/</link>
+    <description>Recent content on Predictive Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 19 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revisit</title>
+      <link>/class/05-class/</link>
+      <pubDate>Mon, 19 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/class/05-class/</guid>
+      <description>   Slides Download the slides from today’s lecture.
+  </description>
+    </item>
+    
+    <item>
+      <title>Behavioural analytics (guest lecture)</title>
+      <link>/class/04-class/</link>
+      <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/class/04-class/</guid>
+      <description>   Slides Download the slides from today’s lecture.
+  </description>
+    </item>
+    
+    <item>
+      <title>Behavioural and agent-based models</title>
+      <link>/class/03-class/</link>
+      <pubDate>Mon, 05 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/class/03-class/</guid>
+      <description>   Slides Download the slides from today’s lecture.
+  </description>
+    </item>
+    
+    <item>
+      <title>Targeted Marketing</title>
+      <link>/class/02-class/</link>
+      <pubDate>Mon, 28 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/class/02-class/</guid>
+      <description>   Slides Download the slides from today’s lecture.
+  </description>
+    </item>
+    
+    <item>
+      <title>Simulating Behaviours</title>
+      <link>/class/01-class/</link>
+      <pubDate>Mon, 21 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/class/01-class/</guid>
+      <description>   Slides Download the slides from the session lecture and practical .
+  </description>
+    </item>
+    
+    <item>
+      <title>Agent-based models</title>
+      <link>/reading/03-reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reading/03-reading/</guid>
+      <description>An additional, extended reading list from this link.
+ABM primers   Brunsdon, C. and Singleton, A. (2016)Chris Brunsdon and Alex Singleton, Geocomputation: A Practical Primer (Heidelberg, Germany: Springer-Verlag, 2015), https://uk.sagepub.com/en-gb/eur/geocomputation/book241023.
+ Geocomputation: A practical primer.
+  Crooks, A., Malleson, N., Manley, E. and Hepppenstall, Al. (2018)Andrew Crooks et al., Agent-Based Modelling and Geographical Information Systems: A Practical Primer (London, UK: Safe, 2018), https://uk.sagepub.com/en-gb/eur/agent-based-modelling-and-geographical-information-systems/book250134.
+ Agent-Based Modelling and Geographical Information Systems: a practical primer.</description>
+    </item>
+    
+    <item>
+      <title>Practical 1 : simulating behaviour</title>
+      <link>/assignment/01-simulating-behaviour/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignment/01-simulating-behaviour/</guid>
+      <description>code.sourceCode  span { display: inline-block; line-height: 1.25; } code.sourceCode  span { color: inherit; text-decoration: inherit; } code.sourceCode  span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode  span { text-indent: -5em; padding-left: 5em; } } pre.</description>
+    </item>
+    
+    <item>
+      <title>Practical 2 : targeted marketing</title>
+      <link>/assignment/02-targeted-marketing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignment/02-targeted-marketing/</guid>
+      <description>code.sourceCode  span { display: inline-block; line-height: 1.25; } code.sourceCode  span { color: inherit; text-decoration: inherit; } code.sourceCode  span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode  span { text-indent: -5em; padding-left: 5em; } } pre.</description>
+    </item>
+    
+    <item>
+      <title>Practical 3 : agent-based modelling</title>
+      <link>/assignment/03-abms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/assignment/03-abms/</guid>
+      <description>.wrap th, .wrap td { font-size: 0.9rem; }  The practical materials for this session can be accessed from this link.</description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/install/</guid>
+      <description>code.sourceCode  span { display: inline-block; line-height: 1.25; } code.sourceCode  span { color: inherit; text-decoration: inherit; } code.sourceCode  span:empty { height: 1.2em; } .sourceCode { overflow: visible; } code.sourceCode { white-space: pre; position: relative; } div.sourceCode { margin: 1em 0; } pre.sourceCode { margin: 0; } @media screen { div.sourceCode { overflow: auto; } } @media print { code.sourceCode { white-space: pre-wrap; } code.sourceCode  span { text-indent: -5em; padding-left: 5em; } } pre.</description>
+    </item>
+    
+    <item>
+      <title>Schedule</title>
+      <link>/schedule/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/schedule/</guid>
+      <description>     : Readings  : Practicals  : Lecture slides    Week 1 Simulating behaviours      Week 2 Targeted marketing      Week 3 Behavioural and agent-based models      Week 4 Behavioural analytics (guest lecture)      Week 5 Re-visit       </description>
+    </item>
+    
+    <item>
+      <title>Simulating Behaviour</title>
+      <link>/reading/01-reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reading/01-reading/</guid>
+      <description>Data science, predictive analytics  Birkin, M. (2018)[@birkin_spatial_2018] &#34;Spatial data analytics of mobility with consumer data&#34;. -  Lovelace, R. et al. (2016)[@lovelace_from_2016] &#34;From Big Noise to Big Data: Toward the Verification of Large Data sets for Understanding Regional Retail Flows&#34;. --   Arribas-Bel, D. &amp;amp; Reades, J. (2018)Dani Arribas-Bel and Jon Reades, “Geography and Computers: Past, Present, and Future,” Geography Compass 12, no. 10 (2018): e12403, doi:10.</description>
+    </item>
+    
+    <item>
+      <title>Syllabus</title>
+      <link>/syllabus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/syllabus/</guid>
+      <description>&amp;#8853;Instructor
+Dr. Roger Beecham
+ 10.139 Manton
+r.j.beecham@leeds.ac.uk
+@rjbeecham
+Course
+ Mon (lec) &amp;amp; Weds (lab) &amp;amp; Fri (recap)
+ June 21–July 21, 2021
+ 2:00pm-3:00pm (lec)
+ Online
+ Combining theory and practical examples, this module introduces Predictive Analytics via two geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation and agent-based modelling. You will apply these techniques through project work highly relevant to the consumer analytics domain and using modern data analysis environments.</description>
+    </item>
+    
+    <item>
+      <title>Targeted Marketing</title>
+      <link>/reading/02-reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reading/02-reading/</guid>
+      <description>Recommender systems   Linden, G. et al. Greg Linden, Brent Smith, and Jeremy York, “Amazon.com Recommendations: Item-to-Item Collaborative Filtering,” IEEE Internet Computing 7, no. 1 (January 2003): 76–80, doi:10.1109/MIC.2003.1167344.
+ “Amazon.com Recommendations: Item-to-Item Collaborative Filtering”.  Microtargetting   Konsinski, M.Michal Kosinski, David Stillwell, and Thore Graepel, “Private Traits and Attributes Are Predictable from Digital Records of Human Behavior,” Proceedings of the National Academy of Sciences 110, no.</description>
+    </item>
+    
+  </channel>
+</rss>
