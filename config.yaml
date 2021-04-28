@@ -45,7 +45,7 @@ params:
     number: GEOG5927M
     semester: Summer 2021
     days: "Mon (lec) & Weds (lab) & Fri (recap)"
-    time: "2:00pm-3:00pm (lec|recap)"
+    time: "2:00pm-3:00pm (lec)"
     location: "Online"
     twitter: rjbeecham
     dates: "June 21–July 21, 2021"

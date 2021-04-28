@@ -14,13 +14,16 @@ Below are the packages on which this practical depends. The main packages -- `ti
 
 
 ```{r packages, eval=FALSE, chache=TRUE}
-# Bundle of packages for data manipulation. If working from your own machine uncomment to download.
+# Bundle of packages for data manipulation.
 # install.packages("tidyverse")
 library(tidyverse)
 
-# For working with geospatial data.  If working from your own machine uncomment to download.
+# For working with geospatial data.
 # install.packages("sf")
 library(sf)
+
+# For rescaling data.
+# install.packages("scales")
 
 # For performing microsimulation.
 install.packages("rakeR")
@@ -61,11 +64,11 @@ ward_boundaries <- st_read("./data/ward_boundaries.geojson", crs=27700)
 
 ### Refactor variables and check for matches
 
-We first need to cast the `individuals` variables to be matched with the constraints tibbles as factors, and then reorder according to the variable order in the constraints tibbles.
+We first need to **convert** the `individuals` variables to be matched with the constraints tibbles as factors, and then reorder according to the variable order in the constraints tibbles.
 
 ```{r refactor-tibbles, eval=FALSE, cache=TRUE}
 # Recast as factor
-individuals <- individuals %>% mutate_at(vars(oac_grp, sex,age_band, age_sex),funs(factor(.)))
+individuals <- individuals %>% mutate_at(vars(oac_grp, sex,age_band, age_sex),~factor(.))
 # Reorder according to order vars appear in constraints table : required by rakeR.
 individuals <- individuals %>% mutate(
   oac_grp=fct_relevel(oac_grp, colnames(oac_cons %>% select(-oa_code))),
@@ -107,17 +110,26 @@ weights_oac_age_sex <- rakeR::weight(cons=temp_cons, inds=individuals %>% select
 In order **generate the microsimulated dataset**, it is necessary to move from these fractional weights to integer weights. Individuals must be _cloned_ and assigned to OAs consisent with the constaints data -- in a way that minimises the difference between the OA-level statistics given by the constraints  and the aggregated results of the simulated individuals. Here [Lovelace & Ballas' (2013)](https://www.sciencedirect.com/science/article/pii/S0198971513000240), '_truncate, replicate, sample' method is used to allocate _cloned_ individuals to OAs. This procedure is abstracted into the `rakeR::rake()` function.
 
 ```{r generate-simulated-data, eval=FALSE, cache=TRUE}
-# Run rk_take to generate simulated dataset. May take several seconds to execute.
+# Run rakeR::rake to generate simulated dataset. May take several seconds to execute.
 simulated_oac_age_sex <- rakeR::rake(cons=temp_cons, inds=individuals %>% select(person_id, oac_grp, age_sex),
                                 vars=cons_vars, output = "integer",
                                 method = "trs", seed = 42)
+```
+
+It may be that you have run into problems here that are difficult to fix remotely (usually we would be working with you face-to-face in labs). If so, I have made the `simulated_oac_age_sex` data available on an external repo and which you are free to use in your Assignment and for completing the rest of this practical and next week's practical.
+
+```{r download-microsim-data, eval=FALSE, cache=TRUE}
+# Download pre-prepared microsimulation dataset.
+simulated_oac_age_sex <- read_csv("https://www.roger-beecham.com/datasets/microsim.csv")
 ```
 
 ## Task 3: Explore uncertainty in the simulated dataset
 
 ### Generate OA-level summary statistics
 
-First, generate a `weights_summary` _tibble_, whereby weights are grouped (`group_by`) and summarised (`summarise()`) by OA, with `0` weights removed. Here, the `mean()`, `max()` and `sd()` of non-0 weights are calculated. These statistics tell us something about model uncertainty as they indicate the extent of oversampling -- that is, instances where the _same_ respondent is assigned to the _same_ OA several times. This can also be investigated explicitly by calculating at the OA-level, the proportion simulated households that are based on unique individuals.
+Generate a `weights_summary` _tibble_, whereby weights are grouped (`group_by`) and summarised (`summarise()`) by OA, with `0` weights removed. Here, the `mean()`, `max()` and `sd()` of non-0 weights are calculated. These statistics tell us something about model uncertainty as they indicate the extent of oversampling -- that is, instances where the _same_ respondent is assigned to the _same_ OA several times. This can also be investigated explicitly by calculating at the OA-level, the proportion simulated households that are based on unique individuals. The summary statistics around the weights and the oversampling are stored in the object `oa_level_summary`.
+
+Again this takes some time to compute -- the matrix of weights  (`weights_oac_age_sex`) is particularly large. If you are having problems with the code block below, I have made the summary dataset available on an external repo for download (the `download-weight-summary` code block). So feel free to ignore the code immediately below and run the `read_csv` block if you are encountering problems.
 
 ```{r oa-stats, eval=FALSE, cache=TRUE}
 # Generate OA-level summary statistics on weights.
@@ -147,22 +159,41 @@ oa_level_summary <- temp_weights_summary %>%
 rm(temp_simulated_summary, temp_weights_summary)
 ```
 
+Read in the weight and oversampling summaries by OA directly.
+
+```{r download-weight-summary, eval=FALSE, cache=TRUE}
+# Download pre-prepared microsimulation dataset.
+oa_level_summary <- read_csv("https://www.roger-beecham.com/datasets/microsim_summary.csv")
+```
+
 ### Plot OA-level summary statistics
 
-First generate histograms of these summary statistics.
+So we can generate histograms of these summary statistics.
+
+The basic form of the ggplot2 spec:
+
+```{r plot-oa-stats-hist, eval=FALSE, cache=TRUE}
+oa_level_summary %>% # data to work on.
+  ggplot(aes(x=statistic_value))+ # aes() defines the encoding or mapping to data.
+  geom_histogram() + # mark or chart idiom with which data are encoded.
+  facet_wrap(~statistic_type) # split data on a variable for small multiple comparison
+```
+
+I have also prepared some code for you so that the variable is chunked into decile bins (10 bins) in order to relate them with the choropleth map that appears in the session notes and also below. To help with your Assignment 1 reports, I've additionally demonstrated how the plots can be saved to your directory (`ggsave()`). Note that there is some additional `dplyr` code to rescale the values of each statistic between 0 and 1. We re-use this in order to compare across the choropleth maps.
 
 ```{r plot-oa-stats, eval=FALSE, cache=TRUE}
-# Generate histograms of summary stats, faceted on statistic type.
 plot <- oa_level_summary %>%
   # Rescale summary stats between 0 and 1 for local scale on facet.
   group_by(statistic_type) %>%
-  mutate(statistic_value_rescale=statistic_value/max(statistic_value)) %>%
+  mutate(
+    statistic_value_rescale=
+      scales::rescale(statistic_value, to=c(0,1), from=c(min(statistic_value), max(statistic_value)))
+    ) %>%
   ungroup() %>%
-  ggplot()+
-    geom_histogram(aes(x=statistic_value_rescale, fill=..x..), bins=10)+
-    geom_histogram(aes(x=statistic_value_rescale), fill="transparent", colour="#636363", size=0.1, bins=10)+
-    scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)+
-    facet_wrap(~statistic_type, scales="free", nrow=1)
+  ggplot(aes(x=statistic_value_rescale, fill=..x..))+
+  geom_histogram(colour="#636363", size=0.1, bins=10) +
+  facet_wrap(~statistic_type, nrow=1) +
+  scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)
 # Display in plots pane.
 plot
 # Save to project directory.
@@ -178,14 +209,14 @@ Then generate choropleths of these summary statistics (this will take some time 
 # value to decile bins.
 
 # Generate choropleths.
-# First a data frame summerising over statstic types.
+# First a data frame summarising over statistic types.
 plot_data <- oa_level_summary %>%
   group_by(statistic_type) %>%
   mutate(
     # Rescale summary stats between 0 and 1 for local scale on facet.
-    statistic_value_rescale=statistic_value/max(statistic_value),
+    statistic_value_rescale=scales::rescale(statistic_value, to=c(0,1), from=c(min(statistic_value), max(statistic_value))))
     # Cut into equal-range bins as per histogram.
-    statistic_value_bin = cut_interval(statistic_value_rescale, 10, labels=FALSE)
+    statistic_value_bin=cut_interval(statistic_value_rescale, 10, labels=FALSE)
   ) %>%
   ungroup()
 # Merge with oa_boundaries for plotting.

@@ -20,6 +20,9 @@ If you have not done so already, read the page introducing [R and RStudio](/inst
 
 RStudio has [a helpful tutorial and a short video about R Markdown](http://rmarkdown.rstudio.com/lesson-1.html). Go through these short lessons: [Introduction](http://rmarkdown.rstudio.com/lesson-1.html) | [How it Works](http://rmarkdown.rstudio.com/lesson-2.html) | [Code Chunks](http://rmarkdown.rstudio.com/lesson-3.html) | [Inline Code](http://rmarkdown.rstudio.com/lesson-4.html) |  [Markdown Basics](http://rmarkdown.rstudio.com/lesson-8.html) ^[{-} The [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) is also useful.] | [Output Formats](http://rmarkdown.rstudio.com/lesson-9.html).
 
+
+The practical assumes a prior understanding of `R`, developed through LUBS5308 *Business Analytics and Decision Science* and GEOG5917 *Big Data and Consumer Analytics*. In particular `dplyr` for data processing and shaping; and `ggplot2` for charting. If you have little experience or confidence with `R`, then do not worry too much. All code required to complete the practical is provided in this document and the template. The assessment for this module tests ability to present a coherent data analysis, not your ability to code in `R`.
+
 # Task 1: Configure R and download the data
 
 ## Task 1.1: Create an RMarkdown file
@@ -55,15 +58,18 @@ Packages can be installed to your machine with `install.packages(<package_name>)
 Below are the packages on which this practical depends. Note that if you are working from the lab machines, you do not need to download [`tidyverse`](https://www.tidyverse.org) or [`sf`](https://r-spatial.github.io/sf/articles/sf1.html) -- instead you simply make these available to your R session with `library(<package-name>)`.
 
 ```{r packages, eval=FALSE}
-# Bundle of packages for data manipulation. If working from your own machine uncomment to download.
+# Bundle of packages for data manipulation.
 # install.packages("tidyverse")
 library(tidyverse)
 
-# For working with geospatial data.  If working from your own machine uncomment to download.
+# For working with geospatial data.
 # install.packages("sf")
 library(sf)
 
-# For performing microsimulation. If working from your own machine uncomment to download.
+# For rescaling data.
+# install.packages("scales")
+
+# For performing microsimulation.
 # install.packages("rakeR")
 
 # Set default ggplot2 theme.
@@ -246,9 +252,9 @@ Most _data wrangling_ type operations such as these are supported by functions t
 
 # End of practical
 
-Well done for completing this week's practical. You have successfully run a Spatial Microsimulation model and created a synthetic population of households in Leeds. You were exposed to a reasonable amount of code in the practical, and certainly a procedure that will be new to you (and takes a while to wrap your head around). If you could only simply reproduce the examples discussed in this document via the `.Rmd` file -- and most of the code went over you head -- don't worry! During this practical and the next, you will be given all the code necessary to complete the module and _Assignment 1_. As you develop as R programmers through the MSc, we would expect you to write code, and even develop R packages, of your own. ^[{-}![Save window](/images/assignment/practical1_save.png)]
+Well done for completing this week's practical. You have successfully run a Spatial Microsimulation model and created a synthetic population of households in Leeds. You were exposed to a reasonable amount of code in the practical, and certainly a procedure that will be new to you (and takes a while to wrap your head around). If you could only simply reproduce the examples discussed in this document via the `.Rmd` file -- and most of the code went over you head -- don't worry! During this practical and the next, you will be given all the code necessary to complete the module and _Assignment 1_. ^[{-}![Save window](/images/assignment/practical1_save.png)]
 
-Before you leave the practical make make sure you save your work:
+Before you end the practical make make sure you save your work:
 
 * Close your RStudio session by clicking on the red cross in the top left of the window.
 * You will be asked to save the changes to the `.Rmd` in which you enter code and discussion and a _Workspace image_ with the extension `.RData`. The `.RData` file stores all data objects (`tibbles`, `Values` and `Functions`) that you have created. Be sure to save both of these.

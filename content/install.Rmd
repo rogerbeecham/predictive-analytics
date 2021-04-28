@@ -11,7 +11,7 @@ bibliography: ../static/bib/references.bib
 
 Rather than simply a free alternative to proprietary statistical analysis software such as SPSS, R is a programming language in and of itself and can be used for:
 
-* Data Visualization design: [PopulationLines](http://spatial.ly/2014/08/population-lines/)
+* Data Visualization design: [2019 GE Vis](https://github.com/rogerbeecham/uk-general-election-vis/blob/master/README.md)
 
 * Developing interactive (visualization) software:  [UpSet](https://gehlenborglab.shinyapps.io/upsetr/)
 
@@ -24,7 +24,7 @@ Rather than simply a free alternative to proprietary statistical analysis softwa
 
 ## Free, open-source with an active community
 
-The cost motive is obvious, but the benefits that come from being fully open-source, with a critical mass of users are many.
+There are many benefits that come from being fully open-source, with a critical mass of users.
 
 Firstly, there is a burgeoning array of online forums, tutorials and code examples through which to learn R. [StackOverflow](https://stackoverflow.com/questions/tagged/r) is a particularly useful resource for answering more individual questions.
 
@@ -41,8 +41,6 @@ In recent years there has been much introspection around how science works -- ar
 Concerns around the _reproducibility crisis_ are not simply a function of transparency in methodology and research design. Rather, they relate to a culture and incentive structure whereby scientific claims are conferred with authority when reported within the (slightly backwards) logic of Null Hypothesis Significance Testing (NHST) and _p-values_. For an accessible read on the phenomenon of _p-hacking_ (with interactive graphic) see [this article](https://fivethirtyeight.com/features/science-isnt-broken/#part1) from the excellent [FiveThirtyEight](http://fivethirtyeight.com) website. Again, the upshot of all this introspection is a rethinking of the way in which Statistics is taught in schools and universities, with greater emphasis on understanding through computational approaches rather than traditional equations, formulas and probability tables. Where does R fit within this? Simply put: R is far better placed than traditional software tools and point-and-click paradigms for supporting computational approaches to statistics -- with a set of methods and libraries for performing simulations and permutation-based tests.
 
 # R and RStudio on your machine
-
-Although R and RStudio are installed locally on all computers available to you during the practicals, it is **highly recommended** that you install R on your own machines -- and in fact that you work on your personal machines during the practicals.
 
 ## Install R
 
@@ -95,3 +93,5 @@ There are numerous books, tutorials and blogs introducing R as an environment fo
 
 
 -  <i class="fas fa-book"></i> Robin Lovelace et al.'s^[@lovelace_geocomputation_2019] [_Geocomputation with R_](http://robinlovelace.net/geocompr/). This book comprehensively introduces spatial data handling in R. It is a great complement to _R for Data Science_ in that it draws on brand new libraries that support `tidyverse`-style operations on spatial data.
+
+# References

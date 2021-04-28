@@ -1,6 +1,6 @@
 ---
 title: "Behavioural and agent-based models"
-date: "2019-11-25"
+date: "2021-07-05"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl

@@ -12,12 +12,12 @@ library(tibble)
 library(pander)
 ```
 
-[^courseinfo] Combining theory and practical examples, this module introduces Predictive Analytics via two geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation and agent-based modelling. You will apply these techniques to data analyses highly relevant to the consumer analytics domain and using modern data analysis environments.
+[^courseinfo] Combining theory and practical examples, this module introduces Predictive Analytics via two geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation and agent-based modelling. You will apply these techniques through project work highly relevant to the consumer analytics domain and using modern data analysis environments.
 
 [^courseinfo]: {-}
   `r blogdown::shortcode("courseinfo")`
 
-By the end of this course you should be able to:
+By the end of this module you should be able to:
 
 - explain and critically evaluate the role of spatial analytics and geocomputational modelling in simulating and predicting consumer behaviours
 - apply geocomputational modelling and simulation techniques on real data sets
@@ -36,6 +36,19 @@ The <span class="newthought">individual project report</span> is related to Prac
 
 The <span class="newthought">group presentations</span> will be set during the ABM Workshop (week 3 of Summer semester). It requires you to undertake group work and prepare a presentation which will be completed in advance of a timetabled session on **Wednesday 21st July 2021** (week 5 of Summer semester). The group presentation is worth 25% of your overall module mark.
 
+
+# Navigating the course materials
+
+The home for this module is [this website](../../). From here, you will find the course [Schedule](/schedule/), where for each session there is <i class="fas fa-book-reader"></i> **reading**, <i class="fas fa-laptop-code"></i> **practical** and <i class="fas fa-university"></i> **lecture** content. Also accompanying each session is an [R Markdown](https://rmarkdown.rstudio.com/) file with a template to complete practical activities. These session templates contain pre-prepared code chunks for you to execute.
+
+
+# Slack
+
+ I have set up a course [Slack](https://predictive-analytics.slack.com), which should provide a useful mechanism for sharing information, resources and discussing practical and assignment activity.
+
+If you've not used Slack before, then follow these pages on [getting started with Slack](https://slack.com/intl/en-gb/help/articles/218080037-Getting-started-for-new-members). You should post all substantive questions associated with the module to Slack. These will get answered. If you wish to discuss more personal matters around your completing the course, then send those directly to me via e-mail (r.j.beecham@leeds.ac.uk).
+
+
 # Technologies and resources
 
 ## R and RStudio
@@ -43,7 +56,6 @@ The <span class="newthought">group presentations</span> will be set during the A
 You will use [R](https://cran.r-project.org/) and the [RStudio](https://www.rstudio.com/) IDE for most of this module's practical work and for Assignment 1. You have already had some introduction to R through LUBS5308 _Business Analytics and Decision Science_ and GEOG5917 Big Data and Consumer Analytics.
 
 If you have not done already, you should download R and and RStudio on your personal machines. [**These introductory pages**](/install/), should help. You should certainly have the latest version of R and RStudio on your machines prior to starting practical 1.
-
 
 ## Online help
 
