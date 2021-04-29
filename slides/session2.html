@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>GEOG5927 Predictive Analytics : Targeted Marketing and Response Modelling</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Roger Beecham" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="slides-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# GEOG5927 Predictive Analytics : Targeted Marketing and Response Modelling
+### Roger Beecham
+### last updated: 2021-04-29
+
+---
+
+
+
+
+
+## Module Schedule
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; session &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; wc &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; academic &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; lecture &lt;/th&gt;
+   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; progress &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 21 Jun &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Predictive analytics &amp;amp; microsimulation &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #1 data &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 28 Jun &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; RB &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; Response modelling and targeted marketing &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; #1 analysis &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 5 Jul &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; JG/NM &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Behavioural and agent-based models &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #2 material &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 12 Jul &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RO/RB &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Guest lecture &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #1 surgery &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 19 Jul &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB/JG/NM/RO &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Wrap-up &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #2 surgery &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+
+## Targeted Marketing
+
+*df.*
+&gt; Use of data and analytics to **characterise** customer populations, such that groups of customers likely to **respond best** to a message can be targeted and marketing **messages** can be **personalised** according to customer group
+
+---
+
+## Targeted Marketing: Recommender systems
+
+.tiny-font[
+*df.*
+&gt; Use of data and analytics to **characterise** customer populations, such that groups of customers likely to **respond best** to a message can be targeted and marketing **messages** can be **personalised** according to customer group]
+
+&lt;br&gt;
+
+.tiny-font[
+*e.g.*
+]
+.xtiny-font[
+Linden, G., Smith, B. and York, J. (2003) Amazon.com Recommendations: Item-to-Item Collaborative Filtering, IEEE Internet Computing,   7(1): 76-80
+]
+&lt;img src = "img/recommender.png", width = 60%&gt;&lt;/img&gt;
+
+???
+
+Everywhere
+
+* Items -- products, movies, events, articles – are recommended to users
+* 35% of Amazon sales are from recommendations
+* 2/3 of Netflix movies
+
+
+---
+
+## Targeted Marketing: Recommender systems
+
+
+.xtiny-font[
+Linden, G., Smith, B. and York, J. (2003) Amazon.com Recommendations: Item-to-Item Collaborative Filtering, IEEE Internet Computing,   7(1): 76-80
+]
+&lt;img src = "img/recommender.png", width = 60%&gt;&lt;/img&gt;
+
+???
+
+Two categories
+
+--
+.tiny-font[
+* Content or behvaioural based recommender systems
+  + generate probabilities that user will like a product based on past behaviour
+  + e.g. Spotify recommending tracks]
+
+???
+
+Content assumes past behaviour predicts future behaviour
+
+--
+&lt;br&gt;
+.tiny-font[
+* Demographic based recommender systems
+    + generate probabilities that user will like content based on the past behaviour of similar users
+    + e.g. Facebook directing adds/features
+]
+
+???
+
+Demographic assumes similar people have similar preferences/behaviours
+
+More data available, the better these algorithms are at recommending.
+That data are being collected continuously is really important…
+
+This is targeted marketing as specific products are targeted as specific individuals
+
+
+---
+
+## Targeted Marketing: Political micro-targeting
+
+
+???
+This idea of personalised messaging has recently been exposed though political marketing…
+
+--
+
+.tiny-font[
+*df.* targeted marketing
+&gt; Use of data and analytics to **characterise** customer populations, such that groups of customers likely to **respond best** to a message can be targeted and marketing **messages** can be **personalised** according to customer group]
+
+&lt;br&gt;
+
+--
+.tiny-font[
+*df.* micro-targeting
+&gt; A marketing strategy that capitalizes on the consumer’s demographic, psychographic, geographic, and behavioral data to predict his buying behavior, interests, opinions, and **influence** that behavior with the help of a hyper-targeted advertising strategy
+
+&gt;Pawha, 2018
+]
+
+&lt;!-- &lt;a href="https://hbr.org/2017/09/the-surprising-power-of-online-experiments"&gt;
+&lt;img src = "img/ab_testing.png", width = 60%&gt;&lt;/img&gt;
+   &lt;/a&gt; --&gt;
+
+
+---
+
+## Targeted Marketing: Political micro-targeting
+
+.tiny-font[
+*df.* micro-targeting
+&gt; A marketing strategy that capitalizes on the consumer’s demographic, psychographic, geographic, and behavioral data to predict his buying behavior, interests, opinions, and **influence** that behavior with the help of a hyper-targeted advertising strategy
+
+&gt;Pawha, 2018
+]
+
+--
+
+&lt;img src = "img/trump.jpeg", width = 30%, style = "position:absolute; top: 55%; left: 8%"&gt;&lt;/img&gt;
+
+&lt;img src = "img/cambridge_analytica.jpeg",  width = 30%, style = "position:absolute; top: 55%; left: 40%"&gt;&lt;/img&gt;
+
+???
+
+* Aleksander Kogan made  personality-quiz app for Facebook.
+* 270k installed app which allowed access to users *and* but their friends profiles.
+* Stored data -- not deleted -- later provided to Cambridge Analytica  where made 30 million “psychographic” profiles of voters.
+* Made and tested directly targeted ads for Leave, Ted Cruz and Trump
+
+---
+
+## Targeted Marketing: Political micro-targeting
+
+.tiny-font[
+*df.* micro-targeting
+&gt; A marketing strategy that capitalizes on the consumer’s demographic, psychographic, geographic, and behavioral data to predict his buying behavior, interests, opinions, and **influence** that behavior with the help of a hyper-targeted advertising strategy
+
+&gt;Pawha, 2018
+]
+
+&lt;iframe width="400" height="500" frameborder="0" src="https://www.bbc.co.uk/news/av-embeds/48364817/vpid/p063yz0g"&gt;&lt;/iframe&gt;
+
+&lt;a href="https://www.bbc.co.uk/news/business-48364817"&gt;
+  &lt;img src = "img/dislike.png",  width = 30%, style = "position:absolute; top: 55%; left: 50%"&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+---
+
+
+
+## Targeted "Marketing": Criminal justice
+
+.small-font[
+[`fivethirtyeight.com/parole-assessment-simulator/`](https://projects.fivethirtyeight.com/parole-assessment-simulator/)
+]
+
+&lt;img src = "img/fivethirtyeight.png", width = 11%, style = "position:absolute; top: 30%; left: 8%;"&gt;&lt;/img&gt;
+
+
+&lt;img src = "img/science_of_sentencing.png", width = 37%, style = "position:absolute; top: 30%; left: 18%;"&gt;&lt;/img&gt;
+
+
+---
+
+
+## Targeted Marketing: In the 1990s
+
+.pull-left[
+.small-font[
+Analysis of c.12million transactions per week:
+
+* Tailored campaigns/promotions targeted to certain groups
+* Pricing strategies for target groups
+* New products new ranges (e.g. Finest)
+* Products bought by loyal customers prioritised
+]]
+
+.pull-right[
+&lt;img src = "img/scoring_points.jpg", width = 60%&gt;&lt;/img&gt;
+]
+
+---
+
+## Targeted Marketing: Segmentation
+
+
+???
+
+Talked a lot about examples : a key technique used through all of these is segmentation
+
+---
+
+## Targeted Marketing: Segmentation
+
+
+.small-font[
+*df.*
+&gt; Partition objects -- places, businesses, **customers** -- into groups according to shared characteristics]
+
+--
+
+.tiny-font[
+* **indirect**: clearly defined, generally static
+  + age
+  + income
+  + occupation
+  + geographic location
+
+* **direct**: defined analytically and can change
+  + purchase behaviour
+  + brand awareness
+  + ad response]
+---
+
+## Targeted Marketing: Segmentation techniques
+
+.tiny-font[
+* **Recency-Frequency Monetary Value** (RFM)
+ + quantile-based
+ + 4 min read : `https://bit.ly/2KrVUia`
+
+
+ * **Clustering**
+  + k-means, density-based,  hierarchical
+  + 11 min read : `https://bit.ly/355i01K`
+
+* **Decision Trees**
+  + chaid, cart, id3
+  + 17 min read : `https://bit.ly/35aCXbG`
+  + visual introduction : `https://bit.ly/3dZJyNn`
+]
+
+???
+
+Three categories for consumer analytics
+No time for all of these -- blog posts that give really nice high-level summaries.
+
+RFM and Clustering : unsupervised grouping.
+
+Decision Trees : supervised learning -- clear output variable is labelled to to guide grouping process.
+
+---
+
+## Targeted Marketing: Geodemographics
+
+.tiny-font[
+*Clustering df.*
+&gt; Partition objects -- places, businesses, people -- into groups according to shared characteristics such that
+objects within groups are similar and objects between groups are different]
+
+--
+
+.tiny-font[
+*Geodemographic clustering df.*
+&gt; Partition neighbourhoods, small areas, into groups according to their demographic characteristics such that
+neighbourhoods within groups are demographically similar and neighbourhoods between groups are demographically different]
+
+--
+.tiny-font[
+Why geographic clustering?
+1. People who live in the same neighbourhood are likely to share similar purchase behaviours and preferences habits
+2. Neighbourhoods can be *categorised* and *related* by their populations: two or more neighbourhoods with similar populations can be placed in the same category.
+]
+
+---
+
+## Targeted Marketing: Geodemographics
+
+.tiny-font[
+*Geodemographic clustering df.*
+&gt; Partition neighbourhoods, small areas, into groups according to their demographic characteristics such that
+neighbourhoods within groups are demographically similar and neighbourhoods between groups are demographically different]
+
+&lt;a href="https://oac.datashine.org.uk/#datalayer=oac11_s&amp;layers=BTTT&amp;zoom=12&amp;lon=-0.1500&amp;lat=51.5200"&gt;
+  &lt;img src = "img/geodem.png",  width = 35%, style = "position:absolute; top: 45%; left: 10%"&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.xtiny-font[
+Leventhal, B. 2016. Geodemographics for Marketers: Using location
+analysis for research and marketing. [Available online](https://leeds.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991013055919705181&amp;context=L&amp;vid=44LEE_INST:VU1&amp;lang=en&amp;search_scope=My_Inst_CI_not_ebsco&amp;adaptor=Local%20Search%20Engine&amp;tab=AlmostEverything&amp;query=any,contains,991013055919705181&amp;sortby=date_d&amp;facet=frbrgroupid,include,9031409011017862701&amp;offset=0)
+]
+---
+
+## Targeted Marketing: Geodemographics
+
+.tiny-font[
+*Geodemographic clustering df.*
+&gt; Partition neighbourhoods, small areas, into groups according to their demographic characteristics such that
+neighbourhoods within groups are demographically similar and neighbourhoods between groups are demographically different]
+
+&lt;a href="https://www.gicentre.net/slingsbyexploring2011"&gt;
+  &lt;img src = "img/oac_explorer.png",  width = 40%, style = "position:absolute; top: 55%; left: 10%"&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.xtiny-font[
+Slingsby, A., Dykes, J. &amp; Wood, J. (2011). Exploring uncertainty in geodemographics with interactive graphics. IEEE Transactions on Visualization and Computer Graphics, 17(12), pp. 2545-2554. [Open Access](https://openaccess.city.ac.uk/id/eprint/437/)
+]
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/targeted_marketing_prac.png", width = 45%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
+
+
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/assignment_1.png", width = 40%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/assignment_1_template.png", width = 35%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+---
+
+
+## Targeted Marketing: Practical
+
+
+
+&lt;img src = "img/beach.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"&gt;&lt;/img&gt;
+
+???
+There are different types of holiday destination.
+
+---
+
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/beach_people.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"&gt;&lt;/img&gt;
+
+???
+Different categories of people to different destinations
+
+City breaks versus Beach holidays
+
+
+---
+## Targeted Marketing: Practical
+
+.small-font[
+`individuals.csv`
+  `15,189 records`
+  &lt;br&gt;
+  `--------`
+]
+&lt;img src = "img/geogs.png", width = 90%, style = "position:relative;"&gt;&lt;/img&gt;
+
+
+???
+
+* Just a survey…
+* Imagine we’re a Leeds-based that wants to know how the whole of Leeds is likely to behave
+* microsimulation to get to this level
+
+---
+
+## Targeted Marketing: Practical
+
+.small-font[Identify and profile a target market using:]
+
+ .tiny-font[
+* **Demographics**
+   + income, age, household structure
+
+* **Geography**
+   + where and what types of areas they tend to live in
+
+* **Psychographics**
+    +  their motivations and preferences
+]
+
+???
+
+1. Define group of interest -- destination type / customer type
+2. Identify what makes those holidaying there distinctive
+3. So that can target in particular ways
+
+Of interest:
+
+* demographics : what types of people in terms of income, age profile?
+* geography : where those individuals live (heavily related to demogs)?
+* psychographics : their preferences, motivations and more subjective tastes
+
+---
+
+## Targeted Marketing: Practical
+
+`simulated_oac_age_sex.csv`
+  `320,596 records`
+
+  &lt;table&gt;
+   &lt;thead&gt;
+    &lt;tr&gt;
+     &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; var_name &lt;/th&gt;
+     &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; var_values &lt;/th&gt;
+     &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; var_type &lt;/th&gt;
+    &lt;/tr&gt;
+   &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; age_band &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; a24under, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; demographic &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; income_band &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; 11-15k, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; demographic &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; oac_grp &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; 1,2,3,... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; geodemographic &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; uk_airport &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; MAN, DSA, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; preference &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; overseas_airport &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; TFS, EFL, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; preference &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; satisfaction_overall &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; 1_poor, ... &lt;/td&gt;
+     &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 16px;"&gt; preference/attitude &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;/table&gt;
+
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
+
+&lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 30%;"&gt;&lt;/img&gt;
+
+???
+
+In the guided data analysis in the practical, you’re asked to profile those holidaying to IBIZA.
+
+* This population has two age peaks
+* Comparatively few higher incomes
+* Mix of more affluent and deprived neighbourhood types
+
+But is this particularly distinctive? How does this relate to all of Leeds (all households in our simulated dataset)?
+
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 40%;"&gt;&lt;/img&gt;
+
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_net.png", width = 10.75%, style = "position:absolute; top: 22%; left: 40%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 55%;"&gt;&lt;/img&gt;
+
+---
+
+
+## Targeted Marketing: Practical
+
+&lt;br&gt;
+.small-font[**Deviation** from **Expectation**]
+
+&lt;img src = "img/correl_heer.jpeg", width = 50%, style = "position:absolute; top: 40%; left: 5%;"&gt;&lt;/img&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.xtiny-font[Correll &amp; Heer (2017) Surprise! Bayesian Weighting for De-Biasing Thematic Maps, IEEE TVCG]
+
+---
+
+
+## Setup
+
+#### Task 1.1 Attach OAC and Airport names
+
+.tiny-font[`simulated_oac_age_sex`]
+
+.xtiny-font[
+
+```r
+&gt; glimpse(simulated_oac_age_sex)
+Rows: 320,596
+Columns: 11
+$ person_id            &lt;dbl&gt; 56, 63, 261, 306, 326, 348, 402, 495, 654, 709, 712, 831, 1000, 1030, 1250, 1447, 1532,…
+$ zone                 &lt;chr&gt; "E00056750", "E00056750", "E00056750", "E00056750", "E00056750", "E00056750", "E0005675…
+$ oac_grp              &lt;fct&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, …
+$ sex                  &lt;fct&gt; m, f, m, m, m, m, m, f, m, m, m, m, m, f, f, f, f, f, m, f, m, m, f, f, f, f, m, f, m, …
+$ age_band             &lt;fct&gt; a65over, a25to34, a25to34, a65over, a50to64, a25to34, a35to49, a65over, a50to64, a35to4…
+$ number_children      &lt;dbl&gt; 0, 2, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, …
+$ household_income     &lt;chr&gt; "Not Answered", "26-30K", "26-30K", "Not Answered", "Not Answered", "Not Answered", "61…
+$ overseas_airport     &lt;chr&gt; "PMI", "FAO", "CUN", "TFS", "PXO", "IBZ", "PMI", "DLM", "CFU", "GRO", "ZTH", "AGA", "BJ…
+$ uk_airport           &lt;chr&gt; "MAN", "LBA", "LBA", "MAN", "LBA", "LBA", "MAN", "LBA", "LBA", "MAN", "MAN", "MAN", "LB…
+$ satisfaction_overall &lt;chr&gt; "1_poor", "2_fair", "1_poor", "4_excellent", "3_good", "1_poor", "1_poor", "4_excellent…
+$ age_sex              &lt;fct&gt; m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65over, m50to64, m35to4…
+```
+]
+
+.tiny-font[Join on `oac_lookup`, `airport_lookup`]
+
+.xtiny-font[
+
+```r
+&gt; glimpse(simulated_oac_age_sex)
+Rows: 320,596
+Columns: 18
+$ person_id            &lt;dbl&gt; 56, 63, 261, 306, 326, 348, 402, 495, 654, 709, 712, 831, 1000, 1030, 1250, 1447, 1532,…
+$ zone                 &lt;chr&gt; "E00056750", "E00056750", "E00056750", "E00056750", "E00056750", "E00056750", "E0005675…
+$ oac_grp              &lt;chr&gt; "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8…
+$ sex                  &lt;fct&gt; m, f, m, m, m, m, m, f, m, m, m, m, m, f, f, f, f, f, m, f, m, m, f, f, f, f, m, f, m, …
+$ age_band             &lt;fct&gt; a65over, a25to34, a25to34, a65over, a50to64, a25to34, a35to49, a65over, a50to64, a35to4…
+$ number_children      &lt;dbl&gt; 0, 2, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, …
+$ household_income     &lt;chr&gt; "Not Answered", "26-30K", "26-30K", "Not Answered", "Not Answered", "Not Answered", "61…
+$ overseas_airport     &lt;chr&gt; "PMI", "FAO", "CUN", "TFS", "PXO", "IBZ", "PMI", "DLM", "CFU", "GRO", "ZTH", "AGA", "BJ…
+$ uk_airport           &lt;chr&gt; "MAN", "LBA", "LBA", "MAN", "LBA", "LBA", "MAN", "LBA", "LBA", "MAN", "MAN", "MAN", "LB…
+$ satisfaction_overall &lt;chr&gt; "1_poor", "2_fair", "1_poor", "4_excellent", "3_good", "1_poor", "1_poor", "4_excellent…
+$ age_sex              &lt;fct&gt; m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65over, m50to64, m35to4…
+$ supergroup_name      &lt;chr&gt; "Hard-Pressed Living", "Hard-Pressed Living", "Hard-Pressed Living", "Hard-Pressed Livi…
+$ dest_airport_name    &lt;chr&gt; "Palma Mallorca", "Faro", "Cancun", "Sur Reina Sofia", "Porto Santo", "Ibiza", "Palma M…
+$ dest_airport_city    &lt;chr&gt; "Palma Mallorca", "Faro", "Cancun", "Tenerife", "Porto Santo", "Ibiza", "Palma Mallorca…
+$ dest_airport_country &lt;chr&gt; "Spain", "Portugal", "Mexico", "Spain", "Portugal", "Spain", "Spain", "Turkey", "Greece…
+$ orig_airport_name    &lt;chr&gt; "Manchester", "Leeds/Bradford", "Leeds/Bradford", "Manchester", "Leeds/Bradford", "Leed…
+$ orig_airport_city    &lt;chr&gt; "Manchester", "Leeds", "Leeds", "Manchester", "Leeds", "Leeds", "Manchester", "Leeds", …
+$ orig_airport_country &lt;chr&gt; "United Kingdom", "United Kingdom", "United Kingdom", "United Kingdom", "United Kingdom…
+```
+]
+
+
+---
+
+## Explore
+
+#### Task 1.2: Generate frequency plots
+
+.tiny-font[
+
+```r
+ggplot(
+  data=simulated_oac_age_sex,
+  mapping=aes(x=age_band)
+  )+
+  geom_bar()
+```
+]
+
+
+.pull-left[
+&lt;img src = "img/age_bar.png", width = 80%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+.pull-right[.tiny-font[
+`ggplot2` form:
+1. Identify *dataset*: `data=` | `&lt;data&gt; %&gt;%`
+2. Specify *mapping*: `aes(x=..., y=..., fill=...)`
+3. Select *geometry* (or marks) layer: `geom_*`
+]]
+
+---
+
+## Explore
+
+#### Task 1.2: Generate frequency plots
+
+.tiny-font[
+
+```r
+ggplot(
+  data=simulated_oac_age_sex,
+  mapping=aes(x=supergroup_name)
+  )+
+  geom_bar()
+```
+]
+
+&lt;img src = "img/oac_bar.png", width = 30%, style = "position:absolute; top: 55%; left: 10%;"&gt;&lt;/img&gt;
+
+
+
+---
+
+
+## Explore
+
+#### Task 1.2: Generate frequency plots
+
+.tiny-font[
+
+```r
+ggplot(
+  data=simulated_oac_age_sex,
+  mapping=aes(x=supergroup_name)
+  )+
+  geom_bar()+
+  coord_flip()
+```
+]
+
+&lt;img src = "img/oac_bar_flip.png", width = 26%, style = "position:absolute; top: 55%; left: 10%;"&gt;&lt;/img&gt;
+
+
+---
+
+## Explore
+
+#### Task 1.2: Generate frequency plots
+
+.tiny-font[
+
+```r
+simulated_oac_age_sex %&gt;%
+  group_by(supergroup_name) %&gt;%
+  summarise(count=n()) %&gt;%
+  ggplot(
+    aes(x=reorder(supergroup_name, count), y=count)
+    )+
+  geom_bar(stat="identity")+
+  coord_flip()
+```
+]
+
+&lt;img src = "img/oac_bar_flip_order.png", width = 26%, style = "position:absolute; top: 60%; left: 10%;"&gt;&lt;/img&gt;
+
+
+---
+
+## Explore
+
+#### Task 1.3: Generate frequency plots on variables with many categories
+
+.pull-left[
+.tiny-font[`order_country` -- staged data for charting:]
+.xtiny-font[
+
+```r
+# Generate tibble of countries ordered by frequency (for ordered factors).
+order_country &lt;- simulated_oac_age_sex %&gt;%
+  group_by(dest_airport_country) %&gt;%
+  summarise(count=n()) %&gt;%
+  arrange(-count)
+
+&gt; order_country
+# A tibble: 25 x 2
+   dest_airport_country  count
+   &lt;chr&gt;                 &lt;int&gt;
+ 1 Spain                112128
+ 2 Greece                43543
+ 3 Turkey                29149
+ 4 Egypt                 28220
+ 5 Tunisia               17672
+ 6 Mexico                13438
+ 7 Cyprus                12488
+ 8 Cuba                   7394
+ 9 Cape Verde             7040
+10 Italy                  6880
+# … with 15 more rows
+```
+]]
+
+.pull-right[.tiny-font[
+Use in data pipe to Cleveland dotplot:]
+.xtiny-font[
+
+```r
+simulated_oac_age_sex %&gt;%
+  # Order dest countries, casting as a factor
+  # and ordering levels on frequency.
+  mutate(
+    dest_airport_country=
+    factor(
+      dest_airport_country,
+      levels=order_country$dest_airport_country
+      )
+    )
+```
+]]
+---
+
+## Explore
+
+#### Task 1.3: Generate frequency plots on variables with many categories
+
+.pull-left[
+.tiny-font[Cleveland data prep:]
+.xtiny-font[
+
+```r
+simulated_oac_age_sex %&gt;%
+  # Order dest countries, cast as a factor
+  # and order on freq.
+  mutate(
+    dest_airport_country=
+      factor(
+        dest_airport_country,
+        levels=order_country$dest_airport_country)
+        ) %&gt;%
+  # Calculate num holidays to each dest airport.
+  group_by(overseas_airport) %&gt;%
+    summarise(
+      count_airport=n(),
+      dest_airport_country=first(dest_airport_country)
+      ) %&gt;%
+  # Order by these frequencies.
+  arrange(count_airport) %&gt;%
+  # Cast as factor and order levels.
+  mutate(
+    overseas_airport=
+      factor(
+        overseas_airport,levels=.$overseas_airport)
+        )
+```
+]
+]
+
+.pull-right[&lt;img src = "img/dests_cleveland.png", width = 56%, style = "position:relative; top: 0%; left: 20%;"&gt;&lt;/img&gt;
+]
+---
+## Explore
+
+#### Task 1.3: Generate frequency plots on variables with many categories
+
+.pull-left[
+.tiny-font[Cleveland plot spec:]
+.xtiny-font[
+
+```r
+# List airports vertically and frequencies horizontally.
+  ggplot(
+    aes(x=count_airport,y=overseas_airport)
+    )+
+    geom_segment(
+      aes(
+        x=0, y=overseas_airport, xend=count_airport,
+        yend=overseas_airport
+        ),
+        colour="#636363"
+      )+
+    geom_point(
+      colour="#636363", fill="#cccccc", shape=21
+      )+
+    # Facet the plot on country to display
+    # group freq by destination country.
+    facet_grid(
+      dest_airport_country~.,
+      scales="free_y",
+      space="free_y"
+      )
+```
+]
+]
+
+.pull-right[&lt;img src = "img/dests_cleveland.png", width = 56%, style = "position:relative; top: 0%; left: 20%;"&gt;&lt;/img&gt;]
+
+---
+
+
+## Explore research questions
+
+#### Task 2.1: Calculate totals and proportions
+
+.xtiny-font[
+
+```r
+simulated_oac_age_sex %&gt;%
+  # Dummy variable identifying destination to be profiled: PMI.
+  mutate(
+    # Edit the if_else() to switch focus.
+    dest_focus=if_else(overseas_airport=="PMI",1,0),
+    total_focus=sum(dest_focus)
+  ) %&gt;%
+  # Calculate proportions for each OAC group.
+  group_by(supergroup_name) %&gt;%
+  summarise(
+    oac_grp_focus=sum(dest_focus)/first(total_focus),
+    oac_grp_control=n()/nrow(.),
+    diff_focus_control=oac_grp_focus-oac_grp_control
+  )
+
+
+# A tibble: 8 x 4
+  supergroup_name             oac_grp_focus oac_grp_control diff_focus_control
+  &lt;chr&gt;                               &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;
+1 Constrained City Dwellers          0.157           0.105            0.0513
+2 Cosmopolitans                      0.0344          0.0729          -0.0385
+3 Ethnicity Central                  0.0127          0.0350          -0.0223
+4 Hard-Pressed Living                0.201           0.165            0.0355
+5 Multicultural Metropolitans        0.140           0.163           -0.0233
+6 Rural Residents                    0.0114          0.0144          -0.00304
+7 Suburbanites                       0.216           0.216           -0.000310
+8 Urbanites                          0.228           0.228            0.000638
+```
+]
+
+---
+
+## Explore research questions
+
+#### Task 2.1: Calculate totals and proportions
+
+.xtiny-font[
+
+```r
+simulated_oac_age_sex %&gt;%
+  # Dummy variable identifying destination to be profiled: PMI.
+  mutate(
+    # Edit the if_else() to switch focus.
+    dest_focus=if_else(overseas_airport=="CFU",1,0),
+    total_focus=sum(dest_focus)
+  ) %&gt;%
+  # Calculate proportions for each OAC group.
+  group_by(supergroup_name) %&gt;%
+  summarise(
+    oac_grp_focus=sum(dest_focus)/first(total_focus),
+    oac_grp_control=n()/nrow(.),
+    diff_focus_control=oac_grp_focus-oac_grp_control
+  )
+
+
+# A tibble: 8 x 4
+  supergroup_name             oac_grp_focus oac_grp_control diff_focus_control
+  &lt;chr&gt;                               &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;
+1 Constrained City Dwellers         0.0708           0.105           -0.0344
+2 Cosmopolitans                     0.112            0.0729           0.0394
+3 Ethnicity Central                 0.00424          0.0350          -0.0308
+4 Hard-Pressed Living               0.177            0.165            0.0119
+5 Multicultural Metropolitans       0.129            0.163           -0.0340
+6 Rural Residents                   0.0162           0.0144           0.00177
+7 Suburbanites                      0.216            0.216           -0.000291
+8 Urbanites                         0.274            0.228            0.0462
+```
+]
+
+---
+
+
+## Explore research questions
+
+#### Task 2.1: Calculate totals and proportions
+
+.xtiny-font[
+
+```r
+# Create a vector of destination names.
+focus &lt;- c("PMI","CFU","DLM")
+
+simulated_oac_age_sex %&gt;%
+  # Dummy variable identifying destination(s) to be profiled.
+  mutate(
+    # Edit the if_else() to switch focus.
+    dest_focus=if_else(overseas_airport %in% focus,1,0),
+    total_focus=sum(dest_focus)
+  ) %&gt;%
+  ...
+  ...
+  ...
+  ...
+
+
+# A tibble: 8 x 4
+  supergroup_name             oac_grp_focus oac_grp_control diff_focus_control
+  &lt;chr&gt;                               &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;
+1 Constrained City Dwellers          0.128           0.105             0.0232
+2 Cosmopolitans                      0.0682          0.0729           -0.00463
+3 Ethnicity Central                  0.0286          0.0350           -0.00642
+4 Hard-Pressed Living                0.184           0.165             0.0189
+5 Multicultural Metropolitans        0.152           0.163            -0.0114
+6 Rural Residents                    0.0113          0.0144           -0.00310
+7 Suburbanites                       0.199           0.216            -0.0177
+8 Urbanites                          0.229           0.228             0.00119
+```
+]
+
+---
+
+
+## Explore research questions
+
+#### Task 2.1: Calculate totals and proportions
+
+.pull-left[
+.tiny-font[
+Automate by creating a `function()`:
+]
+.xtiny-font[
+
+```r
+#' Calculate proportions for a focus and control variable,
+#' with user-defined grouping.
+#' @param data A df with focus and control variables
+#' (focus_var, control_var).
+#' @param group_var A string describing the grouping
+#' variable passed as a symbol.
+#' @return A df of focus and control proportions, with diff
+#' values.
+
+calculate_props &lt;-
+  function(data, group_var) {
+  data %&gt;%
+    group_by(!!group_var) %&gt;%
+    summarise(
+      focus_prop=sum(focus_var)/first(focus_total),
+      control_prop=sum(control_var)/first(control_total),
+      diff_prop=first(focus_prop)-first(control_prop),
+      variable_type=rlang::as_string(group_var)
+    ) %&gt;%
+    ungroup() %&gt;%
+    mutate(variable_name=!!group_var) %&gt;%
+    select(-!!group_var)
+}
+```
+]]
+
+.pull-right[
+.tiny-font[Use function:]
+.xtiny-font[
+
+```r
+# Define grouping variable
+group &lt;- "supergroup_name"
+
+# Identify the destination in focus.
+focus &lt;- "PMI"
+control &lt;- "ALL"
+
+# calculate_props() requires control and focus variables,
+# not yet contained in simulated dataset.
+# Create a new dataset with these added.
+temp_simulated_data &lt;- simulated_oac_age_sex %&gt;%
+  mutate(
+    focus_var=if_else(overseas_airport %in% focus,1,0),
+    control_var=1,
+    focus_total=sum(focus_var),
+    control_total=sum(control_var),
+    number_children=as.character(number_children)
+ )
+
+
+calculate_props(temp_simulated_data, rlang::sym(group))
+```
+]
+]
+
+---
+
+
+## Explore research questions
+
+#### Task 2.1: Calculate totals and proportions
+
+.pull-left[
+.tiny-font[
+Automate by creating a `function()`:
+]
+.xtiny-font[
+
+```r
+#' Calculate proportions for a focus and control variable,
+#' with user-defined grouping.
+#' @param data A df with focus and control variables
+#' (focus_var, control_var).
+#' @param group_var A string describing the grouping
+#' variable passed as a symbol.
+#' @return A df of focus and control proportions, with diff
+#' values.
+
+calculate_props &lt;-
+  function(data, group_var) {
+  data %&gt;%
+    group_by(!!group_var) %&gt;%
+    summarise(
+      focus_prop=sum(focus_var)/first(focus_total),
+      control_prop=sum(control_var)/first(control_total),
+      diff_prop=first(focus_prop)-first(control_prop),
+      variable_type=rlang::as_string(group_var)
+    ) %&gt;%
+    ungroup() %&gt;%
+    mutate(variable_name=!!group_var) %&gt;%
+    select(-!!group_var)
+}
+```
+]]
+
+.pull-right[
+.tiny-font[Use function:]
+.xtiny-font[
+
+```r
+calculate_props(temp_simulated_data, rlang::sym(group))
+
+# A tibble: 8 x 5
+  focus_prop control_prop diff_prop variable_type   variable_name
+       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;
+1     0.157        0.105   0.0513   supergroup_name Constrained City Dwellers
+2     0.0344       0.0729 -0.0385   supergroup_name Cosmopolitans
+3     0.0127       0.0350 -0.0223   supergroup_name Ethnicity Central
+4     0.201        0.165   0.0355   supergroup_name Hard-Pressed Living
+5     0.140        0.163  -0.0233   supergroup_name Multicultural Metropolitans
+6     0.0114       0.0144 -0.00304  supergroup_name Rural Residents
+7     0.216        0.216  -0.000310 supergroup_name Suburbanites
+8     0.228        0.228   0.000638 supergroup_name Urbanites
+```
+]
+]
+
+---
+
+## Explore research questions
+
+#### Task 2.1: Calculate totals and proportions
+
+.pull-left[
+.tiny-font[
+Automate by creating a `function()`:
+]
+.xtiny-font[
+
+```r
+#' Calculate proportions for a focus and control variable,
+#' with user-defined grouping.
+#' @param data A df with focus and control variables
+#' (focus_var, control_var).
+#' @param group_var A string describing the grouping
+#' variable passed as a symbol.
+#' @return A df of focus and control proportions, with diff
+#' values.
+
+calculate_props &lt;-
+  function(data, group_var) {
+  data %&gt;%
+    group_by(!!group_var) %&gt;%
+    summarise(
+      focus_prop=sum(focus_var)/first(focus_total),
+      control_prop=sum(control_var)/first(control_total),
+      diff_prop=first(focus_prop)-first(control_prop),
+      variable_type=rlang::as_string(group_var)
+    ) %&gt;%
+    ungroup() %&gt;%
+    mutate(variable_name=!!group_var) %&gt;%
+    select(-!!group_var)
+}
+```
+]]
+
+.pull-right[
+.tiny-font[Use function in a [functional programming](https://purrr.tidyverse.org/) way:]
+.xtiny-font[
+
+```r
+purrr::map_df(
+  groups,
+  ~calculate_props(temp_simulated_data, rlang::sym(.x))
+  )
+
+# A tibble: 36 x 5
+   focus_prop control_prop diff_prop variable_type   variable_name
+        &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;
+ 1     0.115        0.105   0.00930  supergroup_name Constrained City Dwellers
+ 2     0.0138       0.0729 -0.0590   supergroup_name Cosmopolitans
+ 3     0.0369       0.0350  0.00195  supergroup_name Ethnicity Central
+ 4     0.166        0.165   0.00118  supergroup_name Hard-Pressed Living
+ 5     0.164        0.163   0.000466 supergroup_name Multicultural Metropolitans
+ 6     0.0124       0.0144 -0.00201  supergroup_name Rural Residents
+ 7     0.279        0.216   0.0632   supergroup_name Suburbanites
+ 8     0.213        0.228  -0.0151   supergroup_name Urbanites
+ 9     0.0356       0.0598 -0.0242   age_band        a24under
+10     0.141        0.176  -0.0343   age_band        a25to34
+# … with 26 more rows
+```
+]
+]
+
+---
+
+## Explore research questions
+
+#### Task 2.2: Plot totals and proportions
+
+.pull-left[
+.xtiny-font[
+
+```r
+# Define two colours used to colour pos and neg bars differently
+fill_colours &lt;- c("#ffffff", "#cccccc")
+temp_plot_data %&gt;%
+  gather(
+    key=stat_type,
+    value=stat_value,
+    -c(variable_type, variable_name)
+    ) %&gt;%
+  mutate(
+    stat_type=factor(
+      stat_type,
+      levels=c("focus_prop","control_prop","diff_prop")
+      ),
+    stat_sign=stat_value&gt;0
+  ) %&gt;%
+  filter(!is.na(variable_name)) %&gt;%
+  ggplot(aes(x=variable_name, y=stat_value))+
+  # stat_sign is a boolean identifying whether
+  # stat_value is pos or neg.
+  geom_col(aes(fill=stat_sign), colour="#636363", size=0.3)+
+  scale_fill_manual(values=fill_colours, guide=FALSE)+
+  facet_grid(
+    variable_type~stat_type,
+    scales="free", space="free_y"
+    )+
+  labs(caption=paste0("focus var : ",focus," | control var : ",control))+
+  coord_flip()+
+  theme(axis.title=element_blank()
+```
+]]
+
+.pull-right[
+&lt;img src = "img/props_full.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
