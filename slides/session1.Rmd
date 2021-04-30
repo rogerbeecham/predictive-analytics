@@ -46,6 +46,12 @@ class: center middle
   + Individual data science report
   + Group data science presentation
 
+???
+* Introduces some key theory and techniques in modern data analysis.
+* Has both technical and applied aspects.
+* Techniques in which Geog dept specialises
+* Doing so with datasets and domains relevant to marketing science
+
 ---
 
 ## Outcomes
@@ -60,6 +66,15 @@ By the end of this module you should be able to:
 
 ---
 
+???
+
+1 : theory
+2 : application
+3 : both
+
+
+
+---
 ## Module team
 
 
@@ -94,6 +109,10 @@ kbl(schedule) %>%
   row_spec(0, background = "#ffffff", font_size = 18 ) %>%
   row_spec(1:5, background = "#ffffff", font_size = 20)
 ```
+
+???
+
+Breakdown of activity : short and fat
 
 ---
 
@@ -220,6 +239,11 @@ RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
 <br><br>
 * [Assignment submission page](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983621_1&course_id=_521220_1&mode=reset)
 
+???
+
+If not already, spend time on Module Handbook.
+
+
 ---
 
 ## Module Website
@@ -259,6 +283,12 @@ class: center middle
 
 # Introduction to Predictive Analytics
 
+???
+
+* That's introduction to module...
+* Push on with a bit of theory…
+* Why Predictive Analytics
+
 ---
 
 
@@ -268,6 +298,10 @@ class: center middle
 
 <img src = "img/bigdata_trends.png", width = 70%, style = "position:relative; top: 25%; left: 0%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
 
+???
+
+Know already, but from 2010s -- big data is a big industry -- transforming the way businesses, societies run
+Calling upon new ways of doing science
 
 ---
 
@@ -289,6 +323,17 @@ class: center middle
 
 
 <img src = "img/fourth_paradigm.jpeg", width = 35%, style = "position:absolute; top: 25%; left: 55%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+
+
+???
+
+Tony Hey :
+
+* Experimental science :  all we could know about was what we observed directly
+* Theory : abstracting above observations to generate fundamental laws about how things are
+* Sumulation : Test theories by simulating real world
+* Today : Back observation, but deriving new ways in new ways
+
 
 ---
 
@@ -321,6 +366,15 @@ class: center middle
 
 [`Lazer et al. 2014`](https://science.sciencemag.org/content/343/6176/1203.full)
 
+???
+
+Generate knowledge in new ways
+
+
+* Real-time google searches tell us something about what is happening in the world.
+* Association between how many people search for flu-related topics and how many people actually have flu symptoms.
+* Can we use these to to estimate how much flu is circulating and predict outbreak?
+
 ---
 
 
@@ -330,6 +384,14 @@ class: center middle
 
 <img src = "img/epj_pic.png", width = 40%, style = "position:relative; top: 15%;"></img>
 
+
+???
+
+* Generate new types of knowledge — newly opened up for analysis
+
+*How* people choose to decorate their homes — is is culturally and geographically distinctive. Or in a globalised world does a typical home London decorate the same as a typical home in Tokyo?
+
+Computer Vision  algorithms to automatically detect presence of certain ornaments and stylistic objects —see if there is spatial consistency in these…
 
 ---
 
@@ -344,6 +406,13 @@ class: center middle
 
 <img src = "img/science_of_sentencing.png", width = 37%, style = "position:absolute; top: 30%; left: 18%;"></img>
 
+???
+
+* Sentencing based typically on a criminal’s past crimes…
+* But here on *likely* crimes that individuals might commit in the future.
+* Based on statistical associations in past offender dataset
+* Using statistical probabilities based on factors such as age, employment history and prior criminal record
+* *Targeted* intervensions
 
 ---
 
@@ -420,6 +489,11 @@ class: center middle
     row_spec(1:6, background = "#ffffff", font_size = 16)
   ```
 
+???
+
+People holidaying to destinations…
+
+
 ---
 
 
@@ -430,7 +504,9 @@ class: center middle
 <img src = "img/beach.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"></img>
 
 
+???
 
+There are different types of holiday destination.
 
 ---
 
@@ -441,6 +517,9 @@ class: center middle
 
 <img src = "img/beach_people.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"></img>
 
+???
+
+Different categories of people to different destinations
 
 ---
 ## Simulating behaviour practical : use case
@@ -453,6 +532,12 @@ class: center middle
 ]
 <img src = "img/geogs.png", width = 90%, style = "position:relative;"></img>
 
+???
+
+This is just a survey…
+Imagine we’re a Leeds-based company…
+Want to know how  whole of Leeds is likely to behave
+Use microsimulation to get to this level
 
 ---
 
@@ -483,6 +568,21 @@ population-level and complete
 <img src = "img/icon_census.jpeg", width = 20%, style = "position:absolute; top: 65%; left: 28%;"></img>
 
 
+???
+
+Many situations where interested in knowing population that lives in an area: interests, preferences, spending patterns
+
+Are population-level datasets that exist.:
+
+Census is amazing for counting people according to high-level characteristics...
+
+But we only have a limited set of attribute information.
+
+Lots missed off from it – commercial setting – interests and preferences.
+
+Instead -- rely on comparatively small sample survey data for studying interests and preferences.
+
+Spatial microsimulation allows us to match rich individual-level data to a population we know less about.
 
 
 ---
@@ -504,6 +604,13 @@ population-level and complete
 <br><br><br>
 <img src = "img/individuals_areas.jpg", width = 50%, style = "position:relative"></img>
 
+???
+
+1. Start: survey of individuals and a geographic area. Each one of these spatial units is a small area of Leeds.
+2. Allocate individuals from the survey to the small spatial units of Leeds. Lots of copies of individuals – such that they sum to the entire population in that area.
+
+
+
 ---
 
 
@@ -512,6 +619,20 @@ population-level and complete
 
 <br><br><br>
 <img src = "img/individuals_areas_constraints.jpg", width = 60%, style = "position:relative"></img>
+
+
+???
+
+Random allocation sounds not very sensible.
+
+In microsim do so using some prior information on those spatial units – that you know about from a real dataset -- from the census in this case.
+
+If Census says that 60% are orange, 30% black and 10% blue, copy individuals from the survey based data in those same proportions...
+
+Notice arrows are varying in thickness to communicate this.
+
+Census acts as constraints – give us a better approximation of the populations than just randomly allocating.
+
 
 ---
 
@@ -527,6 +648,12 @@ population-level and complete
 
 <br><br><br><br>
 <img src = "img/individuals_areas_consraints_2.jpg", width = 75%, style = "position:relative"></img>
+
+???
+
+Blue: 40%
+Black: 40%
+Orange: 20%
 
 ---
 
@@ -572,6 +699,11 @@ Health : Smoking <br>
     Could be used by a Tobacco company for targeting investment
   ]]
   ]
+
+???
+
+Estimate levels of smoking in a population.
+
 ---
 
 ## Spatial microsimulation: Examples
@@ -596,9 +728,12 @@ Economics : Policy Evaluation <br>
 
 --
   .small-font[.pull-right[.left[
-    **"Benefits"** <br>
+    **Benefits** <br>
     Evidence-based decision-making
   ]]]
+
+
+
 ---
 
 
@@ -635,6 +770,19 @@ Transport : Simulating travel behaviour <br>
 
 3. Input microdataset and constraints are sufficiently rich and detailed to reproduce the full diversity of individuals and areas in the study region
 ]]
+
+
+???
+
+Want to establish some link between the phenomena that you’re studying and the demographics that you’re using as constraints..
+
+Points 2 and 3.
+
+For example , you might be studying cycling propensity. There’s an association between cycling and social-demographics.
+
+But is the relationship between socio-demographics and propensity to cycle is the same in London as it is in Newcastle – if we’re simulating from survey data over a country-level.
+
+Final point: you want census constraints that discriminate people well.
 
 ---
 
