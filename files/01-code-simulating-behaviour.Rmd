@@ -214,7 +214,7 @@ plot_data <- oa_level_summary %>%
   group_by(statistic_type) %>%
   mutate(
     # Rescale summary stats between 0 and 1 for local scale on facet.
-    statistic_value_rescale=scales::rescale(statistic_value, to=c(0,1), from=c(min(statistic_value), max(statistic_value))))
+    statistic_value_rescale=scales::rescale(statistic_value, to=c(0,1), from=c(min(statistic_value), max(statistic_value))),
     # Cut into equal-range bins as per histogram.
     statistic_value_bin=cut_interval(statistic_value_rescale, 10, labels=FALSE)
   ) %>%
