@@ -24,6 +24,19 @@ theme_set(theme_minimal())
 
 ### Task 1.1: Attach OAC and Airport names
 
+If you ran into problems last week with things that were difficult to fix remotely (usually we would be working with you face-to-face in labs), I have made the microsimulated dataset (`simulated_oac_age_sex`) available on an external repo and which you are free to use in your Assignment and for completing this week's practical.
+
+```{r download-microsim-data, eval=FALSE, cache=TRUE}
+# Read in individual-level survey data
+individuals <- read_csv("./data/individuals.csv")  %>%
+  mutate_at(vars(oac_grp, sex,age_band, age_sex),~factor(.))
+
+# Download pre-prepared microsimulation dataset and join on individuals.
+simulated_oac_age_sex <- read_csv("https://www.roger-beecham.com/datasets/microsim.csv") %>%
+  select(person_id, zone) %>%
+  inner_join(individuals)
+```
+
 Lookup tables containing full names are provided as `.csv` files in the `./data/info` directory.  We can add these to our simulated dataset using `dplyr::join`.
 
 ```{r join-attributes, eval=FALSE}

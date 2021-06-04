@@ -125,7 +125,7 @@ outline <- tibble::tibble(
   wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
   academic=c("RB","RB", "JG/NM", "RO/RB", "RB/JG/NM/RO"),
   lecture = c("Predictive analytics & microsimulation", "Response modelling and targeted marketing", "Behavioural and agent-based models",
-  "Guest lecture", "Wrap-up")
+  "Coursework surgery", "Guest lecture and wrap-up")
 )
 kbl(outline) %>%
   row_spec(0, background = "#ffffff", font_size = 18 ) %>%
