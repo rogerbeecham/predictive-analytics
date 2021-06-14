@@ -93,9 +93,6 @@ ggplot(data=simulated_oac_age_sex, mapping=aes(x=age_band))+
 2. Specify the _mapping_ : `aes(x=..., y=..., fill=..., ...)`
 3. Select a _geometry_ (or marks) layer : `geom_...`
 
-
-You should relate the form of `ggplot2` specifications -- the `ggplot2` _grammar_ -- to the _encodings_ of data and visual channels discussed in [GEOG5032's](http://www.roger-beecham.com/GEOG5042-data-visualization/index.html) session on Data Visualization in Tableau.
-
 Given this, now write `ggplot` specifications **of your own** for the other variables in the simulated dataset^[Hint: You will need to change the parameterisation to `aes()`.].
 
 ## Task 1.3: Generate frequency plots on variables with many categories
@@ -127,8 +124,7 @@ simulated_oac_age_sex %>%
     geom_segment(aes(x=0, y=overseas_airport, xend=count_airport, yend=overseas_airport), colour="#636363")+
     geom_point(colour="#636363", fill="#cccccc", shape=21)+
     # Facet the plot on country to display group freq by destination country.
-    facet_grid(dest_airport_country~., scales="free_y", space="free_y")+
-    theme(  strip.text.y = element_text(angle=0))
+    facet_grid(dest_airport_country~., scales="free_y", space="free_y")
 ```
 
 # Task 2: Explore research questions
@@ -300,8 +296,7 @@ temp_plot_data %>%
   facet_grid(variable_type~stat_type, scales="free", space="free_y")+
   labs(caption=paste0("focus var : ",focus," | control var : ",control))+
   coord_flip()+
-  theme(axis.title=element_blank(),
-        strip.text.y = element_text(angle=0))
+  theme(axis.title=element_blank())
 ```
 
 # Task 3: Plan your Ass#1 data analysis

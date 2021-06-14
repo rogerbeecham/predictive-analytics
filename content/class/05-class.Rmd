@@ -1,5 +1,5 @@
 ---
-title: "Revisit"
+title: "Guest lecture"
 date: "2021-07-19"
 citeproc: false
 bibliography: ../../static/bib/references.bib
@@ -14,8 +14,8 @@ editor_options:
 
 # Slides
 
-[Download the slides from today's lecture](/slides/GEOG5927-session5_2019-12-09.pdf).
+[Download the slides from today's lecture]().
 
 <figure>
-![First slide](/images/slides/slides_2019-12-09.png)
+![First slide]()
 </figure>

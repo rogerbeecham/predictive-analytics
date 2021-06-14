@@ -24,12 +24,25 @@ theme_set(theme_minimal())
 
 ### Task 1.1: Attach OAC and Airport names
 
+If you ran into problems last week with things that were difficult to fix remotely (usually we would be working with you face-to-face in labs), I have made the microsimulated dataset (`simulated_oac_age_sex`) available on an external repo and which you are free to use in your Assignment and for completing this week's practical.
+
+```{r download-microsim-data, eval=FALSE, cache=TRUE}
+# Read in individual-level survey data
+individuals <- read_csv("./data/individuals.csv")  %>%
+  mutate_at(vars(oac_grp, sex,age_band, age_sex),~factor(.))
+
+# Download pre-prepared microsimulation dataset and join on individuals.
+simulated_oac_age_sex <- read_csv("https://www.roger-beecham.com/datasets/microsim.csv") %>%
+  select(person_id, zone) %>%
+  inner_join(individuals)
+```
+
 Lookup tables containing full names are provided as `.csv` files in the `./data/info` directory.  We can add these to our simulated dataset using `dplyr::join`.
 
 ```{r join-attributes, eval=FALSE}
 # Read in lookup tables.
 oac_lookup <- read_csv("./data/info/oac_lookup.csv") %>%
-  # Cast oac_supergroup as character to join with factor variable in simuldated data.
+  # Cast oac_supergroup as character to join with factor variable in simulated data.
   mutate(supergroup_code=as.character(supergroup_code))
 airport_lookup <- read_csv("./data/info/airport_lookup.csv")
 
@@ -93,8 +106,7 @@ plot <- simulated_oac_age_sex %>%
     geom_segment(aes(x=0, y=overseas_airport, xend=count_airport, yend=overseas_airport), colour="#636363")+
     geom_point(colour="#636363", fill="#cccccc", shape=21)+
     # Facet the plot on country to display group freq by destination country.
-    facet_grid(dest_airport_country~., scales="free_y", space="free_y")+
-    theme(  strip.text.y = element_text(angle=0))
+    facet_grid(dest_airport_country~., scales="free_y", space="free_y")
 
 # Print plot to console
 plot
@@ -206,8 +218,7 @@ plot <- temp_plot_data %>%
   facet_grid(variable_type~stat_type, scales="free", space="free_y")+
   labs(caption=paste0("focus var : ",focus," | control var : ",control))+
   coord_flip()+
-  theme(axis.title=element_blank(),
-        strip.text.y = element_text(angle=0))
+  theme(axis.title=element_blank())
 
 # Print plot to console
 plot

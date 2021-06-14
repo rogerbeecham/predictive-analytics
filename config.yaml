@@ -9,7 +9,7 @@ ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
   - \.yaml$
-  - _files$
+  # - _files$
   - _cache$
   - \.csl$
 permalinks:

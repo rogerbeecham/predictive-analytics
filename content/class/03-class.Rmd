@@ -14,8 +14,8 @@ editor_options:
 
 # Slides
 
-[Download the slides from today's lecture](/slides/GEOG5927-session3_2019-11-25.pptx).
+[Download the slides from today's lecture]().
 
 <figure>
-![First slide](/images/slides/slides_2019-11-25.png)
+![First slide]()
 </figure>

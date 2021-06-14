@@ -44,7 +44,7 @@ The home for this module is [this website](../../). From here, you will find the
 
 # Slack
 
- I have set up a course [Slack](https://predictive-analytics.slack.com), which should provide a useful mechanism for sharing information, resources and discussing practical and assignment activity.
+ I have set up a module [Slack](https://predictiveana-tfa4522.slack.com), which should provide a useful mechanism for sharing information, resources and discussing practical and assignment activity.
 
 If you've not used Slack before, then follow these pages on [getting started with Slack](https://slack.com/intl/en-gb/help/articles/218080037-Getting-started-for-new-members). You should post all substantive questions associated with the module to Slack. These will get answered. If you wish to discuss more personal matters around your completing the course, then send those directly to me via e-mail (r.j.beecham@leeds.ac.uk).
 

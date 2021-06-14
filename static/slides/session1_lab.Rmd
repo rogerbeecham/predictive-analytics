@@ -1,7 +1,7 @@
 ---
 title: "GEOG5927 Predictive Analytics : Simulating Behaviour"
 author: "Roger Beecham"
-date: "last updated: `r Sys.Date()`"
+date: "23 Jun 2021"
 output:
   xaringan::moon_reader:
     css: [default, "slides-theme.css"]
