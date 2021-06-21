@@ -29,6 +29,14 @@ class: center middle
 <img src = "img/geog5927.png", width = 40%></img>
 ]
 
+???
+
+Looked at module website
+Also on Minerva
+1. Introduce Module
+2. Say how it will run
+3. Say a bit on timings
+4. Look at the first bit of subtantive work -- practical 1
 ---
 
 ## Module content and philosophy
@@ -358,14 +366,6 @@ Tony Hey :
 <iframe width="500" height="350" class="embed-responsive-item" src="https://www.youtube.com/embed/6111nS66Dpk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
----
-
-## Data-driven science : example
-
-<img src = "img/google_flu_traps.png", width = 60%></img>
-
-[`Lazer et al. 2014`](https://science.sciencemag.org/content/343/6176/1203.full)
-
 ???
 
 Generate knowledge in new ways
@@ -377,13 +377,25 @@ Generate knowledge in new ways
 
 ---
 
+## Data-driven science : example
+
+<img src = "img/google_flu_traps.png", width = 60%></img>
+
+[`Lazer et al. 2014`](https://science.sciencemag.org/content/343/6176/1203.full)
+
+???
+
+* Biases need to be more thoroughly thought through
+
+
+---
+
 
 ## Data-driven science : example
 
 <img src = "img/epj_title.png", width = 40%, style = "position:relative; top: 5%;"></img>
 
 <img src = "img/epj_pic.png", width = 40%, style = "position:relative; top: 15%;"></img>
-
 
 ???
 
@@ -470,77 +482,6 @@ class: center middle
 
 
 <img src = "img/sim_behaviour_prac.png", width = 60%, style = "position:absolute; top: 30%;"></img>
-
----
-
-
-## Simulating behaviour practical: survey dataset
-
-<br>
-
-`individuals.csv`
-  `15,189 records`
-
-  ```{r survey-data, echo=FALSE, out.width="100%"}
-  team <- tibble::tibble(
-    var_name = c("age_band", "income_band", "oac_grp", "uk_airport", "overseas_airport", "satisfaction_overall"),
-    var_values = c("a24under, ...", "11-15k, ...", "1,2,3,...", "MAN, DSA, ...","TFS, EFL, ...", "1_poor, ..."),
-    var_type = c("demographic", "demographic", "geodemographic", "preference", "preference", "preference/attitude")
-  )
-  kbl(team) %>%
-    row_spec(0, background = "#ffffff", font_size = 18) %>%
-    row_spec(1:6, background = "#ffffff", font_size = 16)
-  ```
-
-???
-
-People holidaying to destinations…
-
-
----
-
-
-## Simulating behaviour practical : use case
-
-
-
-<img src = "img/beach.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"></img>
-
-
-???
-
-There are different types of holiday destination.
-
----
-
-
-## Simulating behaviour practical : use case
-
-
-
-<img src = "img/beach_people.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"></img>
-
-???
-
-Different categories of people to different destinations
-
----
-## Simulating behaviour practical : use case
-
-.small-font[
-`individuals.csv`
-  `15,189 records`
-  <br>
-  `--------`
-]
-<img src = "img/geogs.png", width = 90%, style = "position:relative;"></img>
-
-???
-
-This is just a survey…
-Imagine we’re a Leeds-based company…
-Want to know how  whole of Leeds is likely to behave
-Use microsimulation to get to this level
 
 ---
 
@@ -809,6 +750,75 @@ Final point: you want census constraints that discriminate people well.
 ]]
 ---
 
+
+## Simulating behaviour practical: survey dataset
+
+<br>
+
+`individuals.csv`
+  `15,189 records`
+
+  ```{r survey-data, echo=FALSE, out.width="100%"}
+  team <- tibble::tibble(
+    var_name = c("age_band", "income_band", "oac_grp", "uk_airport", "overseas_airport", "satisfaction_overall"),
+    var_values = c("a24under, ...", "11-15k, ...", "1,2,3,...", "MAN, DSA, ...","TFS, EFL, ...", "1_poor, ..."),
+    var_type = c("demographic", "demographic", "geodemographic", "preference", "preference", "preference/attitude")
+  )
+  kbl(team) %>%
+    row_spec(0, background = "#ffffff", font_size = 18) %>%
+    row_spec(1:6, background = "#ffffff", font_size = 16)
+  ```
+
+???
+
+People holidaying to destinations…
+
+
+---
+
+
+## Simulating behaviour practical : use case
+
+
+
+<img src = "img/beach.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"></img>
+
+
+???
+
+There are different types of holiday destination.
+
+---
+
+
+## Simulating behaviour practical : use case
+
+
+
+<img src = "img/beach_people.jpeg", width = 50%, style = "position:absolute; top: 30%; left: 10%;"></img>
+
+???
+
+Different categories of people to different destinations
+
+---
+## Simulating behaviour practical : use case
+
+.small-font[
+`individuals.csv`
+  `15,189 records`
+  <br>
+  `--------`
+]
+<img src = "img/geogs.png", width = 90%, style = "position:relative;"></img>
+
+???
+
+This is just a survey…
+Imagine we’re a Leeds-based company…
+Want to know how  whole of Leeds is likely to behave
+Use microsimulation to get to this level
+---
 
 ## Module Schedule
 
