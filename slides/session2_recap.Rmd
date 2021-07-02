@@ -383,50 +383,6 @@ oa_boundaries %>%
 
 ---
 
-### Mapping survey variables in `ggplot2` : continuous
-
-.pull-left[
-.tiny-font[Plot specification for choropleth map:]
-.xtiny-font[
-```{r boundary-plot-8, eval=FALSE, echo=TRUE, out.width="100%"}
-oa_boundaries %>%
-  mutate(is_emph= supgrpname == "Suburbanites") %>%
-  ggplot()+
-    geom_sf(aes(fill=supgrpname), colour=NA, alpha=.8)+
-    geom_sf(
-      data=. %>% filter(is_emph),
-      fill="transparent", colour="#984ea3", size=0.1)+
-    geom_sf(
-      data=. %>% summarise(), fill="transparent",
-      colour="#636363", size=0.2)+
-    coord_sf(crs=st_crs(oa_boundaries), datum=NA) +
-    scale_fill_manual(values=oac_colours) +
-    guides(
-      fill=guide_legend(title="OAC Supergroup"),
-      colour=FALSE
-      )
-```
-]
-]
-.pull-right[<img src = "img/oac_set1_alpha_ordered_outline_emph.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"></img>
-]
-
----
-
-## Targeted Marketing: Practical
-
-
-<img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"></img>
-<img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"></img>
-<img src = "img/props_net.png", width = 10.75%, style = "position:absolute; top: 22%; left: 40%;"></img>
-<img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 55%;"></img>
-
-???
-
-Respond in certain ways -- more efficient
-
----
-
 
 ### Mapping survey variables in `ggplot2` : continuous
 
