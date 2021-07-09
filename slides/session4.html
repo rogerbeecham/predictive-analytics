@@ -86,26 +86,14 @@ class: center, middle, title-slide
 
 ???
 
-What I’m looking for :
-	General 1 : A well-scoped data analysis. Data you select, techniques use to analyse it and presentation makes sense given your focus.
-	General 2 : That  all analysis and recommendations are evidence-based – that is they are clearly informed by your data analysis.
-
----
-
-
-## Assigment #1
-
-&lt;img src = "img/assignment_1_template.png", width = 35%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
-.tiny-font[
-[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
-
-???
+Different from the workbook activities required by GDVA.
 
 What I’m looking for :
 	General 1 : A well-scoped data analysis. Data you select, techniques use to analyse it and presentation makes sense given your focus.
 	General 2 : That  all analysis and recommendations are evidence-based – that is they are clearly informed by your data analysis.
 
----
+&lt;!-- ---
+
 
 ## Assigment #1
 
@@ -120,12 +108,12 @@ What I’m looking for :
 ]
 &lt;img src = "img/geogs.png", width = 90%, style = "position:relative;"&gt;&lt;/img&gt;
 
-???
+
 
 Remember : we’ve got this simulated population-level dataset.
-Each row is a household in Leeds that have recently returned from holiday — thought where certain areas in Leeds are better characterised than others
+Each row is a household in Leeds that have recently returned from holiday — thought where certain areas in Leeds are better characterised than others --&gt;
 
----
+&lt;!-- ---
 
 
 ## Assigment #1
@@ -143,7 +131,7 @@ Each row is a household in Leeds that have recently returned from holiday — th
     +  their motivations and preferences
 ]
 
-???
+
 
 1. Define group of interest -- destination type / customer type
 2. Identify what makes those holidaying there distinctive
@@ -153,11 +141,9 @@ Of interest:
 
 * demographics : what types of people in terms of income, age profile?
 * geography : where those individuals live (heavily related to demogs)?
-* psychographics : their preferences, motivations and more subjective tastes
+* psychographics : their preferences, motivations and more subjective tastes --&gt;
 
----
-
-## Assigment #1
+&lt;!-- ## Assigment #1
 
 `simulated_oac_age_sex.csv`
   `320,596 records`
@@ -205,37 +191,19 @@ Of interest:
   &lt;/table&gt;
 
 
----
-
-## Assigment #1
+--- --&gt;
 
 
-&lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
-
-&lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 30%;"&gt;&lt;/img&gt;
-
-???
-
-In the guided data analysis in the practical, you’re asked to profile those holidaying to IBIZA.
-
-* This population has two age peaks
-* Comparatively few higher incomes
-* Mix of more affluent and deprived neighbourhood types
-
-But is this particularly distinctive? How does this relate to all of Leeds (all households in our simulated dataset)?
-
----
-
-## Assigment #1
+&lt;!-- ## Assigment #1
 
 
 &lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
 &lt;img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"&gt;&lt;/img&gt;
 &lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 40%;"&gt;&lt;/img&gt;
 
----
+--- --&gt;
 
-## Assigment #1
+&lt;!-- ## Assigment #1
 
 
 &lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
@@ -243,9 +211,9 @@ But is this particularly distinctive? How does this relate to all of Leeds (all 
 &lt;img src = "img/props_net.png", width = 10.75%, style = "position:absolute; top: 22%; left: 40%;"&gt;&lt;/img&gt;
 &lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 55%;"&gt;&lt;/img&gt;
 
----
+--- --&gt;
 
-## Assigment #1
+&lt;!-- ## Assigment #1
 
 &lt;br&gt;
 .small-font[**Deviation** from **Expectation**]
@@ -256,20 +224,176 @@ But is this particularly distinctive? How does this relate to all of Leeds (all 
 .xtiny-font[Correll &amp; Heer (2017) Surprise! Bayesian Weighting for De-Biasing Thematic Maps, IEEE TVCG]
 
 
+--- --&gt;
+
+---
+
+## Assigment #1
+
+&lt;img src = "img/pract2_analysis_ideas.png", width = 50%, style = "position:absolute; top: 20%;"&gt;&lt;/img&gt;
+---
+
+
+## Assigment #1
+
+### FAQs
+
+--
+&gt; "I selected holidays to `&lt;insert-destination-name-here&gt;` as a focus for my data analysis. Is this *correct*?"
+
+
+???
+
+Entirely up to you.
+Expect you to consider things like whether you have enough data to make claims with certainty.
+E.G. India.
+
+Also you will want to consider data available. high-level focus : single demographic group (age under 35 for example) OR category of location (all holidays to Africa for example).  Selecting both a destination and demographic type as your focus; or a focus that is based on multiple variables (OAC and age and income for example) limits the analysis that you can do as it effectively eliminates the variables on which you are selecting the focus from your data analysis.
+
+---
+
+### FAQs
+
+&gt; "I found that `&lt;insert-variable-value-combination-here&gt;` were overrepresented amongst my area of focus when compared against my baseline. Should I just list each of these?"
+
+
+???
+
+Again -- interested in your demonstrating understanding and an ability to reason over data -- this what is required of data scientists.
+E.g. -- Consider *effect size*, *variability*.
+E.g. -- income variable.
+E.g. -- ethnicity central.
+
+---
+
+### FAQs
+
+&gt; "What does `diff_prop` mean?"
+
+???
+
+There is nothing sophisticated happening here – the “diff_prop” bars are simply comparing two proportions:
+
+Of all PMI holidaymakers in Leeds population, the proportion that are 65+; 50-64; etc.
+Of all holidaymakers in Leeds population, the proportion that are 65+; 50-64; etc.
+
+So if a larger proportion of 65+ in the PMI group than the Leeds population, then one can say that age category is overrepresented when compared against our expectation that PMI holidaymakers are no different from the Leeds population.
+
+
+
+Also up to you to decide on what is important
+
+---
+
+### FAQs
+
+&gt; "In the session 2 recap you showed how to creat a choropleth map in `ggplot2`. What does `index` mean -- and `high`- `mid`- `low`?"
+
+???
+
+* Quickly generated in response to student request.
+* Different ways of cutting the data possible.
+* Not required to produce a map as an output for  submission.
+
+* High-mid-low: “propensity”-type measure. Identify  variables discriminating (from my earlier analysis) for holidaymakers to IBZ. Then I identify individuals in each output area (small areas in Leeds to which individuals in our microsimulated data are assigned) that have one (low), two (medium), three (high) of those characteristics and give them a score accordingly.
+
+* Index -- “weighted count”. Greater weight to higher “propensity” Arbitrary – are those that are “suburbanites” AND “a65over” twice as important (in terms of marketing) as those that are just “a65over” and note “suburbanites? Made sense to continue this into the overall index score.  Map of *index*  shows small areas (output areas) that contain our target individuals. The high-medium-low provide further detail:  “high” map is those areas containing individuals who are most likely to respond to an ad campaign for IBZ holidays (in this case) as we assume believe them to share common demographic characteristics with IBZ holidaymakers; the mid-map contains those likely to respond based on two shared characteristics; the low map shows those *likely* to respond based on one characteristic
+
+
+---
+
+### FAQs
+
+&gt; "What do I write in each section of the report?"
+
+&gt; "Why do I have a Results section and Conclusion section?"
+
+&gt; "In which section should I put `x`, `y` and `z`?"
+
+
+---
+
+## Assigment #1
+
+&lt;img src = "img/assignment_1_template.png", width = 35%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+???
+
+What I’m looking for :
+	General 1 : A well-scoped data analysis. Data you select, techniques use to analyse it and presentation makes sense given your focus.
+	General 2 : That  all analysis and recommendations are evidence-based – that is they are clearly informed by your data analysis.
+
+---
+
+## Assigment #1
+
+&lt;img src = "img/template_intro.png", width = 55%, style = "position:absolute; top: 35%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+???
+
+  Data and methods:
+    High-level understanding of what is spatial microsimulation, why do it, and -- briefly -- how.
+    You may wish to comment on whether there are particular areas not so well-represented.
+  Results:
+    May be appropriate to identify limitations of specific findings
+  Conclusion: also in conclusion
+---
+
+
+## Assigment #1
+
+&lt;img src = "img/template_data.png", width = 55%, style = "position:absolute; top: 35%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+???
+
+  Data and methods:
+    High-level understanding of what is spatial microsimulation, why do it, and -- briefly -- how.
+    You may wish to comment on whether there are particular areas not so well-represented.
+---
+
+## Assigment #1
+
+&lt;img src = "img/template_results.png", width = 55%, style = "position:absolute; top: 35%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+???
+
+  Results:
+    May be appropriate to identify limitations of specific findings
+---
+
+## Assigment #1
+
+&lt;img src = "img/template_conclusion.png", width = 55%, style = "position:absolute; top: 35%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+???
+
+  Results:
+    Also in conclusion
 ---
 
 ## Assigment #2
 
-### Guidelies for effective presentations
-
-
+--
+### Guidelies for effective presentations (slides)
 
 ---
+
 
 ## Assigment #2
 
 ### Guideline 1: Avoid noise
 
+--
 .small-font[
 * Background colours
 
@@ -400,15 +524,17 @@ Do think about ordering your slides meaningfully : layout is powerful.
 
 ### Guideline 5: Layout - order
 
-.small-font[
-&lt;br&gt;
 
+&lt;br&gt;
+.small-font[
 &gt; *We expect things to be displayed
-    in sequence.*
-&lt;br&gt;&lt;br&gt;
+    in sequence.*]
+--
+.small-font[
 &gt; *If we wish to imply a sequence,
-     arrange things in that sequence.*
-&lt;br&gt;&lt;br&gt;
+     arrange things in that sequence.*]
+--
+.small-font[
 &gt; *This  can be particularly useful when ‘telling a story’ in a presentation.*
 ]
 
