@@ -1,6 +1,6 @@
 ---
-title: "Behavioural and agent-based models"
-date: "2021-07-05"
+title: "Machine learning for predictive analytics"
+date: "2022-03-14"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -14,8 +14,7 @@ editor_options:
 
 # Slides
 
-[Download the slides from today's lecture]().
-
+Download the slides from the session [lecture](/slides/session3.html).
 <figure>
-![First slide]()
+![First slide](/images/slides/2022-03-13.png)
 </figure>

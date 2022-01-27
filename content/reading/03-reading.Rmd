@@ -1,14 +1,12 @@
 ---
-title: "Agent-based models"
+title: "Machine learning for predictive analytics"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-An additional, extended reading list from [this link](/files/03-abm-reading-list.pdf).
+# ML primers
 
-# ABM primers
+- <i class="fas fa-book"></i> Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani'[@james_an_2014]s [_An introduction to statistical learning_](https://www.statlearning.com/) provides a conceptual and practical introduction in R to key ML techniques.
 
--  <i class="fas fa-book"></i>  Brunsdon, C. and Singleton, A. (2016)[@brunsdon_geocomputation_2015] _Geocomputation: A practical primer_.
-
-- <i class="fas fa-book"></i> Crooks, A., Malleson, N., Manley, E. and Hepppenstall, Al.  (2018)[@crooks_abms_2018] _Agent-Based Modelling and Geographical Information Systems: a practical primer_.
+- <i class="fas fa-book"></i> Max Kuhn and Julia Silge [@kuhn_tidy_2022] [_Tidy modeling with R_](https://www.statlearning.com/) demonstrates how to deploy `tidyverse` workflows when working over ML (resampled) model outputs.

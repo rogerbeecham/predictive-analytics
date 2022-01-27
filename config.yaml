@@ -1,8 +1,8 @@
-baseURL: "http://www.roger-beecham.com/predictive-analytics/"
+baseURL: "https://www.roger-beecham.com/predictive-analytics/"
 languageCode: en-gb
 title: Predictive Analytics
 theme: "rjb-tufte-hugo"
-canonifyURLs: true
+canonifyURLs: false
 relativeURLs: true
 googleAnalytics: ""
 ignoreFiles:
@@ -43,14 +43,14 @@ params:
     office: 10.139 Manton
   course:
     number: GEOG5927M
-    semester: Summer 2021
+    semester: Spring 2022
     days: "Mon (lec) & Weds (lab) & Fri (recap)"
-    time: "2:00pm-3:00pm (lec)"
-    location: "Online"
+    time: "3:00pm-4:00pm (lec)"
+    location: "Online | Cohen labs"
     twitter: rjbeecham
-    dates: "June 21–July 21, 2021"
+    dates: "Feb 28–Apr 27, 2022"
     github: "rogerbeecham"
-    copyrightYear: "2021"
+    copyrightYear: "2022"
   university:
     name: University of Leeds
     url: "https://www.leeds.ac.uk"
@@ -58,8 +58,8 @@ params:
     name: School of Geography
     url: "https://environment.leeds.ac.uk/geography"
   description: "Introduces techniques for simulating and predicting social behaviour"
-  primaryColor: "#a50f15"
-  secondaryColor: "#ef3b2c"
+  primaryColor: "#252525"
+  secondaryColor: "#737373"
   logo:
     url: ./images/geog5927m.png
     alt: Predictive Analytics

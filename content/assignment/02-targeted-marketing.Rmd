@@ -1,5 +1,5 @@
 ---
-title: "Practical 2 : targeted marketing"
+title: "Practical 2 : Targeted marketing for predictive analytics"
 editor_options:
   chunk_output_type: console
 ---

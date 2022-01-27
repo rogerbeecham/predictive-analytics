@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>GEOG5927 Predictive Analytics : Simulating Behaviour</title>
+    <title>GEOG5927 Simulating behaviours for predictive analytics</title>
     <meta charset="utf-8" />
     <meta name="author" content="Roger Beecham" />
-    <meta name="date" content="2021-06-23" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/kePrint/kePrint.js"></script>
     <link href="libs/lightable/lightable.css" rel="stylesheet" />
@@ -14,9 +14,9 @@
     <textarea id="source">
 class: center, middle, title-slide
 
-# GEOG5927 Predictive Analytics : Simulating Behaviour
+# GEOG5927 Simulating behaviours for predictive analytics
 ### Roger Beecham
-### 23 Jun 2021
+### 2 Mar 2022
 
 ---
 
@@ -37,7 +37,7 @@ Assumes an understanding of:
 * `ggplot2` for charting
 
 ... But don't worry:
-* All code required to complete the practical is provided
+* Much of the code required to complete the practical is provided
 * The assessment tests ability to present a coherent data analysis, not your ability to code in `R`
 ]
 
@@ -403,7 +403,7 @@ oa_boundaries &lt;- st_read("./data/oa_boundaries.geojson", crs=27700)
 
 .xtiny-font[
  
- ```r
+ ````r
  # Reorder according to order vars appear in constraints table : required by rakeR.
  individuals &lt;- individuals %&gt;%
   mutate(
@@ -419,86 +419,82 @@ oa_boundaries &lt;- st_read("./data/oa_boundaries.geojson", crs=27700)
  
  &gt; individuals %&gt;% pull(age_band) %&gt;% levels()
  [1] "a24under" "a25to34"  "a35to49"  "a50to64"  "a65over"
+ 
  ```
-]
----
-
-## Generate synthetic data
-
-#### Task 2.1: Refactor variables and check for matches
-
-.small-font[
+ ]
+ ---
+ 
+ ## Generate synthetic data
+ 
+ #### Task 2.1: Refactor variables and check for matches
+ 
+ .small-font[
  `individuals` and `*_cons` (Census) data need to be related
  ]
-
-.tiny-font[
-1. **Convert** the `individuals` variables to be matched with the constraints tibbles as **factors**
-2. **Reorder** according to the variable order in the constraints tibbles
-]
-
-.xtiny-font[
-
-```r
-# Check levels and variable names exactly match.
-&gt; all.equal(
+ 
+ .tiny-font[
+ 1. **Convert** the `individuals` variables to be matched with the constraints tibbles as **factors**
+ 2. **Reorder** according to the variable order in the constraints tibbles
+ ]
+ 
+ .xtiny-font[
+ ```{r check-match, eval=FALSE}
+ # Check levels and variable names exactly match.
+ &gt; all.equal(
     levels(individuals$age_sex),
      colnames(age_sex_cons %&gt;% select(-oa_code))
  )
-[1] TRUE
-```
-]
-
-
-
-.small-font[
+ [1] TRUE
+ ```
+ ]
+ 
+ 
+ 
+ .small-font[
  Note that both **values** and **orders** match:
  ]
-
-.xtiny-font[
-
-```r
-&gt; levels(individuals %&gt;% pull(age_sex))
-[1] "m24under" "m25to34"  "m35to49"  "m50to64"  "m65over"  "f24under" "f25to34"  "f35to49"  "f50to64"  "f65over"
-```
-]
-
-.xtiny-font[
-
-```r
-&gt; colnames(age_sex_cons %&gt;% select(-oa_code))
+ 
+ .xtiny-font[
+ ```{r check-match-example-fct, eval=FALSE}
+ &gt; levels(individuals %&gt;% pull(age_sex))
  [1] "m24under" "m25to34"  "m35to49"  "m50to64"  "m65over"  "f24under" "f25to34"  "f35to49"  "f50to64"  "f65over"
-```
-]
-
-
----
-
-## Generate synthetic data
-
-#### Task 2.2: Generate the miscrosimulated data
-
-.tiny-font[
-1. **Specify** the constraints data and store in `temp_cons` object
-]
-
-.xtiny-font[
-
-```r
-# Identify the variables to use as constraints.
-cons_vars &lt;- c("oac_grp", "age_sex")
-
-# Join to generate a single constraint table.
-temp_cons &lt;- oac_cons %&gt;% inner_join(age_sex_cons)
-# Joining, by = "oa_code"
-```
-]
-
-&lt;br&gt;
-.xtiny-font[
-
-```r
-&gt; temp_cons
-# A tibble: 2,543 x 19
+ ```
+ ]
+ 
+ .xtiny-font[
+ ```{r check-match-example, eval=FALSE}
+ &gt; colnames(age_sex_cons %&gt;% select(-oa_code))
+ [1] "m24under" "m25to34"  "m35to49"  "m50to64"  "m65over"  "f24under" "f25to34"  "f35to49"  "f50to64"  "f65over"
+ ```
+ ]
+ 
+ 
+ ---
+ 
+ ## Generate synthetic data
+ 
+ #### Task 2.2: Generate the miscrosimulated data
+ 
+ .tiny-font[
+ 1. **Specify** the constraints data and store in `temp_cons` object
+ ]
+ 
+ .xtiny-font[
+ ```{r constraints, eval=FALSE}
+ # Identify the variables to use as constraints.
+ cons_vars &lt;- c("oac_grp", "age_sex")
+ 
+ # Join to generate a single constraint table.
+ temp_cons &lt;- oac_cons %&gt;% inner_join(age_sex_cons)
+ # Joining, by = "oa_code"
+ ```
+ ]
+ 
+ &lt;br&gt;
+ .xtiny-font[
+ ```{r temp-cons, eval=FALSE}
+ &gt; temp_cons
+ # A tibble: 2,543 x 19
    oa_code     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8` m24under m25to34 m35to49 m50to64 m65over f24under f25to34
    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
  1 E00056750     0     0     0     0     0     0     0   141        1      14      23      22      22        5       9
@@ -506,7 +502,7 @@ temp_cons &lt;- oac_cons %&gt;% inner_join(age_sex_cons)
  3 E00056752     0     0     0     0   200     0     0     0        1      19      31      33      18        5      19
  4 E00056753     0     0     0     0     0     0   141     0        5       8      15      13      27        2       4
  5 E00056754     0     0     0     0   131     0     0     0        5      11      33      20       8        3       9
-```
+ ````
  ]
 
 ---
@@ -919,36 +915,36 @@ Plot spec:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 21 Jun &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 28 Feb &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1500-1600 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 1100-1800 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 1700-1800 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 28 Jun &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 7 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1500-1600 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 1100-1800 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 1700-1800 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 3 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 5 Jul &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 14 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1500-1600 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 1100-1800 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 1700-1800 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 4 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 12 Jul &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 0900-1200 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 0900-1000 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 21 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1500-1600 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; wed 1100-1800 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; fri 1700-1800 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 5 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 19 Jul &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1400-1500 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 25 Apr &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; mon 1500-1600 &lt;/td&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; NA - pres &lt;/td&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; NA &lt;/td&gt;
   &lt;/tr&gt;

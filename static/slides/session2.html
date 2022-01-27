@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>GEOG5927 Predictive Analytics : Targeted Marketing and Response Modelling</title>
+    <title>GEOG5927 Predictive Analytics : Targeted Marketing</title>
     <meta charset="utf-8" />
     <meta name="author" content="Roger Beecham" />
-    <meta name="date" content="2021-06-28" />
+    <meta name="date" content="2022-02-28" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <script src="libs/kePrint/kePrint.js"></script>
     <link href="libs/lightable/lightable.css" rel="stylesheet" />
@@ -14,9 +15,9 @@
     <textarea id="source">
 class: center, middle, title-slide
 
-# GEOG5927 Predictive Analytics : Targeted Marketing and Response Modelling
+# GEOG5927 Predictive Analytics : Targeted Marketing
 ### Roger Beecham
-### 28 Jun 2021
+### 28 Feb 2022
 
 ---
 
@@ -29,48 +30,48 @@ class: center, middle, title-slide
 &lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; session &lt;/th&gt;
-   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; wc &lt;/th&gt;
-   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; academic &lt;/th&gt;
-   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; lecture &lt;/th&gt;
-   &lt;th style="text-align:left;background-color: #ffffff !important;font-size: 18px;"&gt; progress &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; session &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; wc &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; academic &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; lecture &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; deadline &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 21 Jun &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 28 Feb &lt;/td&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Predictive analytics &amp;amp; microsimulation &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #1 data &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Simulating behaviour &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt;  &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; 28 Jun &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; RB &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; Response modelling and targeted marketing &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; #1 analysis &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 7 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Targeted marketing &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt;  &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 3 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 5 Jul &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; JG/NM &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Behavioural and agent-based models &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #2 material &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 14 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RO &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Machine learning &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt;  &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 4 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 12 Jul &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RO/RB &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Coursework surgery &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #1 surgery &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 21 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; JG/NM &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Agent-based models &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; Ass 1 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 5 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 19 Jul &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB/JG/NM/RO &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Guest lecture and wrap-up &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; #2 surgery &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 25 Apr &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; JG/NM &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Close &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; Ass 2 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

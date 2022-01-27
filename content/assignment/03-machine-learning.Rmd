@@ -1,0 +1,14 @@
+---
+title: "Practical 3 : Machine learning for predictive analytics"
+editor_options:
+  chunk_output_type: console
+---
+
+<!-- Override tufte.CSS text size in tables. -->
+<style>
+  .wrap th, .wrap td {
+  font-size: 0.9rem;
+ }
+</style>
+
+The practical materials for this session can be downloaded from [this link](/slides/session3_lab.pdf).

@@ -9,3 +9,4 @@ public/
 content/**/*.html
 *.Rproj
 *.sh
+themes/

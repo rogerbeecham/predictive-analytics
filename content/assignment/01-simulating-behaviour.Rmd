@@ -1,5 +1,5 @@
 ---
-title: "Practical 1 : simulating behaviour"
+title: "Practical 1 : Simulating behaviour for predictive analytics"
 editor_options:
   chunk_output_type: console
 ---

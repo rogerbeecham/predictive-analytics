@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>GEOG5927 Predictive Analytics : Recap of Targeted Marketing</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Roger Beecham" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="slides-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# GEOG5927 Predictive Analytics : Recap of Targeted Marketing
+### Roger Beecham
+### 4 Mar 2022
+
+---
+
+
+
+
+
+## Targeted Marketing
+
+*df.*
+&gt; Use of data and analytics to **characterise** customer populations, such that groups of customers likely to **respond best** to a message can be targeted and marketing **messages** can be **personalised** according to customer group
+
+---
+
+## Targeted Marketing: Recommender systems
+
+
+.xtiny-font[
+Linden, G., Smith, B. and York, J. (2003) Amazon.com Recommendations: Item-to-Item Collaborative Filtering, IEEE Internet Computing,   7(1): 76-80
+]
+&lt;img src = "img/recommender.png", width = 60%&gt;&lt;/img&gt;
+
+
+.tiny-font[
+* Content or behvaioural based recommender systems
+  + generate probabilities that user will like a product based on past behaviour
+  + e.g. Spotify recommending tracks]
+
+&lt;br&gt;
+.tiny-font[
+* Demographic based recommender systems
+    + generate probabilities that user will like content based on the past behaviour of similar users
+    + e.g. Facebook directing adds/features
+]
+
+???
+
+Demographic assumes similar people have similar preferences/behaviours
+
+More data available, the better these algorithms are at recommending.
+That data are being collected continuously is really important…
+
+This is targeted marketing as specific products are targeted as specific individuals
+
+
+---
+
+## Targeted Marketing: Political micro-targeting
+
+.tiny-font[
+*df.* micro-targeting
+&gt; A marketing strategy that capitalizes on the consumer’s demographic, psychographic, geographic, and behavioral data to predict his buying behavior, interests, opinions, and **influence** that behavior with the help of a hyper-targeted advertising strategy
+
+&gt;Pawha, 2018
+]
+
+
+&lt;img src = "img/trump.jpeg", width = 30%, style = "position:absolute; top: 55%; left: 8%"&gt;&lt;/img&gt;
+
+&lt;img src = "img/cambridge_analytica.jpeg",  width = 30%, style = "position:absolute; top: 55%; left: 40%"&gt;&lt;/img&gt;
+
+???
+
+* Aleksander Kogan made  personality-quiz app for Facebook.
+* 270k installed app which allowed access to users *and* but their friends profiles.
+* Stored data -- not deleted -- later provided to Cambridge Analytica  where made 30 million “psychographic” profiles of voters.
+* Made and tested directly targeted ads for Leave, Ted Cruz and Trump
+
+---
+
+## Targeted "Marketing": Criminal justice
+
+.small-font[
+[`fivethirtyeight.com/parole-assessment-simulator/`](https://projects.fivethirtyeight.com/parole-assessment-simulator/)
+]
+
+&lt;img src = "img/fivethirtyeight.png", width = 11%, style = "position:absolute; top: 30%; left: 8%;"&gt;&lt;/img&gt;
+
+
+&lt;img src = "img/science_of_sentencing.png", width = 37%, style = "position:absolute; top: 30%; left: 18%;"&gt;&lt;/img&gt;
+
+
+---
+
+
+## Targeted Marketing: Segmentation
+
+
+.small-font[
+*df.*
+&gt; Partition objects -- places, businesses, **customers** -- into groups according to shared characteristics]
+
+
+.tiny-font[
+* **indirect**: clearly defined, generally static
+  + age
+  + income
+  + occupation
+  + geographic location
+
+* **direct**: defined analytically and can change
+  + purchase behaviour
+  + brand awareness
+  + ad response]
+---
+
+## Targeted Marketing: Segmentation techniques
+
+.tiny-font[
+* **Recency-Frequency Monetary Value** (RFM)
+ + quantile-based
+ + 4 min read : `https://bit.ly/2KrVUia`
+
+
+ * **Clustering**
+  + k-means, density-based,  hierarchical
+  + 11 min read : `https://bit.ly/355i01K`
+
+* **Decision Trees**
+  + chaid, cart, id3
+  + 17 min read : `https://bit.ly/35aCXbG`
+  + visual introduction : `https://bit.ly/3dZJyNn`
+]
+
+???
+
+Three categories for consumer analytics
+No time for all of these -- blog posts that give really nice high-level summaries.
+
+RFM and Clustering : unsupervised grouping.
+
+Decision Trees : supervised learning -- clear output variable is labelled to to guide grouping process.
+
+
+---
+
+## Targeted Marketing: Geodemographics
+
+.tiny-font[
+*Geodemographic clustering df.*
+&gt; Partition neighbourhoods, small areas, into groups according to their demographic characteristics such that
+neighbourhoods within groups are demographically similar and neighbourhoods between groups are demographically different]
+
+&lt;a href="https://oac.datashine.org.uk/#datalayer=oac11_s&amp;layers=BTTT&amp;zoom=12&amp;lon=-0.1500&amp;lat=51.5200"&gt;
+  &lt;img src = "img/geodem.png",  width = 35%, style = "position:absolute; top: 45%; left: 10%"&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.xtiny-font[
+Leventhal, B. 2016. Geodemographics for Marketers: Using location
+analysis for research and marketing. [Available online](https://leeds.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991013055919705181&amp;context=L&amp;vid=44LEE_INST:VU1&amp;lang=en&amp;search_scope=My_Inst_CI_not_ebsco&amp;adaptor=Local%20Search%20Engine&amp;tab=AlmostEverything&amp;query=any,contains,991013055919705181&amp;sortby=date_d&amp;facet=frbrgroupid,include,9031409011017862701&amp;offset=0)
+]
+---
+
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/assignment_1.png", width = 40%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/assignment_1_template.png", width = 35%, style = "position:absolute; top: 30%;"&gt;&lt;/img&gt;
+.tiny-font[
+[`Assignment #1 url`](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&amp;course_id=_521220_1&amp;mode=reset)]
+
+---
+
+## Targeted Marketing: Practical
+
+&lt;img src = "img/pract2_analysis_ideas.png", width = 50%, style = "position:absolute; top: 20%;"&gt;&lt;/img&gt;
+---
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_net.png", width = 10.75%, style = "position:absolute; top: 22%; left: 40%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 55%;"&gt;&lt;/img&gt;
+
+???
+
+Respond in certain ways -- more efficient
+
+---
+
+
+## Targeted Marketing: Practical
+
+&lt;img src = "img/pract2_analysis_ideas.png", width = 50%, style = "position:absolute; top: 20%;"&gt;&lt;/img&gt;
+---
+
+
+## Mapping survey variables in `ggplot2`
+
+.tiny-font[Read in boundary data:]
+.xtiny-font[
+
+```r
+# Read in geojson files defining OAs and wards in Leeds
+oa_boundaries &lt;- st_read("./data/oa_boundaries.geojson", crs=27700)
+ward_boundaries &lt;- st_read("./data/ward_boundaries.geojson", crs=27700)
+
+
+
+glimpse(oa_boundaries)
+# Rows: 2,543
+# Columns: 8
+# $ oa_code    &lt;chr&gt; "E00056780", "E00058784", "E00058705", "E00057471", "E00057476", "E00057477", "E00057474", "E0005…
+# $ supgrpcode &lt;dbl&gt; 1, 7, 2, 8, 6, 8, 1, 1, 8, 1, 8, 8, 8, 2, 8, 5, 2, 4, 6, 5, 1, 5, 5, 5, 2, 4, 4, 5, 5, 4, 4, 4, 6…
+# $ supgrpname &lt;chr&gt; "Rural Residents", "Constrained City Dwellers", "Cosmopolitans", "Hard-Pressed Living", "Suburban…
+# $ grpcode    &lt;chr&gt; "1a", "7c", "2d", "8a", "6b", "8a", "1b", "1b", "8c", "1b", "8c", "8c", "8c", "2c", "8b", "5a", "…
+# $ grpname    &lt;chr&gt; "Farming Communities", "White Communities", "Aspiring and Affluent", "Industrious Communities", "…
+# $ subgrpcode &lt;chr&gt; "1a2", "7c2", "2d1", "8a2", "6b4", "8a2", "1b1", "1b1", "8c3", "1b2", "8c1", "8c3", "8c3", "2c1",…
+# $ subgrpname &lt;chr&gt; "Established Farming Communities", "Constrained Young Families", "Urban Cultural Mix", "Industrio…
+# $ geometry   &lt;POLYGON [m]&gt; POLYGON ((416908.7 442263, ..., POLYGON ((435701 436472, 43..., POLYGON ((432747.7 436864…
+```
+]
+
+---
+
+
+## Targeted Marketing: Practical
+
+
+&lt;img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_net.png", width = 10.75%, style = "position:absolute; top: 22%; left: 40%;"&gt;&lt;/img&gt;
+&lt;img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 55%;"&gt;&lt;/img&gt;
+
+???
+
+Respond in certain ways -- more efficient
+
+---
+
+### Mapping survey variables in `ggplot2` : categorical
+
+.pull-left[
+.tiny-font[Plot specification for choropleth map:]
+.xtiny-font[
+
+```r
+oa_boundaries %&gt;%
+  ggplot()+
+    geom_sf(aes(fill=supgrpname), colour=NA)+
+    coord_sf(crs=st_crs(oa_boundaries), datum=NA)
+```
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`ggplot2` form:
+1. Identify *dataset*: `data=` | `&lt;data&gt; %&gt;%`
+2. Specify *mapping*: `aes(x=..., y=..., fill=...)`
+3. Select *geometry* (or marks) layer: `geom_*`
+  ]
+]
+
+.pull-right[&lt;img src = "img/oac_raw.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+
+---
+
+### Mapping survey variables in `ggplot2` : categorical
+
+.pull-left[
+.tiny-font[Plot specification for choropleth map:]
+.xtiny-font[
+
+```r
+oa_boundaries %&gt;%
+  ggplot()+
+    geom_sf(aes(fill=supgrpname), colour=NA)+
+    coord_sf(crs=st_crs(oa_boundaries), datum=NA) +
+    scale_fill_brewer(palette="Set1")
+```
+ ]
+]
+.pull-right[&lt;img src = "img/oac_set1.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+
+---
+
+### Mapping survey variables in `ggplot2` : categorical
+
+.pull-left[
+.tiny-font[Plot specification for choropleth map:]
+.xtiny-font[
+
+```r
+oa_boundaries %&gt;%
+  ggplot()+
+    geom_sf(aes(fill=supgrpname), colour=NA, alpha=.8)+
+    coord_sf(crs=st_crs(oa_boundaries), datum=NA) +
+    scale_fill_brewer(palette="Set1")
+```
+]
+]
+.pull-right[&lt;img src = "img/oac_set1_alpha.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+
+---
+
+### Mapping survey variables in `ggplot2` : categorical
+
+.pull-left[
+.tiny-font[Plot specification for choropleth map:]
+.xtiny-font[
+
+```r
+# constrained -- red -- #e41a1c
+# cosmo -- yellow -- #ffff33
+# ethnicity -- pink -- #f781bf
+# hard-pressed -- blue -- #377eb8
+# multi -- orange -- #ff7f00
+# rural -- green -- #4daf4a
+# suburb -- purple  -- #984ea3
+# urban -- brown -- #a65628
+
+oac_colours &lt;- c("#e41a1c", "#ffff33", "#f781bf",
+ "#377eb8", "#ff7f00", "#4daf4a", "#984ea3", "#a65628")
+
+oa_boundaries %&gt;%
+  ggplot()+
+    geom_sf(aes(fill=supgrpname), colour=NA, alpha=.8)+
+    coord_sf(crs=st_crs(oa_boundaries), datum=NA) +
+    scale_fill_manual(values=oac_colours)
+```
+]
+]
+.pull-right[&lt;img src = "img/oac_set1_alpha_ordered.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+
+---
+
+### Mapping survey variables in `ggplot2` : categorical
+
+.pull-left[
+.tiny-font[Plot specification for choropleth map:]
+.xtiny-font[
+
+```r
+oa_boundaries %&gt;%
+  mutate(is_emph= supgrpname == "Suburbanites") %&gt;%
+  ggplot()+
+    geom_sf(aes(fill=supgrpname), colour=NA, alpha=.8)+
+    geom_sf(
+      data=. %&gt;% filter(is_emph),
+      fill="transparent", colour="#984ea3", size=0.1)+
+    geom_sf(
+      data=. %&gt;% summarise(), fill="transparent",
+      colour="#636363", size=0.2)+
+    coord_sf(crs=st_crs(oa_boundaries), datum=NA) +
+    scale_fill_manual(values=oac_colours) +
+    guides(
+      fill=guide_legend(title="OAC Supergroup"),
+      colour=FALSE
+      )
+```
+]
+]
+.pull-right[&lt;img src = "img/oac_set1_alpha_ordered_outline_emph.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+
+---
+
+
+### Mapping survey variables in `ggplot2` : continuous
+
+.xtiny-font[
+
+```r
+temp_target_data &lt;-
+  simulated_oac_age_sex %&gt;%
+    summarise(
+      oa_code=zone,
+      is_target_age=as.numeric(age_band %in% c("a65over", "a35to49")),
+      is_target_children=as.numeric(number_children&gt;0),
+      is_target_geodeom=as.numeric(supergroup_name=="Suburbanites"),
+    ) %&gt;%
+  rowwise() %&gt;%
+  mutate(
+    target_extent=sum(is_target_age,is_target_children, is_target_geodeom)
+    ) %&gt;%
+  ungroup() %&gt;%
+  mutate(
+      target_extent_coded=
+      case_when(
+        target_extent == 3 ~ "high",
+        target_extent == 2 ~ "mid",
+        target_extent == 1 ~ "low",
+        TRUE ~ ""
+        )
+  ) %&gt;%
+  group_by(oa_code) %&gt;%
+  summarise(
+    high=sum(as.numeric(target_extent_coded=="high")),
+    mid=sum(as.numeric(target_extent_coded=="mid")),
+    low=sum(as.numeric(target_extent_coded=="low")),
+    index=sum(target_extent)
+  )
+```
+]
+
+---
+
+
+### Mapping survey variables in `ggplot2` : continuous
+
+.pull-left[
+.tiny-font[Plot index as choropleth map:]
+.xtiny-font[
+
+
+```r
+    oa_boundaries %&gt;%
+      left_join(temp_target_data) %&gt;%
+      ggplot()+
+        geom_sf(aes(fill=index), colour=NA)+
+        geom_sf(
+          data=. %&gt;% summarise(), fill="transparent",
+          colour="#636363", size=0.2)+
+        coord_sf(crs=st_crs(oa_boundaries), datum=NA)+
+        scale_fill_distiller(palette="Blues", direction=1)
+```
+    ]
+]
+.pull-right[&lt;img src = "img/index.png", width = 100%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+---
+
+### Mapping survey variables in `ggplot2` : continuous
+
+
+
+.pull-left[
+.tiny-font[Plot high-mid-low as choropleth map:]
+.xtiny-font[
+
+
+```r
+oa_boundaries %&gt;%
+left_join(temp_target_data  %&gt;%
+          pivot_longer(
+            cols=c(high, mid, low),
+            names_to="target_extent",
+            values_to="count")
+        ) %&gt;%
+mutate(
+  target_extent=
+  factor(target_extent, levels=c("high","mid","low"))
+) %&gt;%
+ggplot()+
+  geom_sf(aes(fill=count), colour=NA)+
+  geom_sf(data=. %&gt;% summarise(),
+    fill="transparent", colour="#636363", size=0.2)+
+  coord_sf(crs=st_crs(oa_boundaries), datum=NA)+
+  scale_fill_distiller(palette="Blues", direction=1)+
+  facet_wrap(~target_extent, nrow=3)
+```
+    ]
+]
+.pull-right[&lt;img src = "img/extent.png", width = 50%, style = "position:relative; top: 0%; left: 0%;"&gt;&lt;/img&gt;
+]
+
+---
+
+## Module Schedule
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; session &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; wc &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; academic &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; lecture &lt;/th&gt;
+   &lt;th style="text-align:left;color: #616161 !important;background-color: #ffffff !important;font-size: 18px;"&gt; deadline &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 28 Feb &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Simulating behaviour &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 7 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RB &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Targeted marketing &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 14 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; RO &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Machine learning &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 21 Mar &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; JG/NM &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Agent-based models &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; Ass 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; 25 Apr &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; JG/NM &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;color: #616161 !important;"&gt; Close &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #ffffff !important;font-size: 20px;"&gt; Ass 2 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

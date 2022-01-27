@@ -1,6 +1,6 @@
 ---
-title: "Targeted Marketing"
-date: "2021-06-28"
+title: "Targeted marketing for predictive analytics"
+date: "2022-03-07"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -14,8 +14,8 @@ editor_options:
 
 # Slides
 
-Download the slides from the session [lecture](/slides/session2.html).
+Download the slides from the session [lecture](/slides/session2.html) and [recap](/slides/session2_recap.html).
 
 <figure>
-![First slide](/images/slides/2021-06-28.png)
+![First slide](/images/slides/2022-03-06.png)
 </figure>

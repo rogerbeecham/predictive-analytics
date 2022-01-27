@@ -1,7 +1,7 @@
 ---
-title: "GEOG5927 Predictive Analytics : Simulating Behaviour"
+title: "GEOG5927 Simulating behaviours for predictive analytics"
 author: "Roger Beecham"
-date: "23 Jun 2021"
+date: "2 Mar 2022"
 output:
   xaringan::moon_reader:
     css: [default, "slides-theme.css"]
@@ -37,7 +37,7 @@ Assumes an understanding of:
 * `ggplot2` for charting
 
 ... But don't worry:
-* All code required to complete the practical is provided
+* Much of the code required to complete the practical is provided
 * The assessment tests ability to present a coherent data analysis, not your ability to code in `R`
 ]
 
@@ -856,10 +856,10 @@ Plot spec:
 ```{r schedule-again, echo=FALSE, out.width="100%"}
 schedule <- tibble::tibble(
   session = c("1", "2", "3", "4", "5"),
-  wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
-  lecture = c("mon 1400-1500", "mon 1400-1500", "mon 1400-1500", "mon 1400-1500", "mon 1400-1500"),
-  lab = c("wed 0900-1200", "wed 0900-1200", "wed 0900-1200", "wed 0900-1200", "NA - pres"),
-  recap = c("fri 0900-1000", "fri 0900-1000", "fri 0900-1000", "fri 0900-1000", "NA")
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  lecture = c("mon 1500-1600", "mon 1500-1600", "mon 1500-1600", "mon 1500-1600", "mon 1500-1600"),
+  lab = c("wed 1100-1800", "wed 1100-1800", "wed 1100-1800", "wed 1100-1800", "NA - pres"),
+  recap = c("fri 1700-1800", "fri 1700-1800", "fri 1700-1800", "fri 1700-1800", "NA")
 )
 
 kbl(schedule) %>%
