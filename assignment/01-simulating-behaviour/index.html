@@ -11,22 +11,22 @@
 
     <meta name="twitter:card" value="summary_large_image">
     <meta name="twitter:site" content="@rjbeecham">
-    <meta name="twitter:title" content="Practical 1 : simulating behaviour | GEOG5927M: Predictive Analytics">
+    <meta name="twitter:title" content="Practical 1 : Simulating behaviour for predictive analytics | GEOG5927M: Predictive Analytics">
     <meta name="twitter:creator" content="@rjbeecham">
     <meta name="twitter:image" content="/images/geog5927m.png">
     <meta name="twitter:description" content="Introduces techniques for simulating and predicting social behaviour" />
 
     <meta property="og:site_name" content="GEOG5927M: Predictive Analytics"/>
-    <meta property="og:title" content="Practical 1 : simulating behaviour | GEOG5927M: Predictive Analytics">
+    <meta property="og:title" content="Practical 1 : Simulating behaviour for predictive analytics | GEOG5927M: Predictive Analytics">
     <meta property="og:type" content="article" />
     <meta property="article:author" content="" />
     <meta property="og:url" content="/" />
     <meta property="og:image" content="/images/geog5927m.png">
     <meta property="og:description" content="Introduces techniques for simulating and predicting social behaviour" />
 
-    <meta name="generator" content="Hugo 0.85.0" />    
+    <meta name="generator" content="Hugo 0.92.0" />    
 
-    <title>Practical 1 : simulating behaviour | GEOG5927M: Predictive Analytics</title>
+    <title>Practical 1 : Simulating behaviour for predictive analytics | GEOG5927M: Predictive Analytics</title>
     <link rel="canonical" href="../../assignment/01-simulating-behaviour/">
     <link href="../../theme/css/tufte.css" rel="stylesheet">
     <link href="../../theme/css/latex.css" rel="stylesheet">
@@ -39,45 +39,45 @@
 
     <style type="text/css">
         .wrap a, .wrap a:visited {
-            color: #a50f15;
+            color: #252525;
         }
 
         .wrap a:hover {
-            color: #ef3b2c;
+            color: #737373;
         }
 
         .wrap p > a {
-            color: #a50f15;
+            color: #252525;
         }
 
         article .sidenote-number:after, article .sidenote:before {
-            color: #a50f15;
+            color: #252525;
         }
 
         article .sidenote:before {
-            color: #a50f15;
+            color: #252525;
         }
 
         @media (max-width: 760px) {
             label.margin-toggle:not(.sidenote-number) {
-                color: #a50f15;
+                color: #252525;
             }
         }
 
         .contrast a, .contrast a:visited {
-            color: #a50f15; 
+            color: #252525; 
         }
 
         header > nav a {
-            color: #a50f15;
+            color: #252525;
         }
 
         .credits a {
-            color: #a50f15;
+            color: #252525;
         }
 
         .wrap .tag {
-            background: #a50f15;
+            background: #252525;
         }
     </style>
 
@@ -121,30 +121,28 @@
 
 
     <article class="group">
-    <h1>Practical 1 : simulating behaviour</h1>
+    <h1>Practical 1 : Simulating behaviour for predictive analytics</h1>
 
     
     
     
 
     
-<script src="../../rmarkdown-libs/accessible-code-block/empty-anchor.js"></script>
-<link href="../../rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="../../rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -165,9 +163,9 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span. { color: #1f1c1b; } /* Normal */
+code span { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
 code span.an { color: #ca60ca; } /* Annotation */
 code span.at { color: #0057ae; } /* Attribute */
@@ -208,67 +206,71 @@ code span.wa { color: #bf0303; } /* Warning */
  }
 </style>
 <p><em>The aim of this session is to create a synthetic population of households in Leeds. You will use an individual-level survey dataset describing individuals’ holiday-making behaviour and apply spatial microsimulation to estimate a population-level dataset of these holiday-making behaviours at the household-level in Leeds. In Practical 2, you will use this population to undertake a data analysis to support a targeted marketing strategy.</em></p>
-<h2 id="task-0-get-familiar-with-r-rstudio-and-rmarkdown">Task 0: Get familiar with R, RStudio and RMarkdown</h2>
+<h3 id="task-0-get-familiar-with-r-rstudio-and-rmarkdown">Task 0: Get familiar with R, RStudio and RMarkdown</h3>
 <p>If you have not done so already, read the page introducing <a href="../../install/index.html">R and RStudio</a>.</p>
-<p>RStudio has <a href="http://rmarkdown.rstudio.com/lesson-1.html">a helpful tutorial and a short video about R Markdown</a>. Go through these short lessons: <a href="http://rmarkdown.rstudio.com/lesson-1.html">Introduction</a> | <a href="http://rmarkdown.rstudio.com/lesson-2.html">How it Works</a> | <a href="http://rmarkdown.rstudio.com/lesson-3.html">Code Chunks</a> | <a href="http://rmarkdown.rstudio.com/lesson-4.html">Inline Code</a> | <a href="http://rmarkdown.rstudio.com/lesson-8.html">Markdown Basics</a><span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> The <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a> is also useful.<br />
+<p>RStudio has <a href="http://rmarkdown.rstudio.com/lesson-1.html">a helpful tutorial and a short video about R Markdown</a>. Go through these short lessons: <a href="http://rmarkdown.rstudio.com/lesson-1.html">Introduction</a> | <a href="http://rmarkdown.rstudio.com/lesson-2.html">How it Works</a> | <a href="http://rmarkdown.rstudio.com/lesson-3.html">Code Chunks</a> | <a href="http://rmarkdown.rstudio.com/lesson-4.html">Inline Code</a> | <a href="http://rmarkdown.rstudio.com/lesson-8.html">Markdown Basics</a> <span class="sidenote-wrapper"><label for="sn-0" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="marginnote">The <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a> is also useful.<br />
 <br />
 </span></span> | <a href="http://rmarkdown.rstudio.com/lesson-9.html">Output Formats</a>.</p>
 <p>The practical assumes a prior understanding of <code>R</code>, developed through LUBS5308 <em>Business Analytics and Decision Science</em> and GEOG5917 <em>Big Data and Consumer Analytics</em>. In particular <code>dplyr</code> for data processing and shaping; and <code>ggplot2</code> for charting. If you have little experience or confidence with <code>R</code>, then do not worry too much. All code required to complete the practical is provided in this document and the template. The assessment for this module tests ability to present a coherent data analysis, not your ability to code in <code>R</code>.</p>
-<h2 id="task-1-configure-r-and-download-the-data">Task 1: Configure R and download the data</h2>
-<h3 id="task-1.1-create-an-rmarkdown-file">Task 1.1: Create an RMarkdown file</h3>
+<h3 id="task-1-configure-r-and-download-the-data">Task 1: Configure R and download the data</h3>
+<h4 id="task-1.1-create-an-rmarkdown-file">Task 1.1: Create an RMarkdown file</h4>
 <p>Create a <em>new folder</em> on your personal drive called <code>predictive_analytics</code> and generate a subfolder called <code>practicals</code>.</p>
 <pre><code>predictive_analytics
       └── practicals</code></pre>
 <p>Create a new RStudio <em>Project</em> by opening RStudio and selecting <code>File &gt; New Project... &gt; Existing Directory</code>, then browse to <code>&lt;your-drive&gt;/predictive_analytics/practicals</code>.</p>
 <p>Create a new RMarkdown file by selecting <code>File &gt; New &gt; New R Markdown...</code>, click <code>OK</code> with the default options, then delete all the placeholder code/text in the new file.</p>
 <p>Paste into your RMarkdown file the notes from <a href="../../files/01-code-simulating-behaviour.Rmd">this document</a>, which contains an outline/skeleton of what you’ll need to complete the practical.</p>
-<p>Save the file with an appropriate name (<code>practical1</code>). Your <code>predictive_analytics/</code> directory should resemble this<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Notice that when you create a new project, RStudio sets the <code>root</code> directory to that from which you created the project (enter <code>getwd()</code> to the R console). When you saved your newly created <code>.Rmd</code> document, you may have noticed that you were automatically routed to the <code>practicals</code> folder. You will find that this behaviour has many advantages, especially so as you begin to read and write data.<br />
+<p>Save the file with an appropriate name (<code>practical1</code>). Your <code>predictive_analytics/</code> directory should resemble this<span class="sidenote-wrapper"><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Notice that when you create a new project, RStudio sets the <code>root</code> directory to that from which you created the project (enter <code>getwd()</code> to the R console). When you saved your newly created <code>.Rmd</code> document, you may have noticed that you were automatically routed to the <code>practicals</code> folder. You will find that this behaviour has many advantages, especially so as you begin to read and write data.<br />
 <br />
 </span></span>:</p>
 <pre><code>predictive_analytics
 └── practicals
     ├── practical1.Rmd
     └── practicals.Rproj</code></pre>
-<h3 id="task-1.2-configure-your-r-session">Task 1.2: Configure your R session</h3>
-<p>You will notice from the RMarkdown file that this practical depends on a number of <a href="https://www.statmethods.net/interface/packages.html">R Packages</a><span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important set of packages is the <code>tidyverse</code>. Authored by Hadley Wickham and colleagues, these share common underlying philosophy, syntax and documentation.<br />
+<h4 id="task-1.2-configure-your-r-session">Task 1.2: Configure your R session</h4>
+<p>You will notice from the RMarkdown file that this practical depends on a number of <a href="https://www.statmethods.net/interface/packages.html">R Packages</a><span class="sidenote-wrapper"><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">An R package is a bundle of code, data and documentation, usually hosted centrally on the CRAN (Comprehensive R Archive Network). A particularly important set of packages is the <code>tidyverse</code>. Authored by Hadley Wickham and colleagues, these share common underlying philosophy, syntax and documentation.<br />
 <br />
 </span></span>.</p>
 <p>Packages can be installed to your machine with <code>install.packages(&lt;package_name&gt;)</code>. Note that you only need to use <code>install.packages()</code> if your machine does not already contain that package, or should you wish to update the installed version. <code>library(&lt;package-name&gt;)</code> makes a package’s functions directly available in an R session.</p>
 <p>Below are the packages on which this practical depends. Note that if you are working from the lab machines, you do not need to download <a href="https://www.tidyverse.org"><code>tidyverse</code></a> or <a href="https://r-spatial.github.io/sf/articles/sf1.html"><code>sf</code></a> – instead you simply make these available to your R session with <code>library(&lt;package-name&gt;)</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Bundle of packages for data manipulation.</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb3-4"><a href="#cb3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># For working with geospatial data.</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co"># install.packages(&quot;sf&quot;)</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="kw">library</span>(sf)</span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># For rescaling data.</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co"># install.packages(&quot;scales&quot;)</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co"># For performing microsimulation.</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># install.packages(&quot;rakeR&quot;)</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co"># Set default ggplot2 theme.</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="kw">theme_set</span>(<span class="kw">theme_minimal</span>())</span></code></pre></div>
-<h3 id="task-1.3-download-and-read-in-data">Task 1.3: Download and read in data</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bundle of packages for data manipulation.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># For working with geospatial data.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;sf&quot;)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For rescaling data.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;scales&quot;)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># For performing microsimulation.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;rakeR&quot;)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set default ggplot2 theme.</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code></pre></div>
+<h4 id="task-1.3-download-and-read-in-data">Task 1.3: Download and read in data</h4>
 <p>The next code block in your RMarkdown file gives instructions for downloading and reading in data. After <code>download.file(&lt;url&gt;, &lt;file-name&gt;)</code>, and <code>unzip(&lt;filename&gt;)</code>, your directory structure should look like this:</p>
 <pre><code>predictive_analytics
 └── practicals
     └── data
         ├── info
         └── leeds_OAs</code></pre>
-<p>You will then execute code chunks that read in the datasets on which the practical depends, using <code>read_csv()</code> for reading in comma-separated text files, <code>st_read()</code> for reading in geospatial data<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">There are some useful operations for working upon the spatial data here: setting the <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">coordinate reference system</a> with <code>st_transform()</code> and simplifying geometries using an implementation of the excellent <a href="https://mapshaper.org">mapshaper</a> tool (with <code>ms_simplify</code>); and perform a spatial filter, filtering only wards contained within Leeds, using <code>st_contains()</code>, part of the <a href="https://github.com/r-spatial/sf"><code>sf</code></a> library.<br />
+<p>You will then execute code chunks that read in the datasets on which the practical depends, using <code>read_csv()</code> for reading in comma-separated text files, <code>st_read()</code> for reading in geospatial data<span class="sidenote-wrapper"><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">There are some useful operations for working upon the spatial data here: setting the <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">coordinate reference system</a> with <code>st_transform()</code> and simplifying geometries using an implementation of the excellent <a href="https://mapshaper.org">mapshaper</a> tool (with <code>ms_simplify</code>); and perform a spatial filter, filtering only wards contained within Leeds, using <code>st_contains()</code>, part of the <a href="https://github.com/r-spatial/sf"><code>sf</code></a> library.<br />
 <br />
 </span></span>.</p>
-<p>After running the code chunks in your RMarkdown file under the section <em>Download and read in data</em>, your RStudio <code>Global Environment</code> window should look like <a href="../../images/assignment/practical1_global_env.png">this</a><span><label for="sn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="marginnote"><img src="../../images/assignment/practical1_global_env.png" alt="Global Environment window" /><br />
+<p>After running the code chunks in your RMarkdown file under the section <em>Download and read in data</em>, your RStudio <code>Global Environment</code> window should look like <a href="../../images/assignment/practical1_global_env.png">this</a><span class="sidenote-wrapper"><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">{-}<img src="../../images/assignment/practical1_global_env.png" alt="Global Environment window" /><br />
 <br />
 </span></span>.</p>
-<h4 id="constraint-data">Constraint data</h4>
+<h5 id="constraint-data">Constraint data</h5>
 <p>All objects containing the <code>_cons</code> suffix are the constraint data. These have been downloaded from the <a href="https://www.nomisweb.co.uk/census/2011/lc1101ew">2011 Census</a> and represent the characteristics of each household in Leeds. The individual-level characteristics relate to the <a href="https://www.ons.gov.uk/ons/guide-method/census/2011/census-data/2011-census-data/2011-first-release/2011-census-definitions/2011-census-glossary.pdf" title="See Page 23"><em>Household Reference Person</em></a>; the person that answers the Census questionnaire.</p>
 <p>Inspect the <code>sex_cons</code> <a href="https://tibble.tidyverse.org"><em>tibble</em></a> by typing into your RConsole the code: <code>View(sex_cons)</code>. A summary of the fields is below; <code>age_cons</code> and <code>age_sex</code> are similarly structured, except variables relate to age and age-and-sex respectively.</p>
 <table>
 <caption>Table schema for <code>sex_cons</code> tibble</caption>
+<colgroup>
+<col width="7%" />
+<col width="92%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>var</th>
@@ -292,7 +294,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </table>
 <p>Inspect the <code>oac_cons</code> <em>tibble</em> in the same way: e.g. <code>View(&lt;tibble-name&gt;)</code>. The variable names relate to the <a href="http://www.opengeodemographics.com/#OAC-section">Output Area Classification (OAC)</a> of each area. Because the geographic unit we are dealing with is Output Area, there is only one possible value for each row (OAC group membership is mutually exclusive).</p>
 <p>Note that for each of these tables the total number of people in each area (each row sum) is the same in all constraint datasets.</p>
-<h4 id="individual-level-survey-data">Individual-level survey data</h4>
+<h5 id="individual-level-survey-data">Individual-level survey data</h5>
 <p>The <code>individuals</code> tibble is a sample of responses from a survey of holidaymakers who live in Leeds. All took a flight from a UK airport to an overseas airport. Inspect the data by typing <code>View(individuals)</code> into the R console. A summary of the fields is below – can you associate variables in this dataset with the Census derived constraint tables?</p>
 <table>
 <caption>Table schema for <code>individuals</code> tibble</caption>
@@ -337,98 +339,107 @@ code span.wa { color: #bf0303; } /* Warning */
 </tr>
 </tbody>
 </table>
-<h4 id="geospatial-data">Geospatial data</h4>
+<h5 id="geospatial-data">Geospatial data</h5>
 <figure>
-<img src="../../images/assignment/practical1_geogs.png" title="fig:" alt="Geospatial data" />
+<div class="figure">
+<img src="../../images/assignment/practical1_geogs.png" alt="" />
+<p class="caption">Geospatial data</p>
+</div>
 </figure>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">class</span>(oa_boundaries)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>[<span class="dv">1</span>] <span class="st">&quot;sf&quot;</span>         <span class="st">&quot;data.frame&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(oa_boundaries)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;sf&quot;</span>         <span class="st">&quot;data.frame&quot;</span></span></code></pre></div>
 <p>Two datasets (<code>oa_boundaries</code> and <code>ward_boundaries</code>) are a special class of tibble. Enter <code>class(&lt;tibble-name&gt;)</code> into the console and you will notice that they are of class <code>data.frame</code> <em>and</em> <a href="https://github.com/r-spatial/sf"><code>sf</code></a>. Browsing these tibbles with <code>View(&lt;tibble-name&gt;)</code> you will find that the final columns are labelled <code>geometry</code>: each cell contains a vector of coordinates describing the corresponding geographic areas (Output Area, OA, for <code>oa_boundaries</code> and Wards for <code>ward_boundaries</code>) . Other variables in this tibble identify: the OAC group (supergroup, group and subgroup) of the OA (for <code>oa_boundaries</code>) and the name, geographic area and centroid (for <code>ward_boundaries</code>).</p>
 <p>You will use these datasets to generate maps of your synthetic population, both for supporting data analysis of your synthetic population data (in Practical 2) and reasoning over uncertainty in the synthetically generated data (in this practical).</p>
-<h2 id="task-2-generate-synthetic-population-data">Task 2: Generate synthetic population data</h2>
-<h3 id="task-2.1-refactor-variables-and-check-for-matches">Task 2.1: Refactor variables and check for matches</h3>
+<h3 id="task-2-generate-synthetic-population-data">Task 2: Generate synthetic population data</h3>
+<h4 id="task-2.1-refactor-variables-and-check-for-matches">Task 2.1: Refactor variables and check for matches</h4>
 <p>You will now run a spatial microsimulation that assigns the individual level attributes from the <code>individuals</code> tibble to Leeds households characterised in the Census constraint files <code>_cons</code>. You will do so using the <a href="https://philmikejones.github.io/rakeR/index.html"><code>rakeR</code></a> package, which provides functions for generating a spatial microsimulated dataset.</p>
-<p>Run the code chunks in the section, <em>Refactor variables and check for matches</em>. Since the <code>individuals</code> dataset must be linked to the <code>_cons</code> data, you must first ensure that the variable names in <code>_cons</code> exactly match the unique <em>levels</em> in the <code>individuals</code> dataset. This is achieved by casting the <code>individuals</code> variables that are to be matched as factors, and then reordering them according to the variable order in the <code>_cons</code> data.<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Don’t worry if you found the last two sentences difficult to understand. It is nevertheless worth reading a little about <a href="https://r4ds.had.co.nz/factors.html">factors</a> as you will inevitably work with them as you develop as R programmers<br />
+<p>Run the code chunks in the section, <em>Refactor variables and check for matches</em>. Since the <code>individuals</code> dataset must be linked to the <code>_cons</code> data, you must first ensure that the variable names in <code>_cons</code> exactly match the unique <em>levels</em> in the <code>individuals</code> dataset. This is achieved by casting the <code>individuals</code> variables that are to be matched as factors, and then reordering them according to the variable order in the <code>_cons</code> data <span class="sidenote-wrapper"><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">Don’t worry if you found the last two sentences difficult to understand. It is nevertheless worth reading a little about <a href="https://r4ds.had.co.nz/factors.html">factors</a> as you will inevitably work with them as you develop as R programmers<br />
 <br />
-</span></span></p>
-<h3 id="task-2.2-generate-the-miscrosimulated-data">Task 2.2: Generate the miscrosimulated data</h3>
-<p>The first code chunk in this section <strong>specifies the variables</strong> that will be used as constraints. In the example code, I’ve specified the <code>oac_grp</code> and <code>age_sex</code> constraints. You are free to specify a different set of constraints – you may find it instructive to explore different outcomes, e.g. different microsimulated data that result from differently specified constraints. Note that once the constraint variables are identified, we generate a single constraint <a href="https://r4ds.had.co.nz/tibbles.html"><code>tibble</code></a> with <code>inner_join()</code><span><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote">Enter <code>?inner_join()</code> for documentation on this function: the datasets are by default joined on variables in the two datasets (<code>oac_cons</code> and <code>age_sex_cons</code>) with shared names, <code>oa_code</code> in this case.<br />
+</span></span>.</p>
+<h4 id="task-2.2-generate-the-miscrosimulated-data">Task 2.2: Generate the miscrosimulated data</h4>
+<p>The first code chunk in this section <strong>specifies the variables</strong> that will be used as constraints. In the example code, I’ve specified the <code>oac_grp</code> and <code>age_sex</code> constraints. You are free to specify a different set of constraints – you may find it instructive to explore different outcomes, e.g. different microsimulated data that result from differently specified constraints. Note that once the constraint variables are identified, we generate a single constraint <a href="https://r4ds.had.co.nz/tibbles.html"><code>tibble</code></a> with <code>inner_join()</code><span class="sidenote-wrapper"><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Enter <code>?inner_join()</code> for documentation on this function: the datasets are by default joined on variables in the two datasets (<code>oac_cons</code> and <code>age_sex_cons</code>) with shared names, <code>oa_code</code> in this case.<br />
 <br />
 </span></span>.</p>
 <p>Next: <strong>generate weights</strong> (using <code>weight()</code>). These can be thought of in a similar way to survey weights: they indicate the extent to which each respondent in the individual-level survey data (<code>individuals</code>) should be assigned to each OA when generating the microsimulated dataset. The resulting weights dataset contains pairs for each individual respondent and OA; as you would expect this is a sparse matrix containing many <code>0</code> values.</p>
 <p>In order to <strong>generate the microsimulated dataset</strong>, it is necessary to move from these fractional weights to integer weights. Individuals must be <em>cloned</em> and assigned to OAs consisent with the constaints data – in a way that minimises the difference between the OA-level statistics given by the constraints and the aggregated results of the simulated individuals. Here <a href="https://www.sciencedirect.com/science/article/pii/S0198971513000240">Lovelace &amp; Ballas’ (2013)</a> ‘<em>truncate, replicate, sample</em>’ method is used to allocate <em>cloned</em> individuals to OAs; the procedure is abstracted into the <code>rake()</code> function. After running the code chunk (containing <code>rake()</code>), inspect the simulated dataset with <code>glimpse&lt;tibble-name&gt;</code>. You will notice that the simulated dataset contains c.320,600 observations – equal to the number of households in Leeds – and that the first variable in the dataset is <code>person_id</code>: each row represents a respondent from the <code>individuals</code> dataset allocated to an OA in Leeds (<code>zone</code> variable).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(simulated_oac_age_sex)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>Observations<span class="op">:</span><span class="st"> </span><span class="dv">320</span>,<span class="dv">596</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>Variables<span class="op">:</span><span class="st"> </span><span class="dv">4</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="op">$</span><span class="st"> </span>person_id <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>, <span class="dv">1000</span>, <span class="dv">1030</span>, <span class="dv">1250</span>, <span class="dv">1447</span>, <span class="dv">1532</span>, <span class="dv">1587</span>, <span class="dv">1754</span>, …</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="op">$</span><span class="st"> </span>oac_grp   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, 8…</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="op">$</span><span class="st"> </span>age_sex   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65over, m50to64, m35to49, m65over, m…</span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="op">$</span><span class="st"> </span>zone      <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E0005675…</span></span></code></pre></div>
-<h2 id="task-3-explore-uncertainty-in-the-simulated-dataset">Task 3: Explore uncertainty in the simulated dataset</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">glimpse</span>(simulated_oac_age_sex)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Observations<span class="sc">:</span> <span class="dv">320</span>,<span class="dv">596</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Variables<span class="sc">:</span> <span class="dv">4</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> person_id <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>, <span class="dv">1000</span>, <span class="dv">1030</span>, <span class="dv">1250</span>, <span class="dv">1447</span>, <span class="dv">1532</span>, <span class="dv">1587</span>, <span class="dv">1754</span>, …</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> oac_grp   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, 8…</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> age_sex   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65over, m50to64, m35to49, m65over, m…</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> zone      <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E0005675…</span></span></code></pre></div>
+<h3 id="task-3-explore-uncertainty-in-the-simulated-dataset">Task 3: Explore uncertainty in the simulated dataset</h3>
 <p>Certain OAs in Leeds will be better represented by the individual-level survey datasets than others. OAs that are well-represented will contain only unique individuals (unique <code>person_id</code>); those OAs will also be characterised by generally low weights describing individuals (survey respondents) assigned. This can be evaluated visually be generating histograms and maps of summary statistics, calculated at the OA level, on the <em>weight</em> and <em>simulated</em> datasets.</p>
-<h3 id="task-3.1-generate-oa-level-summary-statistics">Task 3.1: Generate OA-level summary statistics</h3>
+<h4 id="task-3.1-generate-oa-level-summary-statistics">Task 3.1: Generate OA-level summary statistics</h4>
 <p>The code chunk in this section generates a <code>weights_summary</code> dataset, whereby weights are grouped (<code>group_by()</code>) and summarised (<code>summarise()</code>) by OA, with <code>0</code> weights removed. Here, the <code>mean()</code>, <code>max()</code> and <code>sd()</code> of non-<code>0</code> weights are calculated. These statistics tell us something about model uncertainty as they indicate the extent of oversampling – that is, instances where the <em>same</em> respondent is assigned to the <em>same</em> OA several times. This can also be investigated explicitly by calculating at the OA-level, the proportion of simulated households that are based on unique individuals.</p>
-<h3 id="task-3.2-plot-oa-level-summary-statistics">Task 3.2: Plot OA-level summary statistics</h3>
-<p>The next code chunks generate histograms and choropleth maps of these summary statistics using the <a href="https://ggplot2.tidyverse.org"><code>ggplot2</code></a> package: <em>the</em> visualization toolkit in R used across academia and industry in which graphics are specified declaratively<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote">Check out <a href="https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535">this post</a> on the BBC’s use of <code>ggplot2</code><br />
+<h4 id="task-3.2-plot-oa-level-summary-statistics">Task 3.2: Plot OA-level summary statistics</h4>
+<p>The next code chunks generate histograms and choropleth maps of these summary statistics using the <a href="https://ggplot2.tidyverse.org"><code>ggplot2</code></a> package: <em>the</em> visualization toolkit in R used across academia and industry in which graphics are specified declaratively<span class="sidenote-wrapper"><label for="sn-7" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="sidenote">Check out <a href="https://medium.com/bbc-visual-and-data-journalism/how-the-bbc-visual-and-data-journalism-team-works-with-graphics-in-r-ed0b35693535">this post</a> on the BBC’s use of <code>ggplot2</code><br />
 <br />
 </span></span>. There will be more discussion on how to write <code>ggplot2</code> specifications in the lab <em>proper</em>.</p>
 <figure class="fullwidth">
-<img src="../../images/assignment/practical1_uncertainty.png" title="fig:" alt="Exploring uncertainty" />
+<div class="figure">
+<img src="../../images/assignment/practical1_uncertainty.png" alt="" />
+<p class="caption">Exploring uncertainty</p>
+</div>
 </figure>
 <p>Notice that there is some spatial grouping of OAs in Leeds of areas that are less well represented by the individual-level survey data. We could explore this further by creating boxplots of these summary statistics by OAC supergroup to analyse these scores by different <em>categories</em> of area. This is instructive (below): <em>Ethnicity Central</em> and <em>Cosmopolitans</em> are not well represented by the individual-level survey data.</p>
 <figure class="fullwidth">
-<img src="../../images/assignment/practical1_uncertainty_boxplots.png" title="fig:" alt="Exploring uncertainty" />
+<div class="figure">
+<img src="../../images/assignment/practical1_uncertainty_boxplots.png" alt="" />
+<p class="caption">Exploring uncertainty</p>
+</div>
 </figure>
-<h2 id="task-4-attach-individual-attributes-to-simulated-data">Task 4 Attach individual attributes to simulated data</h2>
+<h3 id="task-4-attach-individual-attributes-to-simulated-data">Task 4 Attach individual attributes to simulated data</h3>
 <p>A final activity this week is to perform a join on the simulated data and the attribute information contained in the <code>individuals</code> file.</p>
-<h3 id="task-4.1-a-quick-look-at-at-the-original-and-simulated-survey-data">Task 4.1: A quick look at at the original and simulated survey data</h3>
+<h4 id="task-4.1-a-quick-look-at-at-the-original-and-simulated-survey-data">Task 4.1: A quick look at at the original and simulated survey data</h4>
 <p>Inspecting the original individual-level survey data (<code>individuals</code>) and simulated data (<code>simulated_oac_age_sex</code>) with <code>glimpse(&lt;tibble-name&gt;)</code> shows that the simulated data does not yet contain all attributes collected from the survey. Only the variables that were used as constraints appear in the simulated dataset. This makes perfect sense given the way data are supplied to <code>rakeR</code>. Notice also that the simulated dataset contains a <code>zone</code> variable: individuals from the survey have been cloned and allocated to geographic zones, OAs in Leeds in this case, multiple times.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(individuals)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>Observations<span class="op">:</span><span class="st"> </span><span class="dv">15</span>,<span class="dv">189</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>Variables<span class="op">:</span><span class="st"> </span><span class="dv">10</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="op">$</span><span class="st"> </span>person_id            <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, 17…</span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="op">$</span><span class="st"> </span>oac_grp              <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">6</span>, …</span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="op">$</span><span class="st"> </span>sex                  <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>f, m, f, m, f, f, f, f, m, m, f, f, m, m, m, f, f, f, f, …</span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="op">$</span><span class="st"> </span>age_band             <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>a24under, a25to34, a50to64, a50to64, a24under, a35to49, a…</span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="op">$</span><span class="st"> </span>number_children      <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, …</span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="op">$</span><span class="st"> </span>household_income     <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;11-15K&quot;</span>, <span class="st">&quot;61-70K&quot;</span>, <span class="st">&quot;41-50K&quot;</span>, <span class="st">&quot;Not Answered&quot;</span>, <span class="st">&quot;Not Answer…</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="st">$ overseas_airport     &lt;chr&gt; &quot;</span>TFS<span class="st">&quot;, &quot;</span>EFL<span class="st">&quot;, &quot;</span>JTR<span class="st">&quot;, &quot;</span>ALC<span class="st">&quot;, &quot;</span>TFS<span class="st">&quot;, &quot;</span>NBE<span class="st">&quot;, &quot;</span>NBE<span class="st">&quot;, &quot;</span>MAH<span class="st">&quot;, &quot;</span>…</span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="op">$</span><span class="st"> </span>uk_airport           <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;MAN&quot;</span>, <span class="st">&quot;DSA&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;LBA&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;LBA&quot;</span>, <span class="st">&quot;…</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="st">$ satisfaction_overall &lt;chr&gt; &quot;</span>good<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>excellent<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>poor<span class="st">&quot;, &quot;</span>exc…</span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="op">$</span><span class="st"> </span>age_sex              <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>f24under, m25to34, f50to64, m50to64, f24under, f35to49, f…</span>
-<span id="cb7-14"><a href="#cb7-14"></a></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(simulated_oac_age_sex)</span>
-<span id="cb7-16"><a href="#cb7-16"></a>Observations<span class="op">:</span><span class="st"> </span><span class="dv">320</span>,<span class="dv">596</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a>Variables<span class="op">:</span><span class="st"> </span><span class="dv">4</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="op">$</span><span class="st"> </span>person_id <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>, <span class="dv">1000</span>, 1030…</span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="op">$</span><span class="st"> </span>oac_grp   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>,…</span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="op">$</span><span class="st"> </span>age_sex   <span class="op">&lt;</span>fct<span class="op">&gt;</span><span class="st"> </span>m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65ov…</span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="op">$</span><span class="st"> </span>zone      <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E0…</span></span></code></pre></div>
-<h3 id="task-4.2-attach-individual-level-data-with-a-dplyr-join">Task 4.2: Attach individual-level data with a dplyr join</h3>
-<p>You will attach the individual-level data using a <code>dplyr join</code> function<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">Enter <code>?dplyr::join</code> into your R console for documentation on these functions<br />
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">glimpse</span>(individuals)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Observations<span class="sc">:</span> <span class="dv">15</span>,<span class="dv">189</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Variables<span class="sc">:</span> <span class="dv">10</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> person_id            <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, 17…</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> oac_grp              <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">6</span>, …</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> sex                  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> f, m, f, m, f, f, f, f, m, m, f, f, m, m, m, f, f, f, f, …</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> age_band             <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> a24under, a25to34, a50to64, a50to64, a24under, a35to49, a…</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> number_children      <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, …</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> household_income     <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;11-15K&quot;</span>, <span class="st">&quot;61-70K&quot;</span>, <span class="st">&quot;41-50K&quot;</span>, <span class="st">&quot;Not Answered&quot;</span>, <span class="st">&quot;Not Answer…</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">$ overseas_airport     &lt;chr&gt; &quot;</span>TFS<span class="st">&quot;, &quot;</span>EFL<span class="st">&quot;, &quot;</span>JTR<span class="st">&quot;, &quot;</span>ALC<span class="st">&quot;, &quot;</span>TFS<span class="st">&quot;, &quot;</span>NBE<span class="st">&quot;, &quot;</span>NBE<span class="st">&quot;, &quot;</span>MAH<span class="st">&quot;, &quot;</span>…</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> uk_airport           <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;DSA&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;LBA&quot;</span>, <span class="st">&quot;MAN&quot;</span>, <span class="st">&quot;LBA&quot;</span>, <span class="st">&quot;…</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="st">$ satisfaction_overall &lt;chr&gt; &quot;</span>good<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>excellent<span class="st">&quot;, &quot;</span>fair<span class="st">&quot;, &quot;</span>poor<span class="st">&quot;, &quot;</span>exc…</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> age_sex              <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> f24under, m25to34, f50to64, m50to64, f24under, f35to49, f…</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">glimpse</span>(simulated_oac_age_sex)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>Observations<span class="sc">:</span> <span class="dv">320</span>,<span class="dv">596</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>Variables<span class="sc">:</span> <span class="dv">4</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> person_id <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>, <span class="dv">1000</span>, 1030…</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> oac_grp   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>,…</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> age_sex   <span class="sc">&lt;</span>fct<span class="sc">&gt;</span> m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35to49, f65ov…</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> zone      <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E0…</span></span></code></pre></div>
+<h4 id="task-4.2-attach-individual-level-data-with-a-dplyr-join">Task 4.2: Attach individual-level data with a dplyr join</h4>
+<p>You will attach the individual-level data using a <code>dplyr join</code> function<span class="sidenote-wrapper"><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote">Enter <code>?dplyr::join</code> into your R console for documentation on these functions<br />
 <br />
 </span></span>. This can be achieved with the code snippet below, which also appears in your <code>.Rmd</code> file. We take the simulated dataset (<code>simulated_oac_age_sex</code>) and <code>inner_join()</code> on the <code>individuals</code> data. By default <code>dplyr join</code> functions perform the join based on variable names that are shared between both datasets, <code>person_id</code> in this case.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="op">&gt;</span><span class="st"> </span>simulated_oac_age_sex &lt;-<span class="st"> </span>simulated_oac_age_sex <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(person_id, zone) <span class="op">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="st">     </span><span class="kw">inner_join</span>(individuals)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>Joining, by =<span class="st"> &quot;person_id&quot;</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">glimpse</span>(simulated_oac_age_sex)</span>
-<span id="cb8-6"><a href="#cb8-6"></a>Observations<span class="op">:</span><span class="st"> </span><span class="dv">320</span>,<span class="dv">596</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a>Variables<span class="op">:</span><span class="st"> </span><span class="dv">11</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="op">$</span><span class="st"> </span>person_id            <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>,…</span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="op">$</span><span class="st"> </span>zone                 <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E000…</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="st">$ oac_grp              &lt;fct&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, …</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="st">$ sex                  &lt;fct&gt; m, f, m, m, m, m, m, f, m, m, m, m, m, f, f, f, f, f, m, …</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="st">$ age_band             &lt;fct&gt; a65over, a25to34, a25to34, a65over, a50to64, a25to34, a35…</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="st">$ number_children      &lt;int&gt; 0, 2, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, …</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="st">$ household_income     &lt;chr&gt; &quot;</span>Not Answered<span class="st">&quot;, &quot;</span><span class="dv">26</span><span class="op">-</span>30K<span class="st">&quot;, &quot;</span><span class="dv">26</span><span class="op">-</span>30K<span class="st">&quot;, &quot;</span>Not Answered<span class="st">&quot;, &quot;</span>Not …</span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="op">$</span><span class="st"> </span>overseas_airport     <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;PMI&quot;</span>, <span class="st">&quot;FAO&quot;</span>, <span class="st">&quot;CUN&quot;</span>, <span class="st">&quot;TFS&quot;</span>, <span class="st">&quot;PXO&quot;</span>, <span class="st">&quot;IBZ&quot;</span>, <span class="st">&quot;PMI&quot;</span>, <span class="st">&quot;DLM&quot;</span>, <span class="st">&quot;…</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="st">$ uk_airport           &lt;chr&gt; &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>…</span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="op">$</span><span class="st"> </span>satisfaction_overall <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> &quot;poor&quot;</span>, <span class="st">&quot;fair&quot;</span>, <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;excellent&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;poo…</span></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="st">$ age_sex              &lt;fct&gt; m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35…</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> simulated_oac_age_sex <span class="ot">&lt;-</span> simulated_oac_age_sex <span class="sc">%&gt;%</span> <span class="fu">select</span>(person_id, zone) <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">inner_join</span>(individuals)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Joining, by <span class="ot">=</span> <span class="st">&quot;person_id&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">glimpse</span>(simulated_oac_age_sex)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>Observations<span class="sc">:</span> <span class="dv">320</span>,<span class="dv">596</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>Variables<span class="sc">:</span> <span class="dv">11</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> person_id            <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">261</span>, <span class="dv">306</span>, <span class="dv">326</span>, <span class="dv">348</span>, <span class="dv">402</span>, <span class="dv">495</span>, <span class="dv">654</span>, <span class="dv">709</span>, <span class="dv">712</span>, <span class="dv">831</span>,…</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> zone                 <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E00056750&quot;</span>, <span class="st">&quot;E000…</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">$ oac_grp              &lt;fct&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, …</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="st">$ sex                  &lt;fct&gt; m, f, m, m, m, m, m, f, m, m, m, m, m, f, f, f, f, f, m, …</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">$ age_band             &lt;fct&gt; a65over, a25to34, a25to34, a65over, a50to64, a25to34, a35…</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="st">$ number_children      &lt;int&gt; 0, 2, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, …</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="st">$ household_income     &lt;chr&gt; &quot;</span>Not Answered<span class="st">&quot;, &quot;</span><span class="dv">26</span><span class="sc">-</span>30K<span class="st">&quot;, &quot;</span><span class="dv">26</span><span class="sc">-</span>30K<span class="st">&quot;, &quot;</span>Not Answered<span class="st">&quot;, &quot;</span>Not …</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> overseas_airport     <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;PMI&quot;</span>, <span class="st">&quot;FAO&quot;</span>, <span class="st">&quot;CUN&quot;</span>, <span class="st">&quot;TFS&quot;</span>, <span class="st">&quot;PXO&quot;</span>, <span class="st">&quot;IBZ&quot;</span>, <span class="st">&quot;PMI&quot;</span>, <span class="st">&quot;DLM&quot;</span>, <span class="st">&quot;…</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="st">$ uk_airport           &lt;chr&gt; &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>MAN<span class="st">&quot;, &quot;</span>LBA<span class="st">&quot;, &quot;</span>…</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> satisfaction_overall <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;fair&quot;</span>, <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;excellent&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;poor&quot;</span>, <span class="st">&quot;poo…</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="st">$ age_sex              &lt;fct&gt; m65over, f25to34, m25to34, m65over, m50to64, m25to34, m35…</span></span></code></pre></div>
 <p>Most <em>data wrangling</em> type operations such as these are supported by functions that form the <code>dplyr</code> package. <code>dplyr</code> is within the family of packages that comprise the <code>tidyverse</code>: it shares a common underlying philosophy and syntax. If you enter <code>?dplyr</code>, you will find that many of its functions have been named with verbs that neatly describe their purpose — <code>filter()</code>, <code>select()</code>, <code>arrange()</code>, <code>group_by()</code>, <code>summarise()</code> and more. The pipe (<code>%&gt;%</code>) is a particularly handy operator that allows calls to these functions to be chained together; you might have noticed this being used throughout the practical.</p>
-<h2 id="end-of-practical">End of practical</h2>
-<p>Well done for completing this week’s practical. You have successfully run a Spatial Microsimulation model and created a synthetic population of households in Leeds. You were exposed to a reasonable amount of code in the practical, and certainly a procedure that will be new to you (and takes a while to wrap your head around). If you could only simply reproduce the examples discussed in this document via the <code>.Rmd</code> file – and most of the code went over you head – don’t worry! During this practical and the next, you will be given all the code necessary to complete the module and <em>Assignment 1</em>.<span><label for="sn-10" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-10" class="margin-toggle"/><span class="marginnote"><img src="../../images/assignment/practical1_save.png" alt="Save window" /><br />
+<h3 id="end-of-practical">End of practical</h3>
+<p>Well done for completing this week’s practical. You have successfully run a Spatial Microsimulation model and created a synthetic population of households in Leeds. You were exposed to a reasonable amount of code in the practical, and certainly a procedure that will be new to you (and takes a while to wrap your head around). If you could only simply reproduce the examples discussed in this document via the <code>.Rmd</code> file – and most of the code went over you head – don’t worry! During this practical and the next, you will be given all the code necessary to complete the module and <em>Assignment 1</em>. <span class="sidenote-wrapper"><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">{-}<img src="../../images/assignment/practical1_save.png" alt="Save window" /><br />
 <br />
 </span></span></p>
 <p>Before you end the practical make make sure you save your work:</p>
@@ -445,7 +456,7 @@ code span.wa { color: #bf0303; } /* Warning */
 
         <div class="course-info">
         <span class="course-name">
-            GEOG5927M: Predictive Analytics (Summer 2021)
+            GEOG5927M: Predictive Analytics (Spring 2022)
         </span><br>
         <span>
             <a href="https://www.leeds.ac.uk">University of Leeds</a> |
@@ -467,11 +478,11 @@ code span.wa { color: #bf0303; } /* Warning */
             </li>
 
             <li>
-            <i class="far fa-clock"></i> 2:00pm-3:00pm (lec)
+            <i class="far fa-clock"></i> 3:00pm-4:00pm (lec)
             </li>
 
             <li>
-            <i class="fas fa-university"></i> Online
+            <i class="fas fa-university"></i> Online | Cohen labs
             </li>
 
             <li>

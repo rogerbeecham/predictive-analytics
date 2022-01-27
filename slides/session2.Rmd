@@ -1,7 +1,7 @@
 ---
-title: "GEOG5927 Predictive Analytics : Targeted Marketing and Response Modelling"
+title: "GEOG5927 Predictive Analytics : Targeted Marketing"
 author: "Roger Beecham"
-date: "28 Jun 2021"
+date: "28 Feb 2022"
 output:
   xaringan::moon_reader:
     css: [default, "slides-theme.css"]
@@ -29,16 +29,16 @@ library(kableExtra)
 ```{r outline, echo=FALSE, out.width="100%"}
 outline <- tibble::tibble(
   session = c("1", "2", "3", "4", "5"),
-  wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
-  academic=c("RB","RB", "JG/NM", "RO/RB", "RB/JG/NM/RO"),
-  lecture = c("Predictive analytics & microsimulation", "Response modelling and targeted marketing", "Behavioural and agent-based models",
-  "Coursework surgery", "Guest lecture and wrap-up"),
-  progress=c("#1 data","#1 analysis","#2 material","#1 surgery","#2 surgery")
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  academic=c("RB","RB", "RO", "JG/NM", "JG/NM"),
+  lecture = c("Simulating behaviour", "Targeted marketing", "Machine learning",
+  "Agent-based models", "Close"),
+  deadline=c("","","","Ass 1","Ass 2")
 )
 kbl(outline) %>%
-  row_spec(0, background = "#ffffff", font_size = 18 ) %>%
+  row_spec(0, background = "#ffffff", color="#616161", font_size = 18 ) %>%
   row_spec(1:5, background = "#ffffff", font_size=20) %>%
-  row_spec(c(1,3:5), color="#616161")
+  column_spec(1:4, color="#616161")
 ```
 
 ---

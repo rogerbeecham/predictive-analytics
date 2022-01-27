@@ -3,37 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/class/</loc>
-    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/class/05-class/</loc>
-    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-07-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/class/04-class/</loc>
-    <lastmod>2021-07-12T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/class/03-class/</loc>
-    <lastmod>2021-07-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/class/02-class/</loc>
-    <lastmod>2021-06-28T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/class/01-class/</loc>
-    <lastmod>2021-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/index.html</loc>
   </url><url>
-    <loc>/reading/03-reading/</loc>
+    <loc>/reading/04-reading/</loc>
   </url><url>
     <loc>/assignment/</loc>
+  </url><url>
+    <loc>/reading/03-reading/</loc>
   </url><url>
     <loc>/assignment/01-simulating-behaviour/</loc>
   </url><url>
     <loc>/assignment/02-targeted-marketing/</loc>
   </url><url>
-    <loc>/assignment/03-abms/</loc>
+    <loc>/assignment/03-machine-learning/</loc>
+  </url><url>
+    <loc>/assignment/04-abms/</loc>
   </url><url>
     <loc>/install/</loc>
   </url><url>

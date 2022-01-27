@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="/reading/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agent-based models</title>
-      <link>/reading/03-reading/</link>
+      <title>Agent-based modelling for predictive analytics</title>
+      <link>/reading/04-reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/reading/03-reading/</guid>
+      <guid>/reading/04-reading/</guid>
       <description>An additional, extended reading list from this link.
 ABM primers   Brunsdon, C. and Singleton, A. (2016)Chris Brunsdon and Alex Singleton, Geocomputation: A Practical Primer (Heidelberg, Germany: Springer-Verlag, 2015), https://uk.sagepub.com/en-gb/eur/geocomputation/book241023.
  Geocomputation: A practical primer.
@@ -20,7 +20,19 @@ ABM primers   Brunsdon, C. and Singleton, A. (2016)Chris Brunsdon and Alex Singl
     </item>
     
     <item>
-      <title>Simulating Behaviour</title>
+      <title>Machine learning for predictive analytics</title>
+      <link>/reading/03-reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reading/03-reading/</guid>
+      <description>ML primers   Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani’Gareth James et al., An Introduction to Statistical Learning: With Applications in r (Springer Publishing Company, Incorporated, 2014).
+s An introduction to statistical learning provides a conceptual and practical introduction in R to key ML techniques.
+  Max Kuhn and Julia SilgeMax Kuhn and Julia Silge, Tidy Modeling with r, 2022.
+ Tidy modeling with R demonstrates how to deploy tidyverse workflows when working over ML (resampled) model outputs.</description>
+    </item>
+    
+    <item>
+      <title>Simulating behaviours for predictive analytics</title>
       <link>/reading/01-reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -29,13 +41,13 @@ ABM primers   Brunsdon, C. and Singleton, A. (2016)Chris Brunsdon and Alex Singl
     </item>
     
     <item>
-      <title>Targeted Marketing</title>
+      <title>Targeted marketing for predictive analytics</title>
       <link>/reading/02-reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/reading/02-reading/</guid>
-      <description>Recommender systems   Linden, G. et al. Greg Linden, Brent Smith, and Jeremy York, “Amazon.com Recommendations: Item-to-Item Collaborative Filtering,” IEEE Internet Computing 7, no. 1 (January 2003): 76–80, doi:10.1109/MIC.2003.1167344.
- “Amazon.com Recommendations: Item-to-Item Collaborative Filtering”.  Microtargetting   Konsinski, M.Michal Kosinski, David Stillwell, and Thore Graepel, “Private Traits and Attributes Are Predictable from Digital Records of Human Behavior,” Proceedings of the National Academy of Sciences 110, no.</description>
+      <description>Recommender systems   Linden, G. et al.Greg Linden, Brent Smith, and Jeremy York, “Amazon.com Recommendations: Item-to-Item Collaborative Filtering,” IEEE Internet Computing 7, no. 1 (January 2003): 76–80, doi:10.1109/MIC.2003.1167344.
+ “Amazon.com Recommendations: Item-to-Item Collaborative Filtering”.  Microtargetting   Konsinski, M.Michal Kosinski, David Stillwell, and Thore Graepel, “Private Traits and Attributes Are Predictable from Digital Records of Human Behavior,” Proceedings of the National Academy of Sciences 110, no. 15 (2013): 5802–5, doi:10.</description>
     </item>
     
   </channel>

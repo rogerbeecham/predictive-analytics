@@ -1,0 +1,223 @@
+---
+title: "GEOG5927 Predictive Analytics: Closing"
+author: "Roger Beecham"
+date: "25 Apr 2022"
+output:
+  xaringan::moon_reader:
+    css: [default, "slides-theme.css"]
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      slideNumberFormat: ''
+      titleSlideClass: [center, middle]
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(comment = "")
+library(tidyverse)
+library(here)
+library(knitr)
+library(kableExtra)
+```
+
+
+## Module Schedule
+
+```{r outline, echo=FALSE, out.width="100%"}
+outline <- tibble::tibble(
+  session = c("1", "2", "3", "4", "5"),
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  academic=c("RB","RB", "RO", "JG/NM", "JG/NM"),
+  lecture = c("Simulating behaviour", "Targeted marketing", "Machine learning",
+  "Agent-based models", "Close"),
+  deadline=c("","","","Ass 1","Ass 2")
+)
+kbl(outline) %>%
+  row_spec(0, background = "#ffffff", color="#616161", font_size = 18 ) %>%
+  row_spec(1:5, background = "#ffffff", font_size=20) %>%
+  column_spec(1:4, color="#616161")
+```
+
+---
+
+
+## Assignment #2
+
+--
+### Guidelies for effective presentations (slides)
+
+---
+
+
+## Assignment #2
+
+### Guideline 1: Avoid noise
+
+--
+.small-font[
+* Background colours
+
+* Logos
+
+* Overly small font
+
+* Too much text
+
+* Unnecessary transitions
+]
+
+---
+
+
+## Assignment #2
+
+### Guideline 1: Avoid noise
+
+--
+
+<img src = "img/excel_default.jpeg", width = 22%, style = "position:absolute; top: 35%; left: 8%; "></img>
+
+--
+
+<img src = "img/remove_shadow.jpeg", width = 22%, style = "position:absolute; top: 35%; left: 33%; "></img>
+
+--
+
+<img src = "img/emphasise_data.jpeg", width = 22%, style = "position:absolute; top: 35%; left: 58%; "></img>
+
+--
+
+<img src = "img/design_purpose.jpeg", width = 22%, style = "position:absolute; top: 68%; left: 8%; "></img>
+
+--
+
+<img src = "img/emphasise_patterns.jpeg", width = 22%, style = "position:absolute; top: 68%; left: 33%; "></img>
+
+
+---
+
+## Assignment #2
+
+### Guideline 1: Avoid noise
+
+<img src = "img/excel_default.jpeg", width = 30%, style = "position:absolute; top: 40%; left: 15%; "></img>
+<img src = "img/emphasise_patterns.jpeg", width = 30%, style = "position:absolute; top: 40%; left: 48%; "></img>
+
+
+---
+
+## Assignment #2
+
+### Guideline 2: Refine
+<br>
+> .small-font[
+*With each slide,* <br>
+*convey one message (only)*]
+
+???
+
+Very easy to load slides with content.
+Try to be judicious with the message.
+
+---
+
+## Assignment #2
+
+### Guideline 3: Reduce
+<br>
+> .small-font[
+*Be concise,* <br>
+*both verbally and visually*]
+
+???
+
+Say what you want to say with the least number of words.
+
+---
+
+## Assignment #2
+
+### Guideline 4: Compliment
+<br>
+> .small-font[
+*Slides should display things that* <br>
+*can’t be easily spoken*]
+
+???
+
+Say what you want to say with the least number of words.
+
+---
+
+## Assignment #2
+
+### Guideline 5: Layout
+
+--
+<img src = "img/layout1.jpeg", width = 60%, style = "position:absolute; top: 35%; left: 8%; "></img>
+--
+<img src = "img/layout2.jpeg", width = 60%, style = "position:absolute; top: 85%; left: 8%; "></img>
+
+???
+
+Do think about ordering your slides meaningfully : layout is powerful.
+
+---
+
+## Assignment #2
+
+### Guideline 5: Layout
+
+--
+<img src = "img/layout3.jpeg", width = 65%, style = "position:absolute; top: 50%; left: 8%; "></img>
+
+
+---
+## Assignment #2
+
+### Guideline 5: Layout
+
+<img src = "img/layout4.jpeg", width = 65%, style = "position:absolute; top: 50%; left: 8%; "></img>
+
+---
+## Assignment #2
+
+### Guideline 5: Layout - order
+
+
+<br>
+.small-font[
+> *We expect things to be displayed
+    in sequence.*]
+--
+.small-font[
+> *If we wish to imply a sequence,
+     arrange things in that sequence.*]
+--
+.small-font[
+> *This  can be particularly useful when ‘telling a story’ in a presentation.*
+]
+
+???
+
+We expect a story, a sequence
+
+We can imply that sequence in our presentations by ordering slides and charts
+
+Doing so allows us to tell data stories.
+
+
+---
+
+## Assignment #2
+
+### Jean-Luc Doumont
+
+<div class="embed-responsive embed-responsive-16by9">
+<iframe width="500" height="350" class="embed-responsive-item" src="https://www.youtube.com/embed/meBXuTIPJQk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<!-- <img src = "img/jean_luc.jpg", width = 40%, style = "position:absolute; top: 33%; left: 8%; "></img> -->

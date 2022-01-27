@@ -1,7 +1,7 @@
 ---
 title: "GEOG5927 Predictive Analytics : Introduction"
 author: "Roger Beecham"
-date: "21 Jun 2021"
+date: "28 Feb 2022"
 output:
   xaringan::moon_reader:
     css: [default, "slides-theme.css"]
@@ -89,16 +89,16 @@ By the end of this module you should be able to:
 ```{r team, echo=FALSE, out.width="100%"}
 team <- tibble::tibble(
   img = "",
-  name = c("Roger Beecham", "Jiaqi Ge", "Nik Malleson", "Rachel Oldroyd"),
+  name = c("Roger Beecham", "Rachel Oldroyd", "Jiaqi Ge", "Nik Malleson"),
   role = c("Convenor", "Lecturer", "Lecturer", "Lecturer"),
-  sessions = c("1,2,4,5", "3,5", "3,5", "5"),
-  assignments = c("1", "2", "NA", "NA")
+  sessions = c("1,2", "3","4,5", "4,5"),
+  assignments = c("1", "NA", "1", "NA")
 )
 kbl(team) %>%
   row_spec(0, background = "#ffffff", font_size = 18) %>%
   row_spec(1:4, background = "#ffffff", font_size = 20) %>%
   column_spec(1, image = spec_image(
-    c("img/profile_roger.jpg", "img/profile_jg.jpg", "img/profile_nik.jpg", "img/profile_rachel.jpeg"), 250, 250))
+    c("img/profile_roger.jpg", "img/profile_rachel.jpeg", "img/profile_jg.jpg", "img/profile_nik.jpg"), 250, 250))
 ```
 
 ---
@@ -108,16 +108,19 @@ kbl(team) %>%
 ```{r schedule, echo=FALSE, out.width="100%"}
 schedule <- tibble::tibble(
   session = c("1", "2", "3", "4", "5"),
-  wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
-  lecture = c("mon 1400-1500", "mon 1400-1500", "mon 1400-1500", "mon 1400-1500", "mon 1400-1500"),
-  lab = c("wed 0900-1200", "wed 0900-1200", "wed 0900-1200", "wed 0900-1200", "NA - pres"),
-  recap = c("fri 0900-1000", "fri 0900-1000", "fri 0900-1000", "fri 0900-1000", "NA")
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  lecture = c("mon 1500-1600", "mon 1500-1600", "mon 1500-1600", "mon 1500-1600", "mon 1500-1600"),
+  lab = c("wed 1100-1800", "wed 1100-1800", "wed 1100-1800", "wed 1100-1800", "NA - pres"),
+  recap = c("fri 1700-1800", "fri 1700-1800", "fri 1700-1800", "fri 1700-1800", "NA")
 )
 kbl(schedule) %>%
   row_spec(0, background = "#ffffff", font_size = 18 ) %>%
   row_spec(1:5, background = "#ffffff", font_size = 20)
 ```
-
+.small-font[
+Additional drop-in sessions via Teams: <br>
+-- Tuesdays 1:00pm–2:00pm and led by [Will James](https://environment.leeds.ac.uk/geography/staff/1054/dr-will-james).
+]
 ???
 
 Breakdown of activity : short and fat
@@ -130,10 +133,10 @@ Breakdown of activity : short and fat
 ```{r outline-lectures, echo=FALSE, out.width="100%"}
 outline <- tibble::tibble(
   session = c("1", "2", "3", "4", "5"),
-  wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
-  academic=c("RB","RB", "JG/NM", "RO/RB", "RB/JG/NM/RO"),
-  lecture = c("Predictive analytics & microsimulation", "Response modelling and targeted marketing", "Behavioural and agent-based models",
-  "Coursework surgery", "Guest lecture and wrap-up")
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  academic=c("RB","RB", "RO", "JG/NM", "JG/NM"),
+  lecture = c("Simulating behaviour", "Targeted marketing", "Machine learning",
+  "Agent-based modelling", "Close")
 )
 kbl(outline) %>%
   row_spec(0, background = "#ffffff", font_size = 18 ) %>%
@@ -141,7 +144,13 @@ kbl(outline) %>%
 ```
 <br>
 .small-font[
-RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
+RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nik Malleson
+]
+
+
+.small-font[
+Additional drop-in sessions via Teams: <br>
+-- Tuesdays 1:00pm–2:00pm and led by [Will James](https://environment.leeds.ac.uk/geography/staff/1054/dr-will-james).
 ]
 ---
 
@@ -151,14 +160,14 @@ RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
 * Assignment 1: 75%
   + Individual data analysis based on labs 1 and 2
   + 2,000 words, 4 figures
-  + Thu 15th Jul 2021 by 2pm
+  + Thu 24th Mar 2022 by 2pm
 
 <br>
 
 
 * Assignment 2: 25%
   + Group presentations based on practical 3
-  + Presentations submitted Tue 20th Jul, timed Q&A session Wed 21st Jul 2021
+  + Presentations for times session Wed 27th Apr 2022
 
 ---
 
@@ -168,10 +177,10 @@ RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
 ```{r outline-lectures-ass, echo=FALSE, out.width="100%"}
 outline <- tibble::tibble(
   session = c("1", "2", "3", "4", "5"),
-  wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
-  academic=c("RB","RB", "JG/NM", "RO/RB", "RB/JG/NM/RO"),
-  lecture = c("Predictive analytics & microsimulation", "Response modelling and targeted marketing", "Behavioural and agent-based models",
-  "Coursework surgery", "Guest lecture and wrap-up"),
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  academic=c("RB","RB", "RO", "JG/NM", "JG/NM"),
+  lecture = c("Simulating behaviour", "Targeted marketing", "Machine learning",
+  "Agent-based models", "Close"),
   deadline=c("","","","Ass 1","Ass 2")
 )
 kbl(outline) %>%
@@ -181,7 +190,12 @@ kbl(outline) %>%
 ```
 <br>
 .small-font[
-RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
+RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nik Malleson
+]
+
+.small-font[
+Additional drop-in sessions via Teams: <br>
+-- Tuesdays 1:00pm–2:00pm and led by [Will James](https://environment.leeds.ac.uk/geography/staff/1054/dr-will-james).
 ]
 
 ---
@@ -192,12 +206,12 @@ RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
 ```{r outline-lectures-ass-prog, echo=FALSE, out.width="100%"}
 outline <- tibble::tibble(
   session = c("1", "2", "3", "4", "5"),
-  wc =c("21 Jun", "28 Jun", "5 Jul", "12 Jul", "19 Jul"),
-  academic=c("RB","RB", "JG/NM", "RO/RB", "RB/JG/NM/RO"),
-  lecture = c("Predictive analytics & microsimulation", "Response modelling and targeted marketing", "Behavioural and agent-based models",
-  "Coursework surgery", "Guest lecture and wrap-up"),
+  wc =c("28 Feb", "7 Mar", "14 Mar", "21 Mar", "25 Apr"),
+  academic=c("RB","RB", "RO", "JG/NM", "JG/NM"),
+  lecture = c("Simulating behaviour", "Targeted marketing", "Machine learning",
+  "Agent-based models", "Close"),
   deadline=c("","","","Ass #1","Ass #2"),
-  progress=c("#1 data","#1 analysis","#2 material","#1 surgery","#2 surgery")
+  progress=c("#1 data","#1 analysis","#1 analysis","#2 material","#2 surgery")
 
 )
 kbl(outline) %>%
@@ -207,8 +221,14 @@ kbl(outline) %>%
 ```
 <br>
 .small-font[
-RB: Roger Beecham, JG: Jiaqi Ge, NM: Nik Malleson, RO: Rachel Oldroyd
+RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nik Malleson
 ]
+
+.small-font[
+Additional drop-in sessions via Teams: <br>
+-- Tuesdays 1:00pm–2:00pm and led by [Will James](https://environment.leeds.ac.uk/geography/staff/1054/dr-will-james).
+]
+
 
 ---
 
@@ -256,18 +276,15 @@ If not already, spend time on Module Handbook.
 
 ## Module Website
 
---
+<!--
 
 <img src = "img/web1.png", width = 40%, style = "position:absolute; top: 20%; left: 8%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
 
---
 
 <img src = "img/web2.png",  width = 45%, style = "position:absolute; top: 30%; left: 18%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
 
 
---
-
-<img src = "img/web3.png",  width = 38%, style = "position:absolute; top: 40%; left: 28%; box-shadow: 3px 5px 3px 1px #00000080;"></img>
+<img src = "img/web3.png",  width = 38%, style = "position:absolute; top: 40%; left: 28%; box-shadow: 3px 5px 3px 1px #00000080;"></img> -->
 
 ---
 
@@ -828,3 +845,8 @@ kbl(schedule) %>%
   row_spec(1:5, background = "#ffffff", font_size = 20) %>%
   row_spec(2:5, color="#616161")
 ```
+
+.small-font[
+Additional drop-in sessions via Teams: <br>
+-- Tuesdays 1:00pm–2:00pm and led by [Will James](https://environment.leeds.ac.uk/geography/staff/1054/dr-will-james).
+]
