@@ -27,7 +27,7 @@ ABM primers   Brunsdon, C. and Singleton, A. (2016)Chris Brunsdon and Alex Singl
       <guid>/reading/03-reading/</guid>
       <description>ML primers   Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani’Gareth James et al., An Introduction to Statistical Learning: With Applications in r (Springer Publishing Company, Incorporated, 2014).
 s An introduction to statistical learning provides a conceptual and practical introduction in R to key ML techniques.
-  Max Kuhn and Julia SilgeMax Kuhn and Julia Silge, Tidy Modeling with r, 2022.
+  Max Kuhn and Julia SilgeMax Kuhn and Julia Silge, Tidy Modeling with R, 2022.
  Tidy modeling with R demonstrates how to deploy tidyverse workflows when working over ML (resampled) model outputs.</description>
     </item>
     

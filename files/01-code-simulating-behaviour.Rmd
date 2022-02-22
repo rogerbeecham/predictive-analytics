@@ -137,7 +137,7 @@ temp_weights_summary <- weights_oac_age_sex %>%
   # Create row_index variable.
   mutate(row_index=row_number()) %>%
   # Rather than a matrix, we want a row for each individual and OA.
-  gather(key=oa_code, value=weight, -row_index) %>%
+  pivot_longer(names_to="oa_code", values_to="weight", -row_index) %>%
   group_by(oa_code) %>%
   filter(weight>0) %>%
   summarise(weight_mean=mean(weight), weight_max=max(weight), weight_sd=sd(weight)) %>%
@@ -150,10 +150,10 @@ temp_simulated_summary <- simulated_oac_age_sex %>%
   sim_oversample=1-(distinct_persons/total_person)) %>%
   select(zone, sim_oversample)
 
-# Merge and gather for charting.
+# Merge and pivot_longer for charting.
 oa_level_summary <- temp_weights_summary %>%
   inner_join(temp_simulated_summary, by=c("oa_code"="zone")) %>%
-  gather(key="statistic_type", value="statistic_value",-oa_code)
+  pivot_longer(names_to="statistic_type", values_to="statistic_value",-oa_code)
 
 # Remove temp datasets.
 rm(temp_simulated_summary, temp_weights_summary)
@@ -193,7 +193,7 @@ plot <- oa_level_summary %>%
   ggplot(aes(x=statistic_value_rescale, fill=..x..))+
   geom_histogram(colour="#636363", size=0.1, bins=10) +
   facet_wrap(~statistic_type, nrow=1) +
-  scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)
+  scale_fill_distiller(palette="Blues", direction=1, guide="none")
 # Display in plots pane.
 plot
 # Save to project directory.
@@ -226,7 +226,7 @@ plot <- oa_boundaries %>%
     geom_sf(aes(fill=statistic_value_bin), colour=NA)+
     geom_sf(data=ward_boundaries, fill="transparent", colour="#636363", size=0.1)+
     coord_sf(crs=st_crs(oa_boundaries), datum=NA)+
-    scale_fill_distiller(palette="Blues", direction=1, guide=FALSE)+
+    scale_fill_distiller(palette="Blues", direction=1, guide="none")+
     theme(axis.title=element_blank())+
     facet_wrap(~statistic_type, nrow=1)
 rm(plot_data)

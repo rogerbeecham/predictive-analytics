@@ -4,7 +4,6 @@ author: "<your-name>"
 output: html_document
 ---
 
-
 ## Task 0: Configure your R session
 
 ```{r packages, eval=FALSE}
@@ -172,6 +171,7 @@ Then create a new dataset that will hold the summary statistics (control and foc
 2. Create a new dataset with the control and focus variables (used by `calculate_props()`) defined. Note that the control variable is de-facto set to entire population, but you could select a particular subset for comparison here in the same was as the focus variable is defined.
 3. Using a [`map`](https://r4ds.had.co.nz/iteration.html#the-map-functions) function, iterate over each grouping variable name and use this to parameterise `calculate_props()`.
 
+
 ```{r generate-plot-proportions, eval=FALSE}
 # Create a vector of the names of grouping variables that will be summarised over.
 groups <- names(simulated_oac_age_sex %>%
@@ -205,7 +205,7 @@ Finally plot these data to explore demographic and attitudinal characteristics t
 # Define two colours used to colour pos and neg bars differently
 fill_colours <- c("#ffffff", "#cccccc")
 plot <- temp_plot_data %>%
-  gather(key=stat_type, value=stat_value, -c(variable_type, variable_name)) %>%
+  pivot_longer(names_to="stat_type", values_to="stat_value", -c(variable_type, variable_name)) %>%
   mutate(
     stat_type=factor(stat_type, levels=c("focus_prop","control_prop","diff_prop")),
     stat_sign=stat_value>0
@@ -214,7 +214,7 @@ plot <- temp_plot_data %>%
   ggplot(aes(x=variable_name, y=stat_value))+
   # stat_sign is a boolean identifying whether stat_value is pos or neg.
   geom_col(aes(fill=stat_sign), colour="#636363", size=0.3)+
-  scale_fill_manual(values=fill_colours, guide=FALSE)+
+  scale_fill_manual(values=fill_colours, guide="none")+
   facet_grid(variable_type~stat_type, scales="free", space="free_y")+
   labs(caption=paste0("focus var : ",focus," | control var : ",control))+
   coord_flip()+

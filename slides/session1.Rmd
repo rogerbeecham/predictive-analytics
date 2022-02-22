@@ -89,10 +89,10 @@ By the end of this module you should be able to:
 ```{r team, echo=FALSE, out.width="100%"}
 team <- tibble::tibble(
   img = "",
-  name = c("Roger Beecham", "Rachel Oldroyd", "Jiaqi Ge", "Nik Malleson"),
+  name = c("Roger Beecham", "Rachel Oldroyd", "Jiaqi Ge", "Nick Malleson"),
   role = c("Convenor", "Lecturer", "Lecturer", "Lecturer"),
   sessions = c("1,2", "3","4,5", "4,5"),
-  assignments = c("1", "NA", "1", "NA")
+  assignments = c("1", "NA", "2", "NA")
 )
 kbl(team) %>%
   row_spec(0, background = "#ffffff", font_size = 18) %>%
@@ -144,7 +144,7 @@ kbl(outline) %>%
 ```
 <br>
 .small-font[
-RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nik Malleson
+RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nick Malleson
 ]
 
 
@@ -158,7 +158,7 @@ Additional drop-in sessions via Teams: <br>
 
 
 * Assignment 1: 75%
-  + Individual data analysis based on labs 1 and 2
+  + Individual data analysis based on labs 1, 2 (and 3)
   + 2,000 words, 4 figures
   + Thu 24th Mar 2022 by 2pm
 
@@ -166,7 +166,7 @@ Additional drop-in sessions via Teams: <br>
 
 
 * Assignment 2: 25%
-  + Group presentations based on practical 3
+  + Group presentations based on lab 4
   + Presentations for times session Wed 27th Apr 2022
 
 ---
@@ -190,7 +190,7 @@ kbl(outline) %>%
 ```
 <br>
 .small-font[
-RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nik Malleson
+RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nick Malleson
 ]
 
 .small-font[
@@ -221,7 +221,7 @@ kbl(outline) %>%
 ```
 <br>
 .small-font[
-RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nik Malleson
+RB: Roger Beecham, RO: Rachel Oldroyd, JG: Jiaqi Ge, NM: Nick Malleson
 ]
 
 .small-font[
@@ -261,11 +261,11 @@ Additional drop-in sessions via Teams: <br>
 
 * [Module website](https://www.roger-beecham.com/predictive-analytics/)
 <br><br>
-* [Module handbook](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983617_1&course_id=_521220_1&mode=reset)
+* [Module handbook](https://minerva.leeds.ac.uk/ultra/courses/_533807_1/cl/outline)
 <br><br>
-* [Assignment briefs](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983616_1&course_id=_521220_1&mode=reset)
+* [Assignment briefs](https://minerva.leeds.ac.uk/ultra/courses/_533807_1/cl/outline)
 <br><br>
-* [Assignment submission page](https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_7983621_1&course_id=_521220_1&mode=reset)
+* [Assignment submission page](https://minerva.leeds.ac.uk/ultra/courses/_533807_1/cl/outline)
 
 ???
 

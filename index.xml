@@ -35,7 +35,8 @@
       <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>/class/03-class/</guid>
-      <description>  Slides Download the slides from the session lecture.  First slide
+      <description>  Slides Download the slides from the session lecture.
+ First slide
   </description>
     </item>
     
@@ -82,7 +83,7 @@ ABM primers   Brunsdon, C. and Singleton, A. (2016)Chris Brunsdon and Alex Singl
       <guid>/reading/03-reading/</guid>
       <description>ML primers   Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani’Gareth James et al., An Introduction to Statistical Learning: With Applications in r (Springer Publishing Company, Incorporated, 2014).
 s An introduction to statistical learning provides a conceptual and practical introduction in R to key ML techniques.
-  Max Kuhn and Julia SilgeMax Kuhn and Julia Silge, Tidy Modeling with r, 2022.
+  Max Kuhn and Julia SilgeMax Kuhn and Julia Silge, Tidy Modeling with R, 2022.
  Tidy modeling with R demonstrates how to deploy tidyverse workflows when working over ML (resampled) model outputs.</description>
     </item>
     
@@ -165,7 +166,7 @@ Course
  Feb 28–Apr 27, 2022
  3:00pm-4:00pm (lec)
  Online | Cohen labs
- Combining theory and practical examples, this module introduces Predictive Analytics via two geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation, machine learning and agent-based modelling. You will apply these techniques through project work highly relevant to the consumer analytics domain and using modern data analysis environments.</description>
+ Combining theory and practical examples, this module introduces Predictive Analytics principally via tqo geocomputational techniques in which University of Leeds Geography specialises: spatial microsimulation and agent-based modelling. You will apply these techniques through project work highly relevant to the consumer analytics domain and using modern data analysis environments.</description>
     </item>
     
     <item>
