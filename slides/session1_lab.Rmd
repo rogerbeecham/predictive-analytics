@@ -4,6 +4,8 @@ author: "Roger Beecham"
 date: "2 Mar 2022"
 output:
   xaringan::moon_reader:
+    nature:
+      beforeInit: "live.js"
     css: [default, "slides-theme.css"]
     lib_dir: libs
     nature:
@@ -64,6 +66,7 @@ Assumes an understanding of:
 
 ---
 
+exclude: ![:notLive]
 
 ## Simulating behaviour practical : use case
 
@@ -76,6 +79,7 @@ Assumes an understanding of:
 
 ---
 
+exclude: ![:notLive]
 
 ## Simulating behaviour practical : use case
 
