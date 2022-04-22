@@ -37,17 +37,213 @@ outline <- tibble::tibble(
 )
 kbl(outline) %>%
   row_spec(0, background = "#ffffff", color="#616161", font_size = 18 ) %>%
-  row_spec(1:5, background = "#ffffff", font_size=20) %>%
-  column_spec(1:4, color="#616161")
+  row_spec(1:4, background = "#ffffff", font_size=20, color="#616161") %>%
+  row_spec(5, background = "#ffffff", font_size=20)
 ```
+
+???
+
+* Give a quick recap/reflection over the module
+* Assignment 2 and presentations more generally
+* Module survey/evaluation
+
 
 ---
 
 
+## Module content and philosophy
+
+
+* Spatial modelling to simulate and predict consumer behaviour
+  + Exploratory analysis
+  + Microsimulation
+  + Agent-based modelling
+
+<br>
+
+* Research case studies to evaluate modelling techniques in practice
+  + Practical sessions
+  + Individual data science report
+  + Group data science presentation
+
+???
+* Introduced some key theory and techniques in modern data analysis.
+* Both technical and applied aspects.
+* Techniques in which Geog dept specialises
+* Doing so with datasets and domains relevant to marketing science
+
+---
+
+
+## Outcomes
+
+By the end of this module you should be able to:
+
+1. **Explain** and **critically evaluate** the role of spatial analytics in simulating and predicting consumer behaviours
+
+2. **Apply** geocomputational modelling and simulation techniques on real data sets
+
+3. **Devise** and **employ** spatial modelling tools to address business problems, presenting and justifying recommendations in an appropriate context
+
+--
+
+`-----------`
+
+microsimulation | random forests | abms
+
+???
+
+1 : theory
+2 : application
+3 : both
+
+---
+
+## Spatial microsimulation
+
+
+.pull-left[.right[
+`Survey data`
+.small-font[
+individual-level and rich in detail <br>
+small sample and may be biased
+]]
+]
+
+<img src = "img/icon_survey.jpg", width = 20%, style = "position:absolute; top: 28%; left: 52%;"></img>
+
+
+<br><br><br><br><br><br><br>
+
+.pull-right[.left[
+`Census data`
+.small-font[
+high-level and low in detail <br>
+population-level and complete
+]]
+]
+
+<img src = "img/icon_census.jpeg", width = 20%, style = "position:absolute; top: 65%; left: 28%;"></img>
+
+
+???
+
+Many situations where interested in knowing population that lives in an area: interests, preferences, spending patterns
+
+Are population-level datasets that exist.:
+
+Census is amazing for counting people according to high-level characteristics...
+
+But we only have a limited set of attribute information.
+
+Lots missed off from it – commercial setting – interests and preferences.
+
+Instead -- rely on comparatively small sample survey data for studying interests and preferences.
+
+Spatial microsimulation allows us to match rich individual-level data to a population we know less about.
+
+
+
+---
+
+## Random forests 
+
+<img src = "img/ml_supervised.png", width = 40%, style = "position:absolute; top: 28%; left: 8%;"></img>
+<img src = "img/ml_rf.png", width = 40%, style = "position:absolute; top: 28%; left: 45%;"></img>
+
+---
+
+## Agent-based models
+
+<img src = "img/abm.png", width = 65%, style = "position:absolute; top: 25%; left: 8%;"></img>
+
+
+---
+
+## Fundamentals of (modern) data analysis
+
+--
+* Data analysis is
+  +  A careful thinking about evidence (data) in the context of a research problem
+
+--
+
+
+* Data analysis involves
+ + **Defining** your problem
+ + **Identifying** relevant data
+ + **Winnowing** on data | techniques | problem-space
+ + **Evaluating** implied patterns under uncertainty
+
+
+???
+
+these are the sorts of things that you will be doing in dissertations
+
+---
+
+## Fundamentals of (modern) data analysis
+
+<br>
+.small-font[**Deviation** from **Expectation**]
+
+<img src = "img/correl_heer.jpeg", width = 60%, style = "position:absolute; top: 35%; left: 5%;"></img>
+
+<br><br><br><br><br><br><br><br>
+.xtiny-font[Correll & Heer (2017) Surprise! Bayesian Weighting for De-Biasing Thematic Maps, IEEE TVCG]
+
+
+---
+## Fundamentals of (modern) data analysis
+
+<img src = "img/props.png", width = 20%, style = "position:absolute; top: 22%; left: 5%;"></img>
+--
+<img src = "img/props_control.png", width = 10.75%, style = "position:absolute; top: 22%; left: 27%;"></img>
+--
+<img src = "img/props_net.png", width = 10.75%, style = "position:absolute; top: 22%; left: 40%;"></img>
+<img src = "img/props_label.png", width = 7.5%, style = "position:absolute; top: 22%; left: 55%;"></img>
+
+---
+## Fundamentals of (modern) data analysis
+
+<img src="img/bikeshare.png", width = 60%, style = "position:absolute; top: 35%; left: 8%;"> </img>
+
+---
+
+## Fundamentals of (modern) data analysis
+
+<img src="img/bike_all.png", width = 60%, style = "position:absolute; top: 18%; left: 8%;"> </img>
+
+
+---
+
+## Fundamentals of (modern) data analysis
+
+<img src="img/bike_mf.png", width = 60%, style = "position:absolute; top: 18%; left: 8%;"> </img>
+
+
+---
+
+## Fundamentals of (modern) data analysis
+
+<img src="img/bike_legend.png", width = 60%, style = "position:absolute; top: 18%; left: 8%;"> </img>
+
+
+---
+
+## Fundamentals of (modern) data analysis
+
+<img src="img/bike6.jpeg", width = 60%, style = "position:absolute; top: 18%; left: 8%;"> </img>
+
+
+
+
+---
+
 ## Assignment #2
 
 --
-### Guidelies for effective presentations (slides)
+### Guidelines for effective presentations (slides)
 
 ---
 
@@ -221,3 +417,16 @@ Doing so allows us to tell data stories.
 </div>
 
 <!-- <img src = "img/jean_luc.jpg", width = 40%, style = "position:absolute; top: 33%; left: 8%; "></img> -->
+---
+
+
+<img src="img/eval.png", width = 75%, style = "position:absolute; top: 5%; left: 6%;"> </img>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+`https://leeds.bluera.com/leeds/`
+
+???
+
+* opened today
+* automatic e-mail reminders
+* useful for updating content : initially this module used peculiar software drag and drop (no code), moved to R in response to feedback
+* do try to be specific / direct /  focussed with comments --- and think carefully about expectations of you as MSc students
